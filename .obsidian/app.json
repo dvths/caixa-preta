@@ -1,0 +1,12 @@
+{
+  "vimMode": true,
+  "spellcheck": true,
+  "newFileLocation": "folder",
+  "newFileFolderPath": "A-origem",
+  "alwaysUpdateLinks": true,
+  "attachmentFolderPath": "./F-anexos/documentos",
+  "readableLineLength": false,
+  "showIndentGuide": false,
+  "useMarkdownLinks": false,
+  "showUnsupportedFiles": true
+}

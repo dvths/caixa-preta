@@ -1,0 +1,29 @@
+{
+  "database": "Zotero",
+  "noteImportFolder": "05-notas-de-literatura/05.1-zotero",
+  "pdfExportImageDPI": 120,
+  "pdfExportImageFormat": "jpg",
+  "pdfExportImageQuality": 90,
+  "citeFormats": [
+    {
+      "name": "Citação",
+      "format": "formatted-citation",
+      "cslStyle": "instituto-brasileiro-de-informacao-em-ciencia-e-tecnologia-abnt"
+    }
+  ],
+  "exportFormats": [
+    {
+      "name": "Importação",
+      "outputPathTemplate": "05-notas-de-literatura/05.1-zotero/@{{citekey}}.md",
+      "imageOutputPathTemplate": "05-notas-de-literatura/05.1-zotero/{{citekey}}/",
+      "imageBaseNameTemplate": "image",
+      "templatePath": "01-templates/5-nota-zotero.md",
+      "cslStyle": "instituto-brasileiro-de-informacao-em-ciencia-e-tecnologia-abnt"
+    }
+  ],
+  "citeSuggestTemplate": "[[{{citekey}}]]",
+  "openNoteAfterImport": true,
+  "whichNotesToOpenAfterImport": "first-imported-note",
+  "shouldShowCiteSuggest": true,
+  "shouldConcat": true
+}

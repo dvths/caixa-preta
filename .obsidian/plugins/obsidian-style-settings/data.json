@@ -1,0 +1,12 @@
+{
+  "minimal-style@@base@@dark": "#151515",
+  "sanctum@@dark-mode-contrast-mode": "sanctum-black",
+  "sanctum@@color-accent-rgb-d": "99, 149, 156",
+  "sanctum@@code-lines": true,
+  "sanctum@@code-label": true,
+  "sanctum@@syntax-highlighting": "#",
+  "sanctum@@color-accent-rgb-l": "99, 149, 156",
+  "com-github-birneee-obsidian-adwaita@@adwaita-window-button-minimize-hide": true,
+  "com-github-birneee-obsidian-adwaita@@adwaita-window-button-maximize-hide": true,
+  "sanctum@@file-line-width": 40
+}

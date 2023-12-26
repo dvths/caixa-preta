@@ -1,0 +1,59 @@
+{
+  "version": "0.0.17",
+  "username": "Tiago Henrique",
+  "isConnected": true,
+  "ribbonIcon": true,
+  "appendMode": true,
+  "collectionsFolders": true,
+  "onlyBookmarksWithHl": true,
+  "highlightsFolder": "04-notas-de-literatura/04.2-raindrop",
+  "syncCollections": {
+    "32440308": {
+      "id": 32440308,
+      "title": "ARTIGOS DIVERSOS",
+      "sync": false
+    },
+    "33349848": {
+      "id": 33349848,
+      "title": "PYTHON DICAS E TRUQUES",
+      "sync": false
+    },
+    "33710407": {
+      "id": 33710407,
+      "title": "PYTHON FLUENTE",
+      "sync": true,
+      "lastSyncDate": "2023-12-26T01:35:26.017Z"
+    },
+    "33711554": {
+      "id": 33711554,
+      "title": "DATA SCIENCE",
+      "sync": false
+    },
+    "35512185": {
+      "id": 35512185,
+      "title": "OSINT",
+      "sync": false
+    },
+    "39360800": {
+      "id": 39360800,
+      "title": "PYTHON FOR DATA ANALYSIS 3E",
+      "sync": true,
+      "lastSyncDate": "2023-12-26T01:35:26.336Z"
+    },
+    "-1": {
+      "id": -1,
+      "title": "Unsorted",
+      "sync": false
+    },
+    "-99": {
+      "id": -99,
+      "title": "Trash",
+      "sync": false
+    }
+  },
+  "template": "%%\ntype:: {{type}}\ncollection:: {{collection.title}}{% if tags|length %}tags:: {{ tags | join(\", \") }}{% endif %}\ndone:: no {% if is_new_article %}\n{% if link %}sourceURL:: {{link}}{% endif %}\n%%\n\n## Highlights\n\n{% endif -%}\n{% for highlight in highlights %}\n{% if highlight.color == \"red\" -%}\n    {%- set callout = \"bug\" -%}\n{%- elif highlight.color == \"yellow\" -%}\n    {%- set callout = \"info\" -%}\n{%- elif highlight.color == \"green\" -%}\n    {%- set callout = \"success\" -%}\n{%- else -%}\n    {%- set callout = \"question\" -%}\n{%- endif -%}\n> [!{{callout}}] Updated on {{highlight.lastUpdate}}\n>\n> {{highlight.text.split(\"\\n\") | join(\"\\n>\")}}\n{% if highlight.note -%}> > {{highlight.note}}{%- endif %}\n\n{%- endfor -%}",
+  "metadataTemplate": "",
+  "filenameTemplate": "{{title}}",
+  "dateTimeFormat": "DD/MM/YYYY HH:mm:ss",
+  "autoSyncInterval": 60
+}

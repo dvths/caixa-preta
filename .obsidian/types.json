@@ -1,0 +1,15 @@
+{
+  "types": {
+    "aliases": "aliases",
+    "cssclasses": "multitext",
+    "tags": "tags",
+    "topico": "multitext",
+    "ano": "number",
+    "autor": "multitext",
+    "titulo_livro": "text",
+    "relacionado": "multitext",
+    "tipo-curso": "multitext",
+    "local": "multitext",
+    "capitulo": "text"
+  }
+}

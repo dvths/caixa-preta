@@ -1,0 +1,35 @@
+{
+  "command_timeout": 5,
+  "templates_folder": "01-templates",
+  "templates_pairs": [],
+  "trigger_on_file_creation": true,
+  "auto_jump_to_cursor": true,
+  "enable_system_commands": true,
+  "shell_path": "",
+  "user_scripts_folder": "02-scripts",
+  "enable_folder_templates": true,
+  "folder_templates": [
+    {
+      "folder": "00-caixa-de-entrada",
+      "template": "01-templates/2-nota.md"
+    },
+    {
+      "folder": "04-notas-de-literatura",
+      "template": "01-templates/3-nota-de-literatura.md"
+    },
+    {
+      "folder": "03-notas-de-curso",
+      "template": "01-templates/6-nota-de-curso.md"
+    },
+    {
+      "folder": "A-origem",
+      "template": "01-templates/test_move.md"
+    }
+  ],
+  "syntax_highlighting": true,
+  "enabled_templates_hotkeys": [],
+  "startup_templates": [
+    ""
+  ],
+  "enable_ribbon_icon": true
+}
