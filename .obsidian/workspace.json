@@ -4,37 +4,20 @@
     "type": "split",
     "children": [
       {
-        "id": "bd1471a9c106ef3a",
+        "id": "84d79d8ab6ceb37a",
         "type": "tabs",
         "children": [
           {
-            "id": "d452b626b36a225f",
+            "id": "006c7088efc8210d",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "kanban",
               "state": {
-                "file": "07-hub/sql-para-analise-de-dados/sql.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "002f9f1a3c22743a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "00-caixa-de-entrada/01092023003336-conceito-de-axis-no-pandas.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
+                "file": "BOARD.md"
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -46,7 +29,7 @@
       {
         "id": "4b8798b295d8a180",
         "type": "tabs",
-        "dimension": 72.6775956284153,
+        "dimension": 65.27777777777779,
         "children": [
           {
             "id": "e791b451c90d758e",
@@ -64,10 +47,10 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#python",
                 "matchingCase": false,
                 "explainSearch": true,
-                "collapseAll": false,
+                "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
               }
@@ -82,33 +65,35 @@
             }
           },
           {
-            "id": "77888735bfbd56a4",
+            "id": "6d6dfa3b5ba030c4",
             "type": "leaf",
             "state": {
-              "type": "file-tree-view",
+              "type": "recent-files",
               "state": {}
             }
           }
         ]
       },
       {
-        "id": "f607fe3d6415ff65",
+        "id": "ce58c5a5204af187",
         "type": "tabs",
-        "dimension": 27.322404371584703,
+        "dimension": 34.72222222222222,
         "children": [
           {
-            "id": "7eae986dd9b853dc",
+            "id": "8e569c0a5c45faad",
             "type": "leaf",
             "state": {
-              "type": "review-queue-list-view",
-              "state": {}
+              "type": "outline",
+              "state": {
+                "file": "BOARD.md"
+              }
             }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 244.5
+    "width": 200
   },
   "right": {
     "id": "cf1f0d12ed0cb991",
@@ -117,7 +102,7 @@
       {
         "id": "edf54b701a268777",
         "type": "tabs",
-        "dimension": 45.3551912568306,
+        "dimension": 54.93741307371349,
         "children": [
           {
             "id": "23ceb6c42080aee4",
@@ -125,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "00-caixa-de-entrada/01092023003336-conceito-de-axis-no-pandas.md",
+                "file": "BOARD.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -142,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "00-caixa-de-entrada/01092023003336-conceito-de-axis-no-pandas.md",
+                "file": "BOARD.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -155,7 +140,7 @@
               "type": "tag",
               "state": {
                 "sortOrder": "frequency",
-                "useHierarchy": false
+                "useHierarchy": true
               }
             }
           },
@@ -164,14 +149,6 @@
             "type": "leaf",
             "state": {
               "type": "git-view",
-              "state": {}
-            }
-          },
-          {
-            "id": "4398dc50fb078dde",
-            "type": "leaf",
-            "state": {
-              "type": "SC-custom-variables-view",
               "state": {}
             }
           },
@@ -189,34 +166,27 @@
             "state": {
               "type": "all-properties",
               "state": {
-                "sortOrder": "frequency"
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
               }
+            }
+          },
+          {
+            "id": "d6b6e4b9e7dd35de",
+            "type": "leaf",
+            "state": {
+              "type": "review-queue-list-view",
+              "state": {}
             }
           }
         ],
-        "currentTab": 6
-      },
-      {
-        "id": "dd44bacc9626dfcb",
-        "type": "tabs",
-        "dimension": 27.322404371584703,
-        "children": [
-          {
-            "id": "8e569c0a5c45faad",
-            "type": "leaf",
-            "state": {
-              "type": "outline",
-              "state": {
-                "file": "00-caixa-de-entrada/01092023003336-conceito-de-axis-no-pandas.md"
-              }
-            }
-          }
-        ]
+        "currentTab": 3
       },
       {
         "id": "aba326c119966eb2",
         "type": "tabs",
-        "dimension": 27.322404371584703,
+        "dimension": 45.06258692628651,
         "children": [
           {
             "id": "d296f667eebb77f5",
@@ -224,7 +194,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "00-caixa-de-entrada/01092023003336-conceito-de-axis-no-pandas.md",
+                "file": "BOARD.md",
                 "options": {
                   "collapse-filter": true,
                   "search": "",
@@ -247,7 +217,7 @@
                   "repelStrength": 10,
                   "linkStrength": 1,
                   "linkDistance": 250,
-                  "scale": 0.13873223932666082,
+                  "scale": 0.70233196159122,
                   "close": true
                 }
               }
@@ -257,7 +227,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 282.5,
+    "width": 430.5,
     "collapsed": true
   },
   "left-ribbon": {
@@ -267,62 +237,65 @@
       "canvas:Create new canvas": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "obsidian-excalidraw-plugin:Create new drawing": false,
       "table-editor-obsidian:Advanced Tables Toolbar": false,
       "templater-obsidian:Templater": false,
-      "obsidian-raindrop-highlights:Sync your Raindrop highlights": false,
       "obsidian-spaced-repetition:Review flashcards": false,
-      "file-tree-alternative:File Tree Alternative Plugin": false
+      "obsidian-excalidraw-plugin:Create new drawing": false,
+      "obsidian-shellcommands:Shell commands: Custom variables": false,
+      "obsidian-raindrop-highlights:Sync your Raindrop bookmarks": false,
+      "homepage:Open homepage": false
     }
   },
-  "active": "e791b451c90d758e",
+  "active": "006c7088efc8210d",
   "lastOpenFiles": [
-    "03-notas-de-curso/27102023204018-pilha-de-execução-e-frames.md",
-    "03-notas-de-curso/27102023203656-pdb.md",
-    "03-notas-de-curso/27102023203007-ferramentas-de-depuração.md",
-    "03-notas-de-curso/27102023202502-traceback.md",
-    "03-notas-de-curso/27102023202224-exceções.md",
-    "03-notas-de-curso/26072023233253-instalação-de-requerimentos-do-projeto-com-conda.md",
-    "03-notas-de-curso/24072023172922-estrutura-básica-para-uma-projeto-de-ciência-de-dados.md",
-    "03-notas-de-curso/23112023203738-chave-fraca.md",
-    "03-notas-de-curso/23112023202014-entidade-fraca.md",
-    "03-notas-de-curso/23112023201212-participação-total.md",
-    "03-notas-de-curso/23112023195552-diagramas-de-entidade-relacionamento-der.md",
-    "03-notas-de-curso/23112023195019-simbologia-para-modelagem-conceitual-de-bancos-de-dados.md",
-    "03-notas-de-curso/23112023194614-atributos-de-relacionamento.md",
-    "03-notas-de-curso/23112023194319-atributos-multivalorados.md",
-    "03-notas-de-curso/23112023184014-atributos-calculados.md",
-    "03-notas-de-curso/23112023183654-atributos-compostos.md",
-    "03-notas-de-curso/23112023183417-atributos-simples.md",
-    "03-notas-de-curso/23112023182611-relacionamentos.md",
-    "03-notas-de-curso/23112023181702-atributos.md",
-    "03-notas-de-curso/23112023181230-entidades.md",
-    "03-notas-de-curso/23112023175625-definição-de-modelagem-conceitual.md",
-    "03-notas-de-curso/23112023173616-regras-da-terceira-forma-normal.md",
-    "03-notas-de-curso/23112023173238-regras-da-segunda-forma-normal.md",
-    "03-notas-de-curso/23112023172911-conceito-de-normalização-de-bancos-de-dados.md",
-    "03-notas-de-curso/23112023172230-primeira-forma-normal.md",
-    "03-notas-de-curso/23112023171814-chave-candidata.md",
+    "02-inbox/03052024235400-criando-um-modern-data-stack-com-kubernetes-na-prática.md",
+    "BOARD.md",
+    "02-inbox/01092023003336-conceito-de-axis-no-pandas.md",
+    "02-inbox/# Um teste para uma nova nota @{2024-08-02}.md",
+    "00-templates/2-nota.md",
+    "00-templates/3-nota-para-referencias.md",
+    "00-templates/4-nota-zotero.md",
+    "00-templates/5-nota-de-curso.md",
+    "00-templates/7-kanban-template.md",
+    "Untitled Kanban.md",
+    "02-inbox/O que é Engenharia de Dados e qual o papel do engenheiro de dados.md",
+    "02-inbox/Definição de engenharia de dados e o papel do engenheiro de dados.md",
+    "README.md",
+    "02-inbox/Referência para criação de conteúdo de estudos técnicos sobre engenharia de dados.md",
+    "02-inbox/Nota teste.md",
+    "07-índices/fundamentos-da-engenharia-de-dados/REIS, HOUSLEY - FUNDAMENTOS DA ENGENHARIA DE DADOS, 2023.md",
+    "03-referencias/02112023190043-conectando-jupyter-notebook-ao-postgres.md",
+    "HOME.canvas",
+    "09-projetos-de-estudo/Teste Query.md",
+    "09-projetos-de-estudo/Como usar o board.md",
+    "09-projetos-de-estudo/[ENGENHARIA DE DADOS] Fundamentos essenciais da engenharia de dados.md",
+    "02-inbox/Nota inbox.md",
+    "00-caixa-de-entrada/Teste_1.md",
+    "02-inbox/20230523222808.md",
+    "02-inbox/20230520224938.md",
+    "02-inbox/08072023234906-média-aparada.md",
+    "02-inbox/07072023205921-debugando-código-python.md",
+    "09-projetos-de-estudo",
+    "Engenharia de dados.canvas",
+    "F-anexos/imagens/excalidraw/Drawing 2024-03-21 22.38.44.excalidraw.png",
+    "05-imagens/Dados Amplos.png",
+    "05-imagens/Pasted Image 20230518201538_889.png",
+    "05-imagens/Pasted Image 20230518200420_830.png",
+    "F-anexos/imagens/excalidraw",
+    "F-anexos/imagens",
+    "F-anexos",
+    "07-índices/manual-de-analise-de-dados",
     "C-armazenamento",
     "F-anexos/images/excalidraw",
     "F-anexos/images",
-    "F-anexos/imagens/excalidraw",
     "F-anexos/documentos",
-    "F-anexos/imagens",
-    "F-anexos",
     "G-config",
-    "E-saida",
-    "D-analise",
     "06-anexos/Figura1-2-esquema-detalhado.jpg",
     "05-imagens/bancos_de_dados/simbologia_DER.jpg",
     "05-imagens/Google_Data_Analytics/modelagem_dados.png",
     "05-imagens/bancos_de_dados/exemplo_diagrama_DER.png",
     "Python Fluente - Python Objects Roadmap.canvas",
     "05-imagens/scrapy/curl_converter_2.png",
-    "05-imagens/scrapy/curl_converter_1.png",
-    "05-imagens/scrapy/cabecalhos-devtools.png",
-    "05-imagens/scrapy/user-agent_string.png",
-    "05-imagens/scrapy/hierarquia_xpath.jpg",
-    "05-imagens/scrapy/middleware_de_spider.jpg"
+    "05-imagens/scrapy/curl_converter_1.png"
   ]
 }

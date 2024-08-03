@@ -9,7 +9,6 @@ var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __reflectGet = Reflect.get;
 var __commonJS = (cb, mod) => function __require() {
   return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
 };
@@ -27,27 +26,6 @@ var __copyProps = (to, from, except, desc) => {
 };
 var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target, mod));
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
-var __superGet = (cls, obj, key) => __reflectGet(__getProtoOf(cls), key, obj);
-var __async = (__this, __arguments, generator) => {
-  return new Promise((resolve, reject) => {
-    var fulfilled = (value) => {
-      try {
-        step(generator.next(value));
-      } catch (e) {
-        reject(e);
-      }
-    };
-    var rejected = (value) => {
-      try {
-        step(generator.throw(value));
-      } catch (e) {
-        reject(e);
-      }
-    };
-    var step = (x) => x.done ? resolve(x.value) : Promise.resolve(x.value).then(fulfilled, rejected);
-    step((generator = generator.apply(__this, __arguments)).next());
-  });
-};
 
 // node_modules/nunjucks/browser/nunjucks.js
 var require_nunjucks = __commonJS({
@@ -112,9 +90,10 @@ var require_nunjucks = __commonJS({
             '"': "&quot;",
             "'": "&#39;",
             "<": "&lt;",
-            ">": "&gt;"
+            ">": "&gt;",
+            "\\": "&#92;"
           };
-          var escapeRegex = /[&"'<>]/g;
+          var escapeRegex = /[&"'<>\\]/g;
           var exports2 = module3.exports = {};
           function hasOwnProp(obj, k) {
             return ObjProto.hasOwnProperty.call(obj, k);
@@ -416,7 +395,7 @@ var require_nunjucks = __commonJS({
               descriptor.configurable = true;
               if ("value" in descriptor)
                 descriptor.writable = true;
-              Object.defineProperty(target, descriptor.key, descriptor);
+              Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor);
             }
           }
           function _createClass(Constructor, protoProps, staticProps) {
@@ -424,7 +403,24 @@ var require_nunjucks = __commonJS({
               _defineProperties(Constructor.prototype, protoProps);
             if (staticProps)
               _defineProperties(Constructor, staticProps);
+            Object.defineProperty(Constructor, "prototype", { writable: false });
             return Constructor;
+          }
+          function _toPropertyKey(arg) {
+            var key = _toPrimitive(arg, "string");
+            return typeof key === "symbol" ? key : String(key);
+          }
+          function _toPrimitive(input, hint) {
+            if (typeof input !== "object" || input === null)
+              return input;
+            var prim = input[Symbol.toPrimitive];
+            if (prim !== void 0) {
+              var res = prim.call(input, hint || "default");
+              if (typeof res !== "object")
+                return res;
+              throw new TypeError("@@toPrimitive must return a primitive value.");
+            }
+            return (hint === "string" ? String : Number)(input);
           }
           function _inheritsLoose(subClass, superClass) {
             subClass.prototype = Object.create(superClass.prototype);
@@ -432,7 +428,7 @@ var require_nunjucks = __commonJS({
             _setPrototypeOf(subClass, superClass);
           }
           function _setPrototypeOf(o, p) {
-            _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf2(o2, p2) {
+            _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf2(o2, p2) {
               o2.__proto__ = p2;
               return o2;
             };
@@ -851,7 +847,7 @@ var require_nunjucks = __commonJS({
               descriptor.configurable = true;
               if ("value" in descriptor)
                 descriptor.writable = true;
-              Object.defineProperty(target, descriptor.key, descriptor);
+              Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor);
             }
           }
           function _createClass(Constructor, protoProps, staticProps) {
@@ -859,7 +855,24 @@ var require_nunjucks = __commonJS({
               _defineProperties(Constructor.prototype, protoProps);
             if (staticProps)
               _defineProperties(Constructor, staticProps);
+            Object.defineProperty(Constructor, "prototype", { writable: false });
             return Constructor;
+          }
+          function _toPropertyKey(arg) {
+            var key = _toPrimitive(arg, "string");
+            return typeof key === "symbol" ? key : String(key);
+          }
+          function _toPrimitive(input, hint) {
+            if (typeof input !== "object" || input === null)
+              return input;
+            var prim = input[Symbol.toPrimitive];
+            if (prim !== void 0) {
+              var res = prim.call(input, hint || "default");
+              if (typeof res !== "object")
+                return res;
+              throw new TypeError("@@toPrimitive must return a primitive value.");
+            }
+            return (hint === "string" ? String : Number)(input);
           }
           function _inheritsLoose(subClass, superClass) {
             subClass.prototype = Object.create(superClass.prototype);
@@ -867,7 +880,7 @@ var require_nunjucks = __commonJS({
             _setPrototypeOf(subClass, superClass);
           }
           function _setPrototypeOf(o, p) {
-            _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf2(o2, p2) {
+            _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf2(o2, p2) {
               o2.__proto__ = p2;
               return o2;
             };
@@ -970,7 +983,7 @@ var require_nunjucks = __commonJS({
           }(Node);
           var Root = NodeList.extend("Root");
           var Literal = Value.extend("Literal");
-          var Symbol2 = Value.extend("Symbol");
+          var _Symbol = Value.extend("Symbol");
           var Group = NodeList.extend("Group");
           var ArrayNode = NodeList.extend("Array");
           var Pair = Node.extend("Pair", {
@@ -1152,7 +1165,7 @@ var require_nunjucks = __commonJS({
             NodeList,
             Value,
             Literal,
-            Symbol: Symbol2,
+            Symbol: _Symbol,
             Group,
             Array: ArrayNode,
             Pair,
@@ -1215,7 +1228,7 @@ var require_nunjucks = __commonJS({
             _setPrototypeOf(subClass, superClass);
           }
           function _setPrototypeOf(o, p) {
-            _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf2(o2, p2) {
+            _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf2(o2, p2) {
               o2.__proto__ = p2;
               return o2;
             };
@@ -2154,7 +2167,7 @@ var require_nunjucks = __commonJS({
             _setPrototypeOf(subClass, superClass);
           }
           function _setPrototypeOf(o, p) {
-            _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf2(o2, p2) {
+            _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf2(o2, p2) {
               o2.__proto__ = p2;
               return o2;
             };
@@ -2185,7 +2198,7 @@ var require_nunjucks = __commonJS({
             _setPrototypeOf(subClass, superClass);
           }
           function _setPrototypeOf(o, p) {
-            _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf2(o2, p2) {
+            _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf2(o2, p2) {
               o2.__proto__ = p2;
               return o2;
             };
@@ -2679,7 +2692,7 @@ var require_nunjucks = __commonJS({
             _setPrototypeOf(subClass, superClass);
           }
           function _setPrototypeOf(o, p) {
-            _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf2(o2, p2) {
+            _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf2(o2, p2) {
               o2.__proto__ = p2;
               return o2;
             };
@@ -4019,7 +4032,7 @@ var require_nunjucks = __commonJS({
             _setPrototypeOf(subClass, superClass);
           }
           function _setPrototypeOf(o, p) {
-            _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf2(o2, p2) {
+            _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf2(o2, p2) {
               o2.__proto__ = p2;
               return o2;
             };
@@ -4701,23 +4714,45 @@ var require_nunjucks = __commonJS({
           }
           function once(emitter, name) {
             return new Promise(function(resolve, reject) {
-              function eventListener() {
-                if (errorListener !== void 0) {
+              function errorListener(err) {
+                emitter.removeListener(name, resolver);
+                reject(err);
+              }
+              function resolver() {
+                if (typeof emitter.removeListener === "function") {
                   emitter.removeListener("error", errorListener);
                 }
                 resolve([].slice.call(arguments));
               }
               ;
-              var errorListener;
+              eventTargetAgnosticAddListener(emitter, name, resolver, { once: true });
               if (name !== "error") {
-                errorListener = function errorListener2(err) {
-                  emitter.removeListener(name, eventListener);
-                  reject(err);
-                };
-                emitter.once("error", errorListener);
+                addErrorHandlerIfEventEmitter(emitter, errorListener, { once: true });
               }
-              emitter.once(name, eventListener);
             });
+          }
+          function addErrorHandlerIfEventEmitter(emitter, handler, flags) {
+            if (typeof emitter.on === "function") {
+              eventTargetAgnosticAddListener(emitter, "error", handler, flags);
+            }
+          }
+          function eventTargetAgnosticAddListener(emitter, name, listener, flags) {
+            if (typeof emitter.on === "function") {
+              if (flags.once) {
+                emitter.once(name, listener);
+              } else {
+                emitter.on(name, listener);
+              }
+            } else if (typeof emitter.addEventListener === "function") {
+              emitter.addEventListener(name, function wrapListener(arg) {
+                if (flags.once) {
+                  emitter.removeEventListener(name, wrapListener);
+                }
+                listener(arg);
+              });
+            } else {
+              throw new TypeError('The "emitter" argument must be of type EventEmitter. Received type ' + typeof emitter);
+            }
           }
         },
         function(module3, exports2, __webpack_require__) {
@@ -5370,7 +5405,7 @@ var require_nunjucks = __commonJS({
             _setPrototypeOf(subClass, superClass);
           }
           function _setPrototypeOf(o, p) {
-            _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf2(o2, p2) {
+            _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf2(o2, p2) {
               o2.__proto__ = p2;
               return o2;
             };
@@ -10134,7 +10169,7 @@ var require_AxiosError = __commonJS({
   "node_modules/axios/lib/core/AxiosError.js"(exports, module2) {
     "use strict";
     var utils = require_utils();
-    function AxiosError(message, code, config, request, response) {
+    function AxiosError2(message, code, config, request, response) {
       Error.call(this);
       this.message = message;
       this.name = "AxiosError";
@@ -10143,7 +10178,7 @@ var require_AxiosError = __commonJS({
       request && (this.request = request);
       response && (this.response = response);
     }
-    utils.inherits(AxiosError, Error, {
+    utils.inherits(AxiosError2, Error, {
       toJSON: function toJSON() {
         return {
           message: this.message,
@@ -10160,7 +10195,7 @@ var require_AxiosError = __commonJS({
         };
       }
     });
-    var prototype = AxiosError.prototype;
+    var prototype = AxiosError2.prototype;
     var descriptors = {};
     [
       "ERR_BAD_OPTION_VALUE",
@@ -10176,19 +10211,19 @@ var require_AxiosError = __commonJS({
     ].forEach(function(code) {
       descriptors[code] = { value: code };
     });
-    Object.defineProperties(AxiosError, descriptors);
+    Object.defineProperties(AxiosError2, descriptors);
     Object.defineProperty(prototype, "isAxiosError", { value: true });
-    AxiosError.from = function(error, code, config, request, response, customProps) {
+    AxiosError2.from = function(error, code, config, request, response, customProps) {
       var axiosError = Object.create(prototype);
       utils.toFlatObject(error, axiosError, function filter(obj) {
         return obj !== Error.prototype;
       });
-      AxiosError.call(axiosError, error.message, code, config, request, response);
+      AxiosError2.call(axiosError, error.message, code, config, request, response);
       axiosError.name = error.name;
       customProps && Object.assign(axiosError, customProps);
       return axiosError;
     };
-    module2.exports = AxiosError;
+    module2.exports = AxiosError2;
   }
 });
 
@@ -10262,13 +10297,13 @@ var require_toFormData = __commonJS({
 var require_settle = __commonJS({
   "node_modules/axios/lib/core/settle.js"(exports, module2) {
     "use strict";
-    var AxiosError = require_AxiosError();
+    var AxiosError2 = require_AxiosError();
     module2.exports = function settle(resolve, reject, response) {
       var validateStatus = response.config.validateStatus;
       if (!response.status || !validateStatus || validateStatus(response.status)) {
         resolve(response);
       } else {
-        reject(new AxiosError("Request failed with status code " + response.status, [AxiosError.ERR_BAD_REQUEST, AxiosError.ERR_BAD_RESPONSE][Math.floor(response.status / 100) - 4], response.config, response.request, response));
+        reject(new AxiosError2("Request failed with status code " + response.status, [AxiosError2.ERR_BAD_REQUEST, AxiosError2.ERR_BAD_RESPONSE][Math.floor(response.status / 100) - 4], response.config, response.request, response));
       }
     };
   }
@@ -10451,13 +10486,13 @@ var require_isURLSameOrigin = __commonJS({
 var require_CanceledError = __commonJS({
   "node_modules/axios/lib/cancel/CanceledError.js"(exports, module2) {
     "use strict";
-    var AxiosError = require_AxiosError();
+    var AxiosError2 = require_AxiosError();
     var utils = require_utils();
     function CanceledError(message) {
-      AxiosError.call(this, message == null ? "canceled" : message, AxiosError.ERR_CANCELED);
+      AxiosError2.call(this, message == null ? "canceled" : message, AxiosError2.ERR_CANCELED);
       this.name = "CanceledError";
     }
-    utils.inherits(CanceledError, AxiosError, {
+    utils.inherits(CanceledError, AxiosError2, {
       __CANCEL__: true
     });
     module2.exports = CanceledError;
@@ -10487,7 +10522,7 @@ var require_xhr = __commonJS({
     var parseHeaders = require_parseHeaders();
     var isURLSameOrigin = require_isURLSameOrigin();
     var transitionalDefaults = require_transitional();
-    var AxiosError = require_AxiosError();
+    var AxiosError2 = require_AxiosError();
     var CanceledError = require_CanceledError();
     var parseProtocol = require_parseProtocol();
     module2.exports = function xhrAdapter(config) {
@@ -10556,11 +10591,11 @@ var require_xhr = __commonJS({
           if (!request) {
             return;
           }
-          reject(new AxiosError("Request aborted", AxiosError.ECONNABORTED, config, request));
+          reject(new AxiosError2("Request aborted", AxiosError2.ECONNABORTED, config, request));
           request = null;
         };
         request.onerror = function handleError() {
-          reject(new AxiosError("Network Error", AxiosError.ERR_NETWORK, config, request, request));
+          reject(new AxiosError2("Network Error", AxiosError2.ERR_NETWORK, config, request, request));
           request = null;
         };
         request.ontimeout = function handleTimeout() {
@@ -10569,7 +10604,7 @@ var require_xhr = __commonJS({
           if (config.timeoutErrorMessage) {
             timeoutErrorMessage = config.timeoutErrorMessage;
           }
-          reject(new AxiosError(timeoutErrorMessage, transitional.clarifyTimeoutError ? AxiosError.ETIMEDOUT : AxiosError.ECONNABORTED, config, request));
+          reject(new AxiosError2(timeoutErrorMessage, transitional.clarifyTimeoutError ? AxiosError2.ETIMEDOUT : AxiosError2.ECONNABORTED, config, request));
           request = null;
         };
         if (utils.isStandardBrowserEnv()) {
@@ -10618,7 +10653,7 @@ var require_xhr = __commonJS({
         }
         var protocol = parseProtocol(fullPath);
         if (protocol && ["http", "https", "file"].indexOf(protocol) === -1) {
-          reject(new AxiosError("Unsupported protocol " + protocol + ":", AxiosError.ERR_BAD_REQUEST, config));
+          reject(new AxiosError2("Unsupported protocol " + protocol + ":", AxiosError2.ERR_BAD_REQUEST, config));
           return;
         }
         request.send(requestData);
@@ -10640,7 +10675,7 @@ var require_defaults = __commonJS({
     "use strict";
     var utils = require_utils();
     var normalizeHeaderName = require_normalizeHeaderName();
-    var AxiosError = require_AxiosError();
+    var AxiosError2 = require_AxiosError();
     var transitionalDefaults = require_transitional();
     var toFormData = require_toFormData();
     var DEFAULT_CONTENT_TYPE = {
@@ -10712,7 +10747,7 @@ var require_defaults = __commonJS({
           } catch (e) {
             if (strictJSONParsing) {
               if (e.name === "SyntaxError") {
-                throw AxiosError.from(e, AxiosError.ERR_BAD_RESPONSE, this, null, this.response);
+                throw AxiosError2.from(e, AxiosError2.ERR_BAD_RESPONSE, this, null, this.response);
               }
               throw e;
             }
@@ -10913,7 +10948,7 @@ var require_validator = __commonJS({
   "node_modules/axios/lib/helpers/validator.js"(exports, module2) {
     "use strict";
     var VERSION2 = require_data().version;
-    var AxiosError = require_AxiosError();
+    var AxiosError2 = require_AxiosError();
     var validators = {};
     ["object", "boolean", "number", "function", "string", "symbol"].forEach(function(type, i) {
       validators[type] = function validator(thing) {
@@ -10927,7 +10962,7 @@ var require_validator = __commonJS({
       }
       return function(value, opt, opts) {
         if (validator === false) {
-          throw new AxiosError(formatMessage(opt, " has been removed" + (version ? " in " + version : "")), AxiosError.ERR_DEPRECATED);
+          throw new AxiosError2(formatMessage(opt, " has been removed" + (version ? " in " + version : "")), AxiosError2.ERR_DEPRECATED);
         }
         if (version && !deprecatedWarnings[opt]) {
           deprecatedWarnings[opt] = true;
@@ -10938,7 +10973,7 @@ var require_validator = __commonJS({
     };
     function assertOptions(options, schema, allowUnknown) {
       if (typeof options !== "object") {
-        throw new AxiosError("options must be an object", AxiosError.ERR_BAD_OPTION_VALUE);
+        throw new AxiosError2("options must be an object", AxiosError2.ERR_BAD_OPTION_VALUE);
       }
       var keys = Object.keys(options);
       var i = keys.length;
@@ -10949,12 +10984,12 @@ var require_validator = __commonJS({
           var value = options[opt];
           var result = value === void 0 || validator(value, opt, options);
           if (result !== true) {
-            throw new AxiosError("option " + opt + " must be " + result, AxiosError.ERR_BAD_OPTION_VALUE);
+            throw new AxiosError2("option " + opt + " must be " + result, AxiosError2.ERR_BAD_OPTION_VALUE);
           }
           continue;
         }
         if (allowUnknown !== true) {
-          throw new AxiosError("Unknown option " + opt, AxiosError.ERR_BAD_OPTION);
+          throw new AxiosError2("Unknown option " + opt, AxiosError2.ERR_BAD_OPTION);
         }
       }
     }
@@ -11236,13 +11271,2474 @@ var require_axios2 = __commonJS({
   }
 });
 
+// node_modules/is-retry-allowed/index.js
+var require_is_retry_allowed = __commonJS({
+  "node_modules/is-retry-allowed/index.js"(exports, module2) {
+    "use strict";
+    var denyList = /* @__PURE__ */ new Set([
+      "ENOTFOUND",
+      "ENETUNREACH",
+      "UNABLE_TO_GET_ISSUER_CERT",
+      "UNABLE_TO_GET_CRL",
+      "UNABLE_TO_DECRYPT_CERT_SIGNATURE",
+      "UNABLE_TO_DECRYPT_CRL_SIGNATURE",
+      "UNABLE_TO_DECODE_ISSUER_PUBLIC_KEY",
+      "CERT_SIGNATURE_FAILURE",
+      "CRL_SIGNATURE_FAILURE",
+      "CERT_NOT_YET_VALID",
+      "CERT_HAS_EXPIRED",
+      "CRL_NOT_YET_VALID",
+      "CRL_HAS_EXPIRED",
+      "ERROR_IN_CERT_NOT_BEFORE_FIELD",
+      "ERROR_IN_CERT_NOT_AFTER_FIELD",
+      "ERROR_IN_CRL_LAST_UPDATE_FIELD",
+      "ERROR_IN_CRL_NEXT_UPDATE_FIELD",
+      "OUT_OF_MEM",
+      "DEPTH_ZERO_SELF_SIGNED_CERT",
+      "SELF_SIGNED_CERT_IN_CHAIN",
+      "UNABLE_TO_GET_ISSUER_CERT_LOCALLY",
+      "UNABLE_TO_VERIFY_LEAF_SIGNATURE",
+      "CERT_CHAIN_TOO_LONG",
+      "CERT_REVOKED",
+      "INVALID_CA",
+      "PATH_LENGTH_EXCEEDED",
+      "INVALID_PURPOSE",
+      "CERT_UNTRUSTED",
+      "CERT_REJECTED",
+      "HOSTNAME_MISMATCH"
+    ]);
+    module2.exports = (error) => !denyList.has(error && error.code);
+  }
+});
+
+// node_modules/semver/internal/constants.js
+var require_constants = __commonJS({
+  "node_modules/semver/internal/constants.js"(exports, module2) {
+    var SEMVER_SPEC_VERSION = "2.0.0";
+    var MAX_LENGTH = 256;
+    var MAX_SAFE_INTEGER = Number.MAX_SAFE_INTEGER || 9007199254740991;
+    var MAX_SAFE_COMPONENT_LENGTH = 16;
+    var MAX_SAFE_BUILD_LENGTH = MAX_LENGTH - 6;
+    var RELEASE_TYPES = [
+      "major",
+      "premajor",
+      "minor",
+      "preminor",
+      "patch",
+      "prepatch",
+      "prerelease"
+    ];
+    module2.exports = {
+      MAX_LENGTH,
+      MAX_SAFE_COMPONENT_LENGTH,
+      MAX_SAFE_BUILD_LENGTH,
+      MAX_SAFE_INTEGER,
+      RELEASE_TYPES,
+      SEMVER_SPEC_VERSION,
+      FLAG_INCLUDE_PRERELEASE: 1,
+      FLAG_LOOSE: 2
+    };
+  }
+});
+
+// node_modules/semver/internal/debug.js
+var require_debug = __commonJS({
+  "node_modules/semver/internal/debug.js"(exports, module2) {
+    var debug = typeof process === "object" && process.env && process.env.NODE_DEBUG && /\bsemver\b/i.test(process.env.NODE_DEBUG) ? (...args) => console.error("SEMVER", ...args) : () => {
+    };
+    module2.exports = debug;
+  }
+});
+
+// node_modules/semver/internal/re.js
+var require_re = __commonJS({
+  "node_modules/semver/internal/re.js"(exports, module2) {
+    var {
+      MAX_SAFE_COMPONENT_LENGTH,
+      MAX_SAFE_BUILD_LENGTH,
+      MAX_LENGTH
+    } = require_constants();
+    var debug = require_debug();
+    exports = module2.exports = {};
+    var re = exports.re = [];
+    var safeRe = exports.safeRe = [];
+    var src = exports.src = [];
+    var t = exports.t = {};
+    var R = 0;
+    var LETTERDASHNUMBER = "[a-zA-Z0-9-]";
+    var safeRegexReplacements = [
+      ["\\s", 1],
+      ["\\d", MAX_LENGTH],
+      [LETTERDASHNUMBER, MAX_SAFE_BUILD_LENGTH]
+    ];
+    var makeSafeRegex = (value) => {
+      for (const [token, max] of safeRegexReplacements) {
+        value = value.split(`${token}*`).join(`${token}{0,${max}}`).split(`${token}+`).join(`${token}{1,${max}}`);
+      }
+      return value;
+    };
+    var createToken = (name, value, isGlobal) => {
+      const safe = makeSafeRegex(value);
+      const index = R++;
+      debug(name, index, value);
+      t[name] = index;
+      src[index] = value;
+      re[index] = new RegExp(value, isGlobal ? "g" : void 0);
+      safeRe[index] = new RegExp(safe, isGlobal ? "g" : void 0);
+    };
+    createToken("NUMERICIDENTIFIER", "0|[1-9]\\d*");
+    createToken("NUMERICIDENTIFIERLOOSE", "\\d+");
+    createToken("NONNUMERICIDENTIFIER", `\\d*[a-zA-Z-]${LETTERDASHNUMBER}*`);
+    createToken("MAINVERSION", `(${src[t.NUMERICIDENTIFIER]})\\.(${src[t.NUMERICIDENTIFIER]})\\.(${src[t.NUMERICIDENTIFIER]})`);
+    createToken("MAINVERSIONLOOSE", `(${src[t.NUMERICIDENTIFIERLOOSE]})\\.(${src[t.NUMERICIDENTIFIERLOOSE]})\\.(${src[t.NUMERICIDENTIFIERLOOSE]})`);
+    createToken("PRERELEASEIDENTIFIER", `(?:${src[t.NUMERICIDENTIFIER]}|${src[t.NONNUMERICIDENTIFIER]})`);
+    createToken("PRERELEASEIDENTIFIERLOOSE", `(?:${src[t.NUMERICIDENTIFIERLOOSE]}|${src[t.NONNUMERICIDENTIFIER]})`);
+    createToken("PRERELEASE", `(?:-(${src[t.PRERELEASEIDENTIFIER]}(?:\\.${src[t.PRERELEASEIDENTIFIER]})*))`);
+    createToken("PRERELEASELOOSE", `(?:-?(${src[t.PRERELEASEIDENTIFIERLOOSE]}(?:\\.${src[t.PRERELEASEIDENTIFIERLOOSE]})*))`);
+    createToken("BUILDIDENTIFIER", `${LETTERDASHNUMBER}+`);
+    createToken("BUILD", `(?:\\+(${src[t.BUILDIDENTIFIER]}(?:\\.${src[t.BUILDIDENTIFIER]})*))`);
+    createToken("FULLPLAIN", `v?${src[t.MAINVERSION]}${src[t.PRERELEASE]}?${src[t.BUILD]}?`);
+    createToken("FULL", `^${src[t.FULLPLAIN]}$`);
+    createToken("LOOSEPLAIN", `[v=\\s]*${src[t.MAINVERSIONLOOSE]}${src[t.PRERELEASELOOSE]}?${src[t.BUILD]}?`);
+    createToken("LOOSE", `^${src[t.LOOSEPLAIN]}$`);
+    createToken("GTLT", "((?:<|>)?=?)");
+    createToken("XRANGEIDENTIFIERLOOSE", `${src[t.NUMERICIDENTIFIERLOOSE]}|x|X|\\*`);
+    createToken("XRANGEIDENTIFIER", `${src[t.NUMERICIDENTIFIER]}|x|X|\\*`);
+    createToken("XRANGEPLAIN", `[v=\\s]*(${src[t.XRANGEIDENTIFIER]})(?:\\.(${src[t.XRANGEIDENTIFIER]})(?:\\.(${src[t.XRANGEIDENTIFIER]})(?:${src[t.PRERELEASE]})?${src[t.BUILD]}?)?)?`);
+    createToken("XRANGEPLAINLOOSE", `[v=\\s]*(${src[t.XRANGEIDENTIFIERLOOSE]})(?:\\.(${src[t.XRANGEIDENTIFIERLOOSE]})(?:\\.(${src[t.XRANGEIDENTIFIERLOOSE]})(?:${src[t.PRERELEASELOOSE]})?${src[t.BUILD]}?)?)?`);
+    createToken("XRANGE", `^${src[t.GTLT]}\\s*${src[t.XRANGEPLAIN]}$`);
+    createToken("XRANGELOOSE", `^${src[t.GTLT]}\\s*${src[t.XRANGEPLAINLOOSE]}$`);
+    createToken("COERCE", `${"(^|[^\\d])(\\d{1,"}${MAX_SAFE_COMPONENT_LENGTH}})(?:\\.(\\d{1,${MAX_SAFE_COMPONENT_LENGTH}}))?(?:\\.(\\d{1,${MAX_SAFE_COMPONENT_LENGTH}}))?(?:$|[^\\d])`);
+    createToken("COERCERTL", src[t.COERCE], true);
+    createToken("LONETILDE", "(?:~>?)");
+    createToken("TILDETRIM", `(\\s*)${src[t.LONETILDE]}\\s+`, true);
+    exports.tildeTrimReplace = "$1~";
+    createToken("TILDE", `^${src[t.LONETILDE]}${src[t.XRANGEPLAIN]}$`);
+    createToken("TILDELOOSE", `^${src[t.LONETILDE]}${src[t.XRANGEPLAINLOOSE]}$`);
+    createToken("LONECARET", "(?:\\^)");
+    createToken("CARETTRIM", `(\\s*)${src[t.LONECARET]}\\s+`, true);
+    exports.caretTrimReplace = "$1^";
+    createToken("CARET", `^${src[t.LONECARET]}${src[t.XRANGEPLAIN]}$`);
+    createToken("CARETLOOSE", `^${src[t.LONECARET]}${src[t.XRANGEPLAINLOOSE]}$`);
+    createToken("COMPARATORLOOSE", `^${src[t.GTLT]}\\s*(${src[t.LOOSEPLAIN]})$|^$`);
+    createToken("COMPARATOR", `^${src[t.GTLT]}\\s*(${src[t.FULLPLAIN]})$|^$`);
+    createToken("COMPARATORTRIM", `(\\s*)${src[t.GTLT]}\\s*(${src[t.LOOSEPLAIN]}|${src[t.XRANGEPLAIN]})`, true);
+    exports.comparatorTrimReplace = "$1$2$3";
+    createToken("HYPHENRANGE", `^\\s*(${src[t.XRANGEPLAIN]})\\s+-\\s+(${src[t.XRANGEPLAIN]})\\s*$`);
+    createToken("HYPHENRANGELOOSE", `^\\s*(${src[t.XRANGEPLAINLOOSE]})\\s+-\\s+(${src[t.XRANGEPLAINLOOSE]})\\s*$`);
+    createToken("STAR", "(<|>)?=?\\s*\\*");
+    createToken("GTE0", "^\\s*>=\\s*0\\.0\\.0\\s*$");
+    createToken("GTE0PRE", "^\\s*>=\\s*0\\.0\\.0-0\\s*$");
+  }
+});
+
+// node_modules/semver/internal/parse-options.js
+var require_parse_options = __commonJS({
+  "node_modules/semver/internal/parse-options.js"(exports, module2) {
+    var looseOption = Object.freeze({ loose: true });
+    var emptyOpts = Object.freeze({});
+    var parseOptions = (options) => {
+      if (!options) {
+        return emptyOpts;
+      }
+      if (typeof options !== "object") {
+        return looseOption;
+      }
+      return options;
+    };
+    module2.exports = parseOptions;
+  }
+});
+
+// node_modules/semver/internal/identifiers.js
+var require_identifiers = __commonJS({
+  "node_modules/semver/internal/identifiers.js"(exports, module2) {
+    var numeric = /^[0-9]+$/;
+    var compareIdentifiers = (a, b) => {
+      const anum = numeric.test(a);
+      const bnum = numeric.test(b);
+      if (anum && bnum) {
+        a = +a;
+        b = +b;
+      }
+      return a === b ? 0 : anum && !bnum ? -1 : bnum && !anum ? 1 : a < b ? -1 : 1;
+    };
+    var rcompareIdentifiers = (a, b) => compareIdentifiers(b, a);
+    module2.exports = {
+      compareIdentifiers,
+      rcompareIdentifiers
+    };
+  }
+});
+
+// node_modules/semver/classes/semver.js
+var require_semver = __commonJS({
+  "node_modules/semver/classes/semver.js"(exports, module2) {
+    var debug = require_debug();
+    var { MAX_LENGTH, MAX_SAFE_INTEGER } = require_constants();
+    var { safeRe: re, t } = require_re();
+    var parseOptions = require_parse_options();
+    var { compareIdentifiers } = require_identifiers();
+    var SemVer = class {
+      constructor(version, options) {
+        options = parseOptions(options);
+        if (version instanceof SemVer) {
+          if (version.loose === !!options.loose && version.includePrerelease === !!options.includePrerelease) {
+            return version;
+          } else {
+            version = version.version;
+          }
+        } else if (typeof version !== "string") {
+          throw new TypeError(`Invalid version. Must be a string. Got type "${typeof version}".`);
+        }
+        if (version.length > MAX_LENGTH) {
+          throw new TypeError(`version is longer than ${MAX_LENGTH} characters`);
+        }
+        debug("SemVer", version, options);
+        this.options = options;
+        this.loose = !!options.loose;
+        this.includePrerelease = !!options.includePrerelease;
+        const m = version.trim().match(options.loose ? re[t.LOOSE] : re[t.FULL]);
+        if (!m) {
+          throw new TypeError(`Invalid Version: ${version}`);
+        }
+        this.raw = version;
+        this.major = +m[1];
+        this.minor = +m[2];
+        this.patch = +m[3];
+        if (this.major > MAX_SAFE_INTEGER || this.major < 0) {
+          throw new TypeError("Invalid major version");
+        }
+        if (this.minor > MAX_SAFE_INTEGER || this.minor < 0) {
+          throw new TypeError("Invalid minor version");
+        }
+        if (this.patch > MAX_SAFE_INTEGER || this.patch < 0) {
+          throw new TypeError("Invalid patch version");
+        }
+        if (!m[4]) {
+          this.prerelease = [];
+        } else {
+          this.prerelease = m[4].split(".").map((id) => {
+            if (/^[0-9]+$/.test(id)) {
+              const num = +id;
+              if (num >= 0 && num < MAX_SAFE_INTEGER) {
+                return num;
+              }
+            }
+            return id;
+          });
+        }
+        this.build = m[5] ? m[5].split(".") : [];
+        this.format();
+      }
+      format() {
+        this.version = `${this.major}.${this.minor}.${this.patch}`;
+        if (this.prerelease.length) {
+          this.version += `-${this.prerelease.join(".")}`;
+        }
+        return this.version;
+      }
+      toString() {
+        return this.version;
+      }
+      compare(other) {
+        debug("SemVer.compare", this.version, this.options, other);
+        if (!(other instanceof SemVer)) {
+          if (typeof other === "string" && other === this.version) {
+            return 0;
+          }
+          other = new SemVer(other, this.options);
+        }
+        if (other.version === this.version) {
+          return 0;
+        }
+        return this.compareMain(other) || this.comparePre(other);
+      }
+      compareMain(other) {
+        if (!(other instanceof SemVer)) {
+          other = new SemVer(other, this.options);
+        }
+        return compareIdentifiers(this.major, other.major) || compareIdentifiers(this.minor, other.minor) || compareIdentifiers(this.patch, other.patch);
+      }
+      comparePre(other) {
+        if (!(other instanceof SemVer)) {
+          other = new SemVer(other, this.options);
+        }
+        if (this.prerelease.length && !other.prerelease.length) {
+          return -1;
+        } else if (!this.prerelease.length && other.prerelease.length) {
+          return 1;
+        } else if (!this.prerelease.length && !other.prerelease.length) {
+          return 0;
+        }
+        let i = 0;
+        do {
+          const a = this.prerelease[i];
+          const b = other.prerelease[i];
+          debug("prerelease compare", i, a, b);
+          if (a === void 0 && b === void 0) {
+            return 0;
+          } else if (b === void 0) {
+            return 1;
+          } else if (a === void 0) {
+            return -1;
+          } else if (a === b) {
+            continue;
+          } else {
+            return compareIdentifiers(a, b);
+          }
+        } while (++i);
+      }
+      compareBuild(other) {
+        if (!(other instanceof SemVer)) {
+          other = new SemVer(other, this.options);
+        }
+        let i = 0;
+        do {
+          const a = this.build[i];
+          const b = other.build[i];
+          debug("prerelease compare", i, a, b);
+          if (a === void 0 && b === void 0) {
+            return 0;
+          } else if (b === void 0) {
+            return 1;
+          } else if (a === void 0) {
+            return -1;
+          } else if (a === b) {
+            continue;
+          } else {
+            return compareIdentifiers(a, b);
+          }
+        } while (++i);
+      }
+      inc(release, identifier, identifierBase) {
+        switch (release) {
+          case "premajor":
+            this.prerelease.length = 0;
+            this.patch = 0;
+            this.minor = 0;
+            this.major++;
+            this.inc("pre", identifier, identifierBase);
+            break;
+          case "preminor":
+            this.prerelease.length = 0;
+            this.patch = 0;
+            this.minor++;
+            this.inc("pre", identifier, identifierBase);
+            break;
+          case "prepatch":
+            this.prerelease.length = 0;
+            this.inc("patch", identifier, identifierBase);
+            this.inc("pre", identifier, identifierBase);
+            break;
+          case "prerelease":
+            if (this.prerelease.length === 0) {
+              this.inc("patch", identifier, identifierBase);
+            }
+            this.inc("pre", identifier, identifierBase);
+            break;
+          case "major":
+            if (this.minor !== 0 || this.patch !== 0 || this.prerelease.length === 0) {
+              this.major++;
+            }
+            this.minor = 0;
+            this.patch = 0;
+            this.prerelease = [];
+            break;
+          case "minor":
+            if (this.patch !== 0 || this.prerelease.length === 0) {
+              this.minor++;
+            }
+            this.patch = 0;
+            this.prerelease = [];
+            break;
+          case "patch":
+            if (this.prerelease.length === 0) {
+              this.patch++;
+            }
+            this.prerelease = [];
+            break;
+          case "pre": {
+            const base = Number(identifierBase) ? 1 : 0;
+            if (!identifier && identifierBase === false) {
+              throw new Error("invalid increment argument: identifier is empty");
+            }
+            if (this.prerelease.length === 0) {
+              this.prerelease = [base];
+            } else {
+              let i = this.prerelease.length;
+              while (--i >= 0) {
+                if (typeof this.prerelease[i] === "number") {
+                  this.prerelease[i]++;
+                  i = -2;
+                }
+              }
+              if (i === -1) {
+                if (identifier === this.prerelease.join(".") && identifierBase === false) {
+                  throw new Error("invalid increment argument: identifier already exists");
+                }
+                this.prerelease.push(base);
+              }
+            }
+            if (identifier) {
+              let prerelease = [identifier, base];
+              if (identifierBase === false) {
+                prerelease = [identifier];
+              }
+              if (compareIdentifiers(this.prerelease[0], identifier) === 0) {
+                if (isNaN(this.prerelease[1])) {
+                  this.prerelease = prerelease;
+                }
+              } else {
+                this.prerelease = prerelease;
+              }
+            }
+            break;
+          }
+          default:
+            throw new Error(`invalid increment argument: ${release}`);
+        }
+        this.raw = this.format();
+        if (this.build.length) {
+          this.raw += `+${this.build.join(".")}`;
+        }
+        return this;
+      }
+    };
+    module2.exports = SemVer;
+  }
+});
+
+// node_modules/semver/functions/parse.js
+var require_parse = __commonJS({
+  "node_modules/semver/functions/parse.js"(exports, module2) {
+    var SemVer = require_semver();
+    var parse = (version, options, throwErrors = false) => {
+      if (version instanceof SemVer) {
+        return version;
+      }
+      try {
+        return new SemVer(version, options);
+      } catch (er) {
+        if (!throwErrors) {
+          return null;
+        }
+        throw er;
+      }
+    };
+    module2.exports = parse;
+  }
+});
+
+// node_modules/semver/functions/valid.js
+var require_valid = __commonJS({
+  "node_modules/semver/functions/valid.js"(exports, module2) {
+    var parse = require_parse();
+    var valid = (version, options) => {
+      const v = parse(version, options);
+      return v ? v.version : null;
+    };
+    module2.exports = valid;
+  }
+});
+
+// node_modules/semver/functions/clean.js
+var require_clean = __commonJS({
+  "node_modules/semver/functions/clean.js"(exports, module2) {
+    var parse = require_parse();
+    var clean = (version, options) => {
+      const s = parse(version.trim().replace(/^[=v]+/, ""), options);
+      return s ? s.version : null;
+    };
+    module2.exports = clean;
+  }
+});
+
+// node_modules/semver/functions/inc.js
+var require_inc = __commonJS({
+  "node_modules/semver/functions/inc.js"(exports, module2) {
+    var SemVer = require_semver();
+    var inc = (version, release, options, identifier, identifierBase) => {
+      if (typeof options === "string") {
+        identifierBase = identifier;
+        identifier = options;
+        options = void 0;
+      }
+      try {
+        return new SemVer(version instanceof SemVer ? version.version : version, options).inc(release, identifier, identifierBase).version;
+      } catch (er) {
+        return null;
+      }
+    };
+    module2.exports = inc;
+  }
+});
+
+// node_modules/semver/functions/diff.js
+var require_diff = __commonJS({
+  "node_modules/semver/functions/diff.js"(exports, module2) {
+    var parse = require_parse();
+    var diff = (version1, version2) => {
+      const v1 = parse(version1, null, true);
+      const v2 = parse(version2, null, true);
+      const comparison = v1.compare(v2);
+      if (comparison === 0) {
+        return null;
+      }
+      const v1Higher = comparison > 0;
+      const highVersion = v1Higher ? v1 : v2;
+      const lowVersion = v1Higher ? v2 : v1;
+      const highHasPre = !!highVersion.prerelease.length;
+      const lowHasPre = !!lowVersion.prerelease.length;
+      if (lowHasPre && !highHasPre) {
+        if (!lowVersion.patch && !lowVersion.minor) {
+          return "major";
+        }
+        if (highVersion.patch) {
+          return "patch";
+        }
+        if (highVersion.minor) {
+          return "minor";
+        }
+        return "major";
+      }
+      const prefix = highHasPre ? "pre" : "";
+      if (v1.major !== v2.major) {
+        return prefix + "major";
+      }
+      if (v1.minor !== v2.minor) {
+        return prefix + "minor";
+      }
+      if (v1.patch !== v2.patch) {
+        return prefix + "patch";
+      }
+      return "prerelease";
+    };
+    module2.exports = diff;
+  }
+});
+
+// node_modules/semver/functions/major.js
+var require_major = __commonJS({
+  "node_modules/semver/functions/major.js"(exports, module2) {
+    var SemVer = require_semver();
+    var major = (a, loose) => new SemVer(a, loose).major;
+    module2.exports = major;
+  }
+});
+
+// node_modules/semver/functions/minor.js
+var require_minor = __commonJS({
+  "node_modules/semver/functions/minor.js"(exports, module2) {
+    var SemVer = require_semver();
+    var minor = (a, loose) => new SemVer(a, loose).minor;
+    module2.exports = minor;
+  }
+});
+
+// node_modules/semver/functions/patch.js
+var require_patch = __commonJS({
+  "node_modules/semver/functions/patch.js"(exports, module2) {
+    var SemVer = require_semver();
+    var patch = (a, loose) => new SemVer(a, loose).patch;
+    module2.exports = patch;
+  }
+});
+
+// node_modules/semver/functions/prerelease.js
+var require_prerelease = __commonJS({
+  "node_modules/semver/functions/prerelease.js"(exports, module2) {
+    var parse = require_parse();
+    var prerelease = (version, options) => {
+      const parsed = parse(version, options);
+      return parsed && parsed.prerelease.length ? parsed.prerelease : null;
+    };
+    module2.exports = prerelease;
+  }
+});
+
+// node_modules/semver/functions/compare.js
+var require_compare = __commonJS({
+  "node_modules/semver/functions/compare.js"(exports, module2) {
+    var SemVer = require_semver();
+    var compare = (a, b, loose) => new SemVer(a, loose).compare(new SemVer(b, loose));
+    module2.exports = compare;
+  }
+});
+
+// node_modules/semver/functions/rcompare.js
+var require_rcompare = __commonJS({
+  "node_modules/semver/functions/rcompare.js"(exports, module2) {
+    var compare = require_compare();
+    var rcompare = (a, b, loose) => compare(b, a, loose);
+    module2.exports = rcompare;
+  }
+});
+
+// node_modules/semver/functions/compare-loose.js
+var require_compare_loose = __commonJS({
+  "node_modules/semver/functions/compare-loose.js"(exports, module2) {
+    var compare = require_compare();
+    var compareLoose = (a, b) => compare(a, b, true);
+    module2.exports = compareLoose;
+  }
+});
+
+// node_modules/semver/functions/compare-build.js
+var require_compare_build = __commonJS({
+  "node_modules/semver/functions/compare-build.js"(exports, module2) {
+    var SemVer = require_semver();
+    var compareBuild = (a, b, loose) => {
+      const versionA = new SemVer(a, loose);
+      const versionB = new SemVer(b, loose);
+      return versionA.compare(versionB) || versionA.compareBuild(versionB);
+    };
+    module2.exports = compareBuild;
+  }
+});
+
+// node_modules/semver/functions/sort.js
+var require_sort = __commonJS({
+  "node_modules/semver/functions/sort.js"(exports, module2) {
+    var compareBuild = require_compare_build();
+    var sort = (list, loose) => list.sort((a, b) => compareBuild(a, b, loose));
+    module2.exports = sort;
+  }
+});
+
+// node_modules/semver/functions/rsort.js
+var require_rsort = __commonJS({
+  "node_modules/semver/functions/rsort.js"(exports, module2) {
+    var compareBuild = require_compare_build();
+    var rsort = (list, loose) => list.sort((a, b) => compareBuild(b, a, loose));
+    module2.exports = rsort;
+  }
+});
+
+// node_modules/semver/functions/gt.js
+var require_gt = __commonJS({
+  "node_modules/semver/functions/gt.js"(exports, module2) {
+    var compare = require_compare();
+    var gt = (a, b, loose) => compare(a, b, loose) > 0;
+    module2.exports = gt;
+  }
+});
+
+// node_modules/semver/functions/lt.js
+var require_lt = __commonJS({
+  "node_modules/semver/functions/lt.js"(exports, module2) {
+    var compare = require_compare();
+    var lt = (a, b, loose) => compare(a, b, loose) < 0;
+    module2.exports = lt;
+  }
+});
+
+// node_modules/semver/functions/eq.js
+var require_eq = __commonJS({
+  "node_modules/semver/functions/eq.js"(exports, module2) {
+    var compare = require_compare();
+    var eq = (a, b, loose) => compare(a, b, loose) === 0;
+    module2.exports = eq;
+  }
+});
+
+// node_modules/semver/functions/neq.js
+var require_neq = __commonJS({
+  "node_modules/semver/functions/neq.js"(exports, module2) {
+    var compare = require_compare();
+    var neq = (a, b, loose) => compare(a, b, loose) !== 0;
+    module2.exports = neq;
+  }
+});
+
+// node_modules/semver/functions/gte.js
+var require_gte = __commonJS({
+  "node_modules/semver/functions/gte.js"(exports, module2) {
+    var compare = require_compare();
+    var gte = (a, b, loose) => compare(a, b, loose) >= 0;
+    module2.exports = gte;
+  }
+});
+
+// node_modules/semver/functions/lte.js
+var require_lte = __commonJS({
+  "node_modules/semver/functions/lte.js"(exports, module2) {
+    var compare = require_compare();
+    var lte = (a, b, loose) => compare(a, b, loose) <= 0;
+    module2.exports = lte;
+  }
+});
+
+// node_modules/semver/functions/cmp.js
+var require_cmp = __commonJS({
+  "node_modules/semver/functions/cmp.js"(exports, module2) {
+    var eq = require_eq();
+    var neq = require_neq();
+    var gt = require_gt();
+    var gte = require_gte();
+    var lt = require_lt();
+    var lte = require_lte();
+    var cmp = (a, op, b, loose) => {
+      switch (op) {
+        case "===":
+          if (typeof a === "object") {
+            a = a.version;
+          }
+          if (typeof b === "object") {
+            b = b.version;
+          }
+          return a === b;
+        case "!==":
+          if (typeof a === "object") {
+            a = a.version;
+          }
+          if (typeof b === "object") {
+            b = b.version;
+          }
+          return a !== b;
+        case "":
+        case "=":
+        case "==":
+          return eq(a, b, loose);
+        case "!=":
+          return neq(a, b, loose);
+        case ">":
+          return gt(a, b, loose);
+        case ">=":
+          return gte(a, b, loose);
+        case "<":
+          return lt(a, b, loose);
+        case "<=":
+          return lte(a, b, loose);
+        default:
+          throw new TypeError(`Invalid operator: ${op}`);
+      }
+    };
+    module2.exports = cmp;
+  }
+});
+
+// node_modules/semver/functions/coerce.js
+var require_coerce = __commonJS({
+  "node_modules/semver/functions/coerce.js"(exports, module2) {
+    var SemVer = require_semver();
+    var parse = require_parse();
+    var { safeRe: re, t } = require_re();
+    var coerce = (version, options) => {
+      if (version instanceof SemVer) {
+        return version;
+      }
+      if (typeof version === "number") {
+        version = String(version);
+      }
+      if (typeof version !== "string") {
+        return null;
+      }
+      options = options || {};
+      let match = null;
+      if (!options.rtl) {
+        match = version.match(re[t.COERCE]);
+      } else {
+        let next;
+        while ((next = re[t.COERCERTL].exec(version)) && (!match || match.index + match[0].length !== version.length)) {
+          if (!match || next.index + next[0].length !== match.index + match[0].length) {
+            match = next;
+          }
+          re[t.COERCERTL].lastIndex = next.index + next[1].length + next[2].length;
+        }
+        re[t.COERCERTL].lastIndex = -1;
+      }
+      if (match === null) {
+        return null;
+      }
+      return parse(`${match[2]}.${match[3] || "0"}.${match[4] || "0"}`, options);
+    };
+    module2.exports = coerce;
+  }
+});
+
+// node_modules/yallist/iterator.js
+var require_iterator = __commonJS({
+  "node_modules/yallist/iterator.js"(exports, module2) {
+    "use strict";
+    module2.exports = function(Yallist) {
+      Yallist.prototype[Symbol.iterator] = function* () {
+        for (let walker = this.head; walker; walker = walker.next) {
+          yield walker.value;
+        }
+      };
+    };
+  }
+});
+
+// node_modules/yallist/yallist.js
+var require_yallist = __commonJS({
+  "node_modules/yallist/yallist.js"(exports, module2) {
+    "use strict";
+    module2.exports = Yallist;
+    Yallist.Node = Node;
+    Yallist.create = Yallist;
+    function Yallist(list) {
+      var self2 = this;
+      if (!(self2 instanceof Yallist)) {
+        self2 = new Yallist();
+      }
+      self2.tail = null;
+      self2.head = null;
+      self2.length = 0;
+      if (list && typeof list.forEach === "function") {
+        list.forEach(function(item) {
+          self2.push(item);
+        });
+      } else if (arguments.length > 0) {
+        for (var i = 0, l = arguments.length; i < l; i++) {
+          self2.push(arguments[i]);
+        }
+      }
+      return self2;
+    }
+    Yallist.prototype.removeNode = function(node) {
+      if (node.list !== this) {
+        throw new Error("removing node which does not belong to this list");
+      }
+      var next = node.next;
+      var prev = node.prev;
+      if (next) {
+        next.prev = prev;
+      }
+      if (prev) {
+        prev.next = next;
+      }
+      if (node === this.head) {
+        this.head = next;
+      }
+      if (node === this.tail) {
+        this.tail = prev;
+      }
+      node.list.length--;
+      node.next = null;
+      node.prev = null;
+      node.list = null;
+      return next;
+    };
+    Yallist.prototype.unshiftNode = function(node) {
+      if (node === this.head) {
+        return;
+      }
+      if (node.list) {
+        node.list.removeNode(node);
+      }
+      var head = this.head;
+      node.list = this;
+      node.next = head;
+      if (head) {
+        head.prev = node;
+      }
+      this.head = node;
+      if (!this.tail) {
+        this.tail = node;
+      }
+      this.length++;
+    };
+    Yallist.prototype.pushNode = function(node) {
+      if (node === this.tail) {
+        return;
+      }
+      if (node.list) {
+        node.list.removeNode(node);
+      }
+      var tail = this.tail;
+      node.list = this;
+      node.prev = tail;
+      if (tail) {
+        tail.next = node;
+      }
+      this.tail = node;
+      if (!this.head) {
+        this.head = node;
+      }
+      this.length++;
+    };
+    Yallist.prototype.push = function() {
+      for (var i = 0, l = arguments.length; i < l; i++) {
+        push(this, arguments[i]);
+      }
+      return this.length;
+    };
+    Yallist.prototype.unshift = function() {
+      for (var i = 0, l = arguments.length; i < l; i++) {
+        unshift(this, arguments[i]);
+      }
+      return this.length;
+    };
+    Yallist.prototype.pop = function() {
+      if (!this.tail) {
+        return void 0;
+      }
+      var res = this.tail.value;
+      this.tail = this.tail.prev;
+      if (this.tail) {
+        this.tail.next = null;
+      } else {
+        this.head = null;
+      }
+      this.length--;
+      return res;
+    };
+    Yallist.prototype.shift = function() {
+      if (!this.head) {
+        return void 0;
+      }
+      var res = this.head.value;
+      this.head = this.head.next;
+      if (this.head) {
+        this.head.prev = null;
+      } else {
+        this.tail = null;
+      }
+      this.length--;
+      return res;
+    };
+    Yallist.prototype.forEach = function(fn, thisp) {
+      thisp = thisp || this;
+      for (var walker = this.head, i = 0; walker !== null; i++) {
+        fn.call(thisp, walker.value, i, this);
+        walker = walker.next;
+      }
+    };
+    Yallist.prototype.forEachReverse = function(fn, thisp) {
+      thisp = thisp || this;
+      for (var walker = this.tail, i = this.length - 1; walker !== null; i--) {
+        fn.call(thisp, walker.value, i, this);
+        walker = walker.prev;
+      }
+    };
+    Yallist.prototype.get = function(n) {
+      for (var i = 0, walker = this.head; walker !== null && i < n; i++) {
+        walker = walker.next;
+      }
+      if (i === n && walker !== null) {
+        return walker.value;
+      }
+    };
+    Yallist.prototype.getReverse = function(n) {
+      for (var i = 0, walker = this.tail; walker !== null && i < n; i++) {
+        walker = walker.prev;
+      }
+      if (i === n && walker !== null) {
+        return walker.value;
+      }
+    };
+    Yallist.prototype.map = function(fn, thisp) {
+      thisp = thisp || this;
+      var res = new Yallist();
+      for (var walker = this.head; walker !== null; ) {
+        res.push(fn.call(thisp, walker.value, this));
+        walker = walker.next;
+      }
+      return res;
+    };
+    Yallist.prototype.mapReverse = function(fn, thisp) {
+      thisp = thisp || this;
+      var res = new Yallist();
+      for (var walker = this.tail; walker !== null; ) {
+        res.push(fn.call(thisp, walker.value, this));
+        walker = walker.prev;
+      }
+      return res;
+    };
+    Yallist.prototype.reduce = function(fn, initial) {
+      var acc;
+      var walker = this.head;
+      if (arguments.length > 1) {
+        acc = initial;
+      } else if (this.head) {
+        walker = this.head.next;
+        acc = this.head.value;
+      } else {
+        throw new TypeError("Reduce of empty list with no initial value");
+      }
+      for (var i = 0; walker !== null; i++) {
+        acc = fn(acc, walker.value, i);
+        walker = walker.next;
+      }
+      return acc;
+    };
+    Yallist.prototype.reduceReverse = function(fn, initial) {
+      var acc;
+      var walker = this.tail;
+      if (arguments.length > 1) {
+        acc = initial;
+      } else if (this.tail) {
+        walker = this.tail.prev;
+        acc = this.tail.value;
+      } else {
+        throw new TypeError("Reduce of empty list with no initial value");
+      }
+      for (var i = this.length - 1; walker !== null; i--) {
+        acc = fn(acc, walker.value, i);
+        walker = walker.prev;
+      }
+      return acc;
+    };
+    Yallist.prototype.toArray = function() {
+      var arr = new Array(this.length);
+      for (var i = 0, walker = this.head; walker !== null; i++) {
+        arr[i] = walker.value;
+        walker = walker.next;
+      }
+      return arr;
+    };
+    Yallist.prototype.toArrayReverse = function() {
+      var arr = new Array(this.length);
+      for (var i = 0, walker = this.tail; walker !== null; i++) {
+        arr[i] = walker.value;
+        walker = walker.prev;
+      }
+      return arr;
+    };
+    Yallist.prototype.slice = function(from, to) {
+      to = to || this.length;
+      if (to < 0) {
+        to += this.length;
+      }
+      from = from || 0;
+      if (from < 0) {
+        from += this.length;
+      }
+      var ret = new Yallist();
+      if (to < from || to < 0) {
+        return ret;
+      }
+      if (from < 0) {
+        from = 0;
+      }
+      if (to > this.length) {
+        to = this.length;
+      }
+      for (var i = 0, walker = this.head; walker !== null && i < from; i++) {
+        walker = walker.next;
+      }
+      for (; walker !== null && i < to; i++, walker = walker.next) {
+        ret.push(walker.value);
+      }
+      return ret;
+    };
+    Yallist.prototype.sliceReverse = function(from, to) {
+      to = to || this.length;
+      if (to < 0) {
+        to += this.length;
+      }
+      from = from || 0;
+      if (from < 0) {
+        from += this.length;
+      }
+      var ret = new Yallist();
+      if (to < from || to < 0) {
+        return ret;
+      }
+      if (from < 0) {
+        from = 0;
+      }
+      if (to > this.length) {
+        to = this.length;
+      }
+      for (var i = this.length, walker = this.tail; walker !== null && i > to; i--) {
+        walker = walker.prev;
+      }
+      for (; walker !== null && i > from; i--, walker = walker.prev) {
+        ret.push(walker.value);
+      }
+      return ret;
+    };
+    Yallist.prototype.splice = function(start, deleteCount, ...nodes) {
+      if (start > this.length) {
+        start = this.length - 1;
+      }
+      if (start < 0) {
+        start = this.length + start;
+      }
+      for (var i = 0, walker = this.head; walker !== null && i < start; i++) {
+        walker = walker.next;
+      }
+      var ret = [];
+      for (var i = 0; walker && i < deleteCount; i++) {
+        ret.push(walker.value);
+        walker = this.removeNode(walker);
+      }
+      if (walker === null) {
+        walker = this.tail;
+      }
+      if (walker !== this.head && walker !== this.tail) {
+        walker = walker.prev;
+      }
+      for (var i = 0; i < nodes.length; i++) {
+        walker = insert2(this, walker, nodes[i]);
+      }
+      return ret;
+    };
+    Yallist.prototype.reverse = function() {
+      var head = this.head;
+      var tail = this.tail;
+      for (var walker = head; walker !== null; walker = walker.prev) {
+        var p = walker.prev;
+        walker.prev = walker.next;
+        walker.next = p;
+      }
+      this.head = tail;
+      this.tail = head;
+      return this;
+    };
+    function insert2(self2, node, value) {
+      var inserted = node === self2.head ? new Node(value, null, node, self2) : new Node(value, node, node.next, self2);
+      if (inserted.next === null) {
+        self2.tail = inserted;
+      }
+      if (inserted.prev === null) {
+        self2.head = inserted;
+      }
+      self2.length++;
+      return inserted;
+    }
+    function push(self2, item) {
+      self2.tail = new Node(item, self2.tail, null, self2);
+      if (!self2.head) {
+        self2.head = self2.tail;
+      }
+      self2.length++;
+    }
+    function unshift(self2, item) {
+      self2.head = new Node(item, null, self2.head, self2);
+      if (!self2.tail) {
+        self2.tail = self2.head;
+      }
+      self2.length++;
+    }
+    function Node(value, prev, next, list) {
+      if (!(this instanceof Node)) {
+        return new Node(value, prev, next, list);
+      }
+      this.list = list;
+      this.value = value;
+      if (prev) {
+        prev.next = this;
+        this.prev = prev;
+      } else {
+        this.prev = null;
+      }
+      if (next) {
+        next.prev = this;
+        this.next = next;
+      } else {
+        this.next = null;
+      }
+    }
+    try {
+      require_iterator()(Yallist);
+    } catch (er) {
+    }
+  }
+});
+
+// node_modules/lru-cache/index.js
+var require_lru_cache = __commonJS({
+  "node_modules/lru-cache/index.js"(exports, module2) {
+    "use strict";
+    var Yallist = require_yallist();
+    var MAX = Symbol("max");
+    var LENGTH = Symbol("length");
+    var LENGTH_CALCULATOR = Symbol("lengthCalculator");
+    var ALLOW_STALE = Symbol("allowStale");
+    var MAX_AGE = Symbol("maxAge");
+    var DISPOSE = Symbol("dispose");
+    var NO_DISPOSE_ON_SET = Symbol("noDisposeOnSet");
+    var LRU_LIST = Symbol("lruList");
+    var CACHE = Symbol("cache");
+    var UPDATE_AGE_ON_GET = Symbol("updateAgeOnGet");
+    var naiveLength = () => 1;
+    var LRUCache = class {
+      constructor(options) {
+        if (typeof options === "number")
+          options = { max: options };
+        if (!options)
+          options = {};
+        if (options.max && (typeof options.max !== "number" || options.max < 0))
+          throw new TypeError("max must be a non-negative number");
+        const max = this[MAX] = options.max || Infinity;
+        const lc = options.length || naiveLength;
+        this[LENGTH_CALCULATOR] = typeof lc !== "function" ? naiveLength : lc;
+        this[ALLOW_STALE] = options.stale || false;
+        if (options.maxAge && typeof options.maxAge !== "number")
+          throw new TypeError("maxAge must be a number");
+        this[MAX_AGE] = options.maxAge || 0;
+        this[DISPOSE] = options.dispose;
+        this[NO_DISPOSE_ON_SET] = options.noDisposeOnSet || false;
+        this[UPDATE_AGE_ON_GET] = options.updateAgeOnGet || false;
+        this.reset();
+      }
+      set max(mL) {
+        if (typeof mL !== "number" || mL < 0)
+          throw new TypeError("max must be a non-negative number");
+        this[MAX] = mL || Infinity;
+        trim(this);
+      }
+      get max() {
+        return this[MAX];
+      }
+      set allowStale(allowStale) {
+        this[ALLOW_STALE] = !!allowStale;
+      }
+      get allowStale() {
+        return this[ALLOW_STALE];
+      }
+      set maxAge(mA) {
+        if (typeof mA !== "number")
+          throw new TypeError("maxAge must be a non-negative number");
+        this[MAX_AGE] = mA;
+        trim(this);
+      }
+      get maxAge() {
+        return this[MAX_AGE];
+      }
+      set lengthCalculator(lC) {
+        if (typeof lC !== "function")
+          lC = naiveLength;
+        if (lC !== this[LENGTH_CALCULATOR]) {
+          this[LENGTH_CALCULATOR] = lC;
+          this[LENGTH] = 0;
+          this[LRU_LIST].forEach((hit) => {
+            hit.length = this[LENGTH_CALCULATOR](hit.value, hit.key);
+            this[LENGTH] += hit.length;
+          });
+        }
+        trim(this);
+      }
+      get lengthCalculator() {
+        return this[LENGTH_CALCULATOR];
+      }
+      get length() {
+        return this[LENGTH];
+      }
+      get itemCount() {
+        return this[LRU_LIST].length;
+      }
+      rforEach(fn, thisp) {
+        thisp = thisp || this;
+        for (let walker = this[LRU_LIST].tail; walker !== null; ) {
+          const prev = walker.prev;
+          forEachStep(this, fn, walker, thisp);
+          walker = prev;
+        }
+      }
+      forEach(fn, thisp) {
+        thisp = thisp || this;
+        for (let walker = this[LRU_LIST].head; walker !== null; ) {
+          const next = walker.next;
+          forEachStep(this, fn, walker, thisp);
+          walker = next;
+        }
+      }
+      keys() {
+        return this[LRU_LIST].toArray().map((k) => k.key);
+      }
+      values() {
+        return this[LRU_LIST].toArray().map((k) => k.value);
+      }
+      reset() {
+        if (this[DISPOSE] && this[LRU_LIST] && this[LRU_LIST].length) {
+          this[LRU_LIST].forEach((hit) => this[DISPOSE](hit.key, hit.value));
+        }
+        this[CACHE] = /* @__PURE__ */ new Map();
+        this[LRU_LIST] = new Yallist();
+        this[LENGTH] = 0;
+      }
+      dump() {
+        return this[LRU_LIST].map((hit) => isStale(this, hit) ? false : {
+          k: hit.key,
+          v: hit.value,
+          e: hit.now + (hit.maxAge || 0)
+        }).toArray().filter((h) => h);
+      }
+      dumpLru() {
+        return this[LRU_LIST];
+      }
+      set(key, value, maxAge) {
+        maxAge = maxAge || this[MAX_AGE];
+        if (maxAge && typeof maxAge !== "number")
+          throw new TypeError("maxAge must be a number");
+        const now = maxAge ? Date.now() : 0;
+        const len = this[LENGTH_CALCULATOR](value, key);
+        if (this[CACHE].has(key)) {
+          if (len > this[MAX]) {
+            del(this, this[CACHE].get(key));
+            return false;
+          }
+          const node = this[CACHE].get(key);
+          const item = node.value;
+          if (this[DISPOSE]) {
+            if (!this[NO_DISPOSE_ON_SET])
+              this[DISPOSE](key, item.value);
+          }
+          item.now = now;
+          item.maxAge = maxAge;
+          item.value = value;
+          this[LENGTH] += len - item.length;
+          item.length = len;
+          this.get(key);
+          trim(this);
+          return true;
+        }
+        const hit = new Entry(key, value, len, now, maxAge);
+        if (hit.length > this[MAX]) {
+          if (this[DISPOSE])
+            this[DISPOSE](key, value);
+          return false;
+        }
+        this[LENGTH] += hit.length;
+        this[LRU_LIST].unshift(hit);
+        this[CACHE].set(key, this[LRU_LIST].head);
+        trim(this);
+        return true;
+      }
+      has(key) {
+        if (!this[CACHE].has(key))
+          return false;
+        const hit = this[CACHE].get(key).value;
+        return !isStale(this, hit);
+      }
+      get(key) {
+        return get(this, key, true);
+      }
+      peek(key) {
+        return get(this, key, false);
+      }
+      pop() {
+        const node = this[LRU_LIST].tail;
+        if (!node)
+          return null;
+        del(this, node);
+        return node.value;
+      }
+      del(key) {
+        del(this, this[CACHE].get(key));
+      }
+      load(arr) {
+        this.reset();
+        const now = Date.now();
+        for (let l = arr.length - 1; l >= 0; l--) {
+          const hit = arr[l];
+          const expiresAt = hit.e || 0;
+          if (expiresAt === 0)
+            this.set(hit.k, hit.v);
+          else {
+            const maxAge = expiresAt - now;
+            if (maxAge > 0) {
+              this.set(hit.k, hit.v, maxAge);
+            }
+          }
+        }
+      }
+      prune() {
+        this[CACHE].forEach((value, key) => get(this, key, false));
+      }
+    };
+    var get = (self2, key, doUse) => {
+      const node = self2[CACHE].get(key);
+      if (node) {
+        const hit = node.value;
+        if (isStale(self2, hit)) {
+          del(self2, node);
+          if (!self2[ALLOW_STALE])
+            return void 0;
+        } else {
+          if (doUse) {
+            if (self2[UPDATE_AGE_ON_GET])
+              node.value.now = Date.now();
+            self2[LRU_LIST].unshiftNode(node);
+          }
+        }
+        return hit.value;
+      }
+    };
+    var isStale = (self2, hit) => {
+      if (!hit || !hit.maxAge && !self2[MAX_AGE])
+        return false;
+      const diff = Date.now() - hit.now;
+      return hit.maxAge ? diff > hit.maxAge : self2[MAX_AGE] && diff > self2[MAX_AGE];
+    };
+    var trim = (self2) => {
+      if (self2[LENGTH] > self2[MAX]) {
+        for (let walker = self2[LRU_LIST].tail; self2[LENGTH] > self2[MAX] && walker !== null; ) {
+          const prev = walker.prev;
+          del(self2, walker);
+          walker = prev;
+        }
+      }
+    };
+    var del = (self2, node) => {
+      if (node) {
+        const hit = node.value;
+        if (self2[DISPOSE])
+          self2[DISPOSE](hit.key, hit.value);
+        self2[LENGTH] -= hit.length;
+        self2[CACHE].delete(hit.key);
+        self2[LRU_LIST].removeNode(node);
+      }
+    };
+    var Entry = class {
+      constructor(key, value, length, now, maxAge) {
+        this.key = key;
+        this.value = value;
+        this.length = length;
+        this.now = now;
+        this.maxAge = maxAge || 0;
+      }
+    };
+    var forEachStep = (self2, fn, node, thisp) => {
+      let hit = node.value;
+      if (isStale(self2, hit)) {
+        del(self2, node);
+        if (!self2[ALLOW_STALE])
+          hit = void 0;
+      }
+      if (hit)
+        fn.call(thisp, hit.value, hit.key, self2);
+    };
+    module2.exports = LRUCache;
+  }
+});
+
+// node_modules/semver/classes/range.js
+var require_range = __commonJS({
+  "node_modules/semver/classes/range.js"(exports, module2) {
+    var Range = class {
+      constructor(range, options) {
+        options = parseOptions(options);
+        if (range instanceof Range) {
+          if (range.loose === !!options.loose && range.includePrerelease === !!options.includePrerelease) {
+            return range;
+          } else {
+            return new Range(range.raw, options);
+          }
+        }
+        if (range instanceof Comparator) {
+          this.raw = range.value;
+          this.set = [[range]];
+          this.format();
+          return this;
+        }
+        this.options = options;
+        this.loose = !!options.loose;
+        this.includePrerelease = !!options.includePrerelease;
+        this.raw = range.trim().split(/\s+/).join(" ");
+        this.set = this.raw.split("||").map((r) => this.parseRange(r.trim())).filter((c) => c.length);
+        if (!this.set.length) {
+          throw new TypeError(`Invalid SemVer Range: ${this.raw}`);
+        }
+        if (this.set.length > 1) {
+          const first = this.set[0];
+          this.set = this.set.filter((c) => !isNullSet(c[0]));
+          if (this.set.length === 0) {
+            this.set = [first];
+          } else if (this.set.length > 1) {
+            for (const c of this.set) {
+              if (c.length === 1 && isAny(c[0])) {
+                this.set = [c];
+                break;
+              }
+            }
+          }
+        }
+        this.format();
+      }
+      format() {
+        this.range = this.set.map((comps) => comps.join(" ").trim()).join("||").trim();
+        return this.range;
+      }
+      toString() {
+        return this.range;
+      }
+      parseRange(range) {
+        const memoOpts = (this.options.includePrerelease && FLAG_INCLUDE_PRERELEASE) | (this.options.loose && FLAG_LOOSE);
+        const memoKey = memoOpts + ":" + range;
+        const cached = cache.get(memoKey);
+        if (cached) {
+          return cached;
+        }
+        const loose = this.options.loose;
+        const hr = loose ? re[t.HYPHENRANGELOOSE] : re[t.HYPHENRANGE];
+        range = range.replace(hr, hyphenReplace(this.options.includePrerelease));
+        debug("hyphen replace", range);
+        range = range.replace(re[t.COMPARATORTRIM], comparatorTrimReplace);
+        debug("comparator trim", range);
+        range = range.replace(re[t.TILDETRIM], tildeTrimReplace);
+        debug("tilde trim", range);
+        range = range.replace(re[t.CARETTRIM], caretTrimReplace);
+        debug("caret trim", range);
+        let rangeList = range.split(" ").map((comp) => parseComparator(comp, this.options)).join(" ").split(/\s+/).map((comp) => replaceGTE0(comp, this.options));
+        if (loose) {
+          rangeList = rangeList.filter((comp) => {
+            debug("loose invalid filter", comp, this.options);
+            return !!comp.match(re[t.COMPARATORLOOSE]);
+          });
+        }
+        debug("range list", rangeList);
+        const rangeMap = /* @__PURE__ */ new Map();
+        const comparators = rangeList.map((comp) => new Comparator(comp, this.options));
+        for (const comp of comparators) {
+          if (isNullSet(comp)) {
+            return [comp];
+          }
+          rangeMap.set(comp.value, comp);
+        }
+        if (rangeMap.size > 1 && rangeMap.has("")) {
+          rangeMap.delete("");
+        }
+        const result = [...rangeMap.values()];
+        cache.set(memoKey, result);
+        return result;
+      }
+      intersects(range, options) {
+        if (!(range instanceof Range)) {
+          throw new TypeError("a Range is required");
+        }
+        return this.set.some((thisComparators) => {
+          return isSatisfiable(thisComparators, options) && range.set.some((rangeComparators) => {
+            return isSatisfiable(rangeComparators, options) && thisComparators.every((thisComparator) => {
+              return rangeComparators.every((rangeComparator) => {
+                return thisComparator.intersects(rangeComparator, options);
+              });
+            });
+          });
+        });
+      }
+      test(version) {
+        if (!version) {
+          return false;
+        }
+        if (typeof version === "string") {
+          try {
+            version = new SemVer(version, this.options);
+          } catch (er) {
+            return false;
+          }
+        }
+        for (let i = 0; i < this.set.length; i++) {
+          if (testSet(this.set[i], version, this.options)) {
+            return true;
+          }
+        }
+        return false;
+      }
+    };
+    module2.exports = Range;
+    var LRU = require_lru_cache();
+    var cache = new LRU({ max: 1e3 });
+    var parseOptions = require_parse_options();
+    var Comparator = require_comparator();
+    var debug = require_debug();
+    var SemVer = require_semver();
+    var {
+      safeRe: re,
+      t,
+      comparatorTrimReplace,
+      tildeTrimReplace,
+      caretTrimReplace
+    } = require_re();
+    var { FLAG_INCLUDE_PRERELEASE, FLAG_LOOSE } = require_constants();
+    var isNullSet = (c) => c.value === "<0.0.0-0";
+    var isAny = (c) => c.value === "";
+    var isSatisfiable = (comparators, options) => {
+      let result = true;
+      const remainingComparators = comparators.slice();
+      let testComparator = remainingComparators.pop();
+      while (result && remainingComparators.length) {
+        result = remainingComparators.every((otherComparator) => {
+          return testComparator.intersects(otherComparator, options);
+        });
+        testComparator = remainingComparators.pop();
+      }
+      return result;
+    };
+    var parseComparator = (comp, options) => {
+      debug("comp", comp, options);
+      comp = replaceCarets(comp, options);
+      debug("caret", comp);
+      comp = replaceTildes(comp, options);
+      debug("tildes", comp);
+      comp = replaceXRanges(comp, options);
+      debug("xrange", comp);
+      comp = replaceStars(comp, options);
+      debug("stars", comp);
+      return comp;
+    };
+    var isX = (id) => !id || id.toLowerCase() === "x" || id === "*";
+    var replaceTildes = (comp, options) => {
+      return comp.trim().split(/\s+/).map((c) => replaceTilde(c, options)).join(" ");
+    };
+    var replaceTilde = (comp, options) => {
+      const r = options.loose ? re[t.TILDELOOSE] : re[t.TILDE];
+      return comp.replace(r, (_, M, m, p, pr) => {
+        debug("tilde", comp, _, M, m, p, pr);
+        let ret;
+        if (isX(M)) {
+          ret = "";
+        } else if (isX(m)) {
+          ret = `>=${M}.0.0 <${+M + 1}.0.0-0`;
+        } else if (isX(p)) {
+          ret = `>=${M}.${m}.0 <${M}.${+m + 1}.0-0`;
+        } else if (pr) {
+          debug("replaceTilde pr", pr);
+          ret = `>=${M}.${m}.${p}-${pr} <${M}.${+m + 1}.0-0`;
+        } else {
+          ret = `>=${M}.${m}.${p} <${M}.${+m + 1}.0-0`;
+        }
+        debug("tilde return", ret);
+        return ret;
+      });
+    };
+    var replaceCarets = (comp, options) => {
+      return comp.trim().split(/\s+/).map((c) => replaceCaret(c, options)).join(" ");
+    };
+    var replaceCaret = (comp, options) => {
+      debug("caret", comp, options);
+      const r = options.loose ? re[t.CARETLOOSE] : re[t.CARET];
+      const z = options.includePrerelease ? "-0" : "";
+      return comp.replace(r, (_, M, m, p, pr) => {
+        debug("caret", comp, _, M, m, p, pr);
+        let ret;
+        if (isX(M)) {
+          ret = "";
+        } else if (isX(m)) {
+          ret = `>=${M}.0.0${z} <${+M + 1}.0.0-0`;
+        } else if (isX(p)) {
+          if (M === "0") {
+            ret = `>=${M}.${m}.0${z} <${M}.${+m + 1}.0-0`;
+          } else {
+            ret = `>=${M}.${m}.0${z} <${+M + 1}.0.0-0`;
+          }
+        } else if (pr) {
+          debug("replaceCaret pr", pr);
+          if (M === "0") {
+            if (m === "0") {
+              ret = `>=${M}.${m}.${p}-${pr} <${M}.${m}.${+p + 1}-0`;
+            } else {
+              ret = `>=${M}.${m}.${p}-${pr} <${M}.${+m + 1}.0-0`;
+            }
+          } else {
+            ret = `>=${M}.${m}.${p}-${pr} <${+M + 1}.0.0-0`;
+          }
+        } else {
+          debug("no pr");
+          if (M === "0") {
+            if (m === "0") {
+              ret = `>=${M}.${m}.${p}${z} <${M}.${m}.${+p + 1}-0`;
+            } else {
+              ret = `>=${M}.${m}.${p}${z} <${M}.${+m + 1}.0-0`;
+            }
+          } else {
+            ret = `>=${M}.${m}.${p} <${+M + 1}.0.0-0`;
+          }
+        }
+        debug("caret return", ret);
+        return ret;
+      });
+    };
+    var replaceXRanges = (comp, options) => {
+      debug("replaceXRanges", comp, options);
+      return comp.split(/\s+/).map((c) => replaceXRange(c, options)).join(" ");
+    };
+    var replaceXRange = (comp, options) => {
+      comp = comp.trim();
+      const r = options.loose ? re[t.XRANGELOOSE] : re[t.XRANGE];
+      return comp.replace(r, (ret, gtlt, M, m, p, pr) => {
+        debug("xRange", comp, ret, gtlt, M, m, p, pr);
+        const xM = isX(M);
+        const xm = xM || isX(m);
+        const xp = xm || isX(p);
+        const anyX = xp;
+        if (gtlt === "=" && anyX) {
+          gtlt = "";
+        }
+        pr = options.includePrerelease ? "-0" : "";
+        if (xM) {
+          if (gtlt === ">" || gtlt === "<") {
+            ret = "<0.0.0-0";
+          } else {
+            ret = "*";
+          }
+        } else if (gtlt && anyX) {
+          if (xm) {
+            m = 0;
+          }
+          p = 0;
+          if (gtlt === ">") {
+            gtlt = ">=";
+            if (xm) {
+              M = +M + 1;
+              m = 0;
+              p = 0;
+            } else {
+              m = +m + 1;
+              p = 0;
+            }
+          } else if (gtlt === "<=") {
+            gtlt = "<";
+            if (xm) {
+              M = +M + 1;
+            } else {
+              m = +m + 1;
+            }
+          }
+          if (gtlt === "<") {
+            pr = "-0";
+          }
+          ret = `${gtlt + M}.${m}.${p}${pr}`;
+        } else if (xm) {
+          ret = `>=${M}.0.0${pr} <${+M + 1}.0.0-0`;
+        } else if (xp) {
+          ret = `>=${M}.${m}.0${pr} <${M}.${+m + 1}.0-0`;
+        }
+        debug("xRange return", ret);
+        return ret;
+      });
+    };
+    var replaceStars = (comp, options) => {
+      debug("replaceStars", comp, options);
+      return comp.trim().replace(re[t.STAR], "");
+    };
+    var replaceGTE0 = (comp, options) => {
+      debug("replaceGTE0", comp, options);
+      return comp.trim().replace(re[options.includePrerelease ? t.GTE0PRE : t.GTE0], "");
+    };
+    var hyphenReplace = (incPr) => ($0, from, fM, fm, fp, fpr, fb, to, tM, tm, tp, tpr, tb) => {
+      if (isX(fM)) {
+        from = "";
+      } else if (isX(fm)) {
+        from = `>=${fM}.0.0${incPr ? "-0" : ""}`;
+      } else if (isX(fp)) {
+        from = `>=${fM}.${fm}.0${incPr ? "-0" : ""}`;
+      } else if (fpr) {
+        from = `>=${from}`;
+      } else {
+        from = `>=${from}${incPr ? "-0" : ""}`;
+      }
+      if (isX(tM)) {
+        to = "";
+      } else if (isX(tm)) {
+        to = `<${+tM + 1}.0.0-0`;
+      } else if (isX(tp)) {
+        to = `<${tM}.${+tm + 1}.0-0`;
+      } else if (tpr) {
+        to = `<=${tM}.${tm}.${tp}-${tpr}`;
+      } else if (incPr) {
+        to = `<${tM}.${tm}.${+tp + 1}-0`;
+      } else {
+        to = `<=${to}`;
+      }
+      return `${from} ${to}`.trim();
+    };
+    var testSet = (set, version, options) => {
+      for (let i = 0; i < set.length; i++) {
+        if (!set[i].test(version)) {
+          return false;
+        }
+      }
+      if (version.prerelease.length && !options.includePrerelease) {
+        for (let i = 0; i < set.length; i++) {
+          debug(set[i].semver);
+          if (set[i].semver === Comparator.ANY) {
+            continue;
+          }
+          if (set[i].semver.prerelease.length > 0) {
+            const allowed = set[i].semver;
+            if (allowed.major === version.major && allowed.minor === version.minor && allowed.patch === version.patch) {
+              return true;
+            }
+          }
+        }
+        return false;
+      }
+      return true;
+    };
+  }
+});
+
+// node_modules/semver/classes/comparator.js
+var require_comparator = __commonJS({
+  "node_modules/semver/classes/comparator.js"(exports, module2) {
+    var ANY = Symbol("SemVer ANY");
+    var Comparator = class {
+      static get ANY() {
+        return ANY;
+      }
+      constructor(comp, options) {
+        options = parseOptions(options);
+        if (comp instanceof Comparator) {
+          if (comp.loose === !!options.loose) {
+            return comp;
+          } else {
+            comp = comp.value;
+          }
+        }
+        comp = comp.trim().split(/\s+/).join(" ");
+        debug("comparator", comp, options);
+        this.options = options;
+        this.loose = !!options.loose;
+        this.parse(comp);
+        if (this.semver === ANY) {
+          this.value = "";
+        } else {
+          this.value = this.operator + this.semver.version;
+        }
+        debug("comp", this);
+      }
+      parse(comp) {
+        const r = this.options.loose ? re[t.COMPARATORLOOSE] : re[t.COMPARATOR];
+        const m = comp.match(r);
+        if (!m) {
+          throw new TypeError(`Invalid comparator: ${comp}`);
+        }
+        this.operator = m[1] !== void 0 ? m[1] : "";
+        if (this.operator === "=") {
+          this.operator = "";
+        }
+        if (!m[2]) {
+          this.semver = ANY;
+        } else {
+          this.semver = new SemVer(m[2], this.options.loose);
+        }
+      }
+      toString() {
+        return this.value;
+      }
+      test(version) {
+        debug("Comparator.test", version, this.options.loose);
+        if (this.semver === ANY || version === ANY) {
+          return true;
+        }
+        if (typeof version === "string") {
+          try {
+            version = new SemVer(version, this.options);
+          } catch (er) {
+            return false;
+          }
+        }
+        return cmp(version, this.operator, this.semver, this.options);
+      }
+      intersects(comp, options) {
+        if (!(comp instanceof Comparator)) {
+          throw new TypeError("a Comparator is required");
+        }
+        if (this.operator === "") {
+          if (this.value === "") {
+            return true;
+          }
+          return new Range(comp.value, options).test(this.value);
+        } else if (comp.operator === "") {
+          if (comp.value === "") {
+            return true;
+          }
+          return new Range(this.value, options).test(comp.semver);
+        }
+        options = parseOptions(options);
+        if (options.includePrerelease && (this.value === "<0.0.0-0" || comp.value === "<0.0.0-0")) {
+          return false;
+        }
+        if (!options.includePrerelease && (this.value.startsWith("<0.0.0") || comp.value.startsWith("<0.0.0"))) {
+          return false;
+        }
+        if (this.operator.startsWith(">") && comp.operator.startsWith(">")) {
+          return true;
+        }
+        if (this.operator.startsWith("<") && comp.operator.startsWith("<")) {
+          return true;
+        }
+        if (this.semver.version === comp.semver.version && this.operator.includes("=") && comp.operator.includes("=")) {
+          return true;
+        }
+        if (cmp(this.semver, "<", comp.semver, options) && this.operator.startsWith(">") && comp.operator.startsWith("<")) {
+          return true;
+        }
+        if (cmp(this.semver, ">", comp.semver, options) && this.operator.startsWith("<") && comp.operator.startsWith(">")) {
+          return true;
+        }
+        return false;
+      }
+    };
+    module2.exports = Comparator;
+    var parseOptions = require_parse_options();
+    var { safeRe: re, t } = require_re();
+    var cmp = require_cmp();
+    var debug = require_debug();
+    var SemVer = require_semver();
+    var Range = require_range();
+  }
+});
+
+// node_modules/semver/functions/satisfies.js
+var require_satisfies = __commonJS({
+  "node_modules/semver/functions/satisfies.js"(exports, module2) {
+    var Range = require_range();
+    var satisfies = (version, range, options) => {
+      try {
+        range = new Range(range, options);
+      } catch (er) {
+        return false;
+      }
+      return range.test(version);
+    };
+    module2.exports = satisfies;
+  }
+});
+
+// node_modules/semver/ranges/to-comparators.js
+var require_to_comparators = __commonJS({
+  "node_modules/semver/ranges/to-comparators.js"(exports, module2) {
+    var Range = require_range();
+    var toComparators = (range, options) => new Range(range, options).set.map((comp) => comp.map((c) => c.value).join(" ").trim().split(" "));
+    module2.exports = toComparators;
+  }
+});
+
+// node_modules/semver/ranges/max-satisfying.js
+var require_max_satisfying = __commonJS({
+  "node_modules/semver/ranges/max-satisfying.js"(exports, module2) {
+    var SemVer = require_semver();
+    var Range = require_range();
+    var maxSatisfying = (versions, range, options) => {
+      let max = null;
+      let maxSV = null;
+      let rangeObj = null;
+      try {
+        rangeObj = new Range(range, options);
+      } catch (er) {
+        return null;
+      }
+      versions.forEach((v) => {
+        if (rangeObj.test(v)) {
+          if (!max || maxSV.compare(v) === -1) {
+            max = v;
+            maxSV = new SemVer(max, options);
+          }
+        }
+      });
+      return max;
+    };
+    module2.exports = maxSatisfying;
+  }
+});
+
+// node_modules/semver/ranges/min-satisfying.js
+var require_min_satisfying = __commonJS({
+  "node_modules/semver/ranges/min-satisfying.js"(exports, module2) {
+    var SemVer = require_semver();
+    var Range = require_range();
+    var minSatisfying = (versions, range, options) => {
+      let min = null;
+      let minSV = null;
+      let rangeObj = null;
+      try {
+        rangeObj = new Range(range, options);
+      } catch (er) {
+        return null;
+      }
+      versions.forEach((v) => {
+        if (rangeObj.test(v)) {
+          if (!min || minSV.compare(v) === 1) {
+            min = v;
+            minSV = new SemVer(min, options);
+          }
+        }
+      });
+      return min;
+    };
+    module2.exports = minSatisfying;
+  }
+});
+
+// node_modules/semver/ranges/min-version.js
+var require_min_version = __commonJS({
+  "node_modules/semver/ranges/min-version.js"(exports, module2) {
+    var SemVer = require_semver();
+    var Range = require_range();
+    var gt = require_gt();
+    var minVersion = (range, loose) => {
+      range = new Range(range, loose);
+      let minver = new SemVer("0.0.0");
+      if (range.test(minver)) {
+        return minver;
+      }
+      minver = new SemVer("0.0.0-0");
+      if (range.test(minver)) {
+        return minver;
+      }
+      minver = null;
+      for (let i = 0; i < range.set.length; ++i) {
+        const comparators = range.set[i];
+        let setMin = null;
+        comparators.forEach((comparator) => {
+          const compver = new SemVer(comparator.semver.version);
+          switch (comparator.operator) {
+            case ">":
+              if (compver.prerelease.length === 0) {
+                compver.patch++;
+              } else {
+                compver.prerelease.push(0);
+              }
+              compver.raw = compver.format();
+            case "":
+            case ">=":
+              if (!setMin || gt(compver, setMin)) {
+                setMin = compver;
+              }
+              break;
+            case "<":
+            case "<=":
+              break;
+            default:
+              throw new Error(`Unexpected operation: ${comparator.operator}`);
+          }
+        });
+        if (setMin && (!minver || gt(minver, setMin))) {
+          minver = setMin;
+        }
+      }
+      if (minver && range.test(minver)) {
+        return minver;
+      }
+      return null;
+    };
+    module2.exports = minVersion;
+  }
+});
+
+// node_modules/semver/ranges/valid.js
+var require_valid2 = __commonJS({
+  "node_modules/semver/ranges/valid.js"(exports, module2) {
+    var Range = require_range();
+    var validRange = (range, options) => {
+      try {
+        return new Range(range, options).range || "*";
+      } catch (er) {
+        return null;
+      }
+    };
+    module2.exports = validRange;
+  }
+});
+
+// node_modules/semver/ranges/outside.js
+var require_outside = __commonJS({
+  "node_modules/semver/ranges/outside.js"(exports, module2) {
+    var SemVer = require_semver();
+    var Comparator = require_comparator();
+    var { ANY } = Comparator;
+    var Range = require_range();
+    var satisfies = require_satisfies();
+    var gt = require_gt();
+    var lt = require_lt();
+    var lte = require_lte();
+    var gte = require_gte();
+    var outside = (version, range, hilo, options) => {
+      version = new SemVer(version, options);
+      range = new Range(range, options);
+      let gtfn, ltefn, ltfn, comp, ecomp;
+      switch (hilo) {
+        case ">":
+          gtfn = gt;
+          ltefn = lte;
+          ltfn = lt;
+          comp = ">";
+          ecomp = ">=";
+          break;
+        case "<":
+          gtfn = lt;
+          ltefn = gte;
+          ltfn = gt;
+          comp = "<";
+          ecomp = "<=";
+          break;
+        default:
+          throw new TypeError('Must provide a hilo val of "<" or ">"');
+      }
+      if (satisfies(version, range, options)) {
+        return false;
+      }
+      for (let i = 0; i < range.set.length; ++i) {
+        const comparators = range.set[i];
+        let high = null;
+        let low = null;
+        comparators.forEach((comparator) => {
+          if (comparator.semver === ANY) {
+            comparator = new Comparator(">=0.0.0");
+          }
+          high = high || comparator;
+          low = low || comparator;
+          if (gtfn(comparator.semver, high.semver, options)) {
+            high = comparator;
+          } else if (ltfn(comparator.semver, low.semver, options)) {
+            low = comparator;
+          }
+        });
+        if (high.operator === comp || high.operator === ecomp) {
+          return false;
+        }
+        if ((!low.operator || low.operator === comp) && ltefn(version, low.semver)) {
+          return false;
+        } else if (low.operator === ecomp && ltfn(version, low.semver)) {
+          return false;
+        }
+      }
+      return true;
+    };
+    module2.exports = outside;
+  }
+});
+
+// node_modules/semver/ranges/gtr.js
+var require_gtr = __commonJS({
+  "node_modules/semver/ranges/gtr.js"(exports, module2) {
+    var outside = require_outside();
+    var gtr = (version, range, options) => outside(version, range, ">", options);
+    module2.exports = gtr;
+  }
+});
+
+// node_modules/semver/ranges/ltr.js
+var require_ltr = __commonJS({
+  "node_modules/semver/ranges/ltr.js"(exports, module2) {
+    var outside = require_outside();
+    var ltr = (version, range, options) => outside(version, range, "<", options);
+    module2.exports = ltr;
+  }
+});
+
+// node_modules/semver/ranges/intersects.js
+var require_intersects = __commonJS({
+  "node_modules/semver/ranges/intersects.js"(exports, module2) {
+    var Range = require_range();
+    var intersects = (r1, r2, options) => {
+      r1 = new Range(r1, options);
+      r2 = new Range(r2, options);
+      return r1.intersects(r2, options);
+    };
+    module2.exports = intersects;
+  }
+});
+
+// node_modules/semver/ranges/simplify.js
+var require_simplify = __commonJS({
+  "node_modules/semver/ranges/simplify.js"(exports, module2) {
+    var satisfies = require_satisfies();
+    var compare = require_compare();
+    module2.exports = (versions, range, options) => {
+      const set = [];
+      let first = null;
+      let prev = null;
+      const v = versions.sort((a, b) => compare(a, b, options));
+      for (const version of v) {
+        const included = satisfies(version, range, options);
+        if (included) {
+          prev = version;
+          if (!first) {
+            first = version;
+          }
+        } else {
+          if (prev) {
+            set.push([first, prev]);
+          }
+          prev = null;
+          first = null;
+        }
+      }
+      if (first) {
+        set.push([first, null]);
+      }
+      const ranges = [];
+      for (const [min, max] of set) {
+        if (min === max) {
+          ranges.push(min);
+        } else if (!max && min === v[0]) {
+          ranges.push("*");
+        } else if (!max) {
+          ranges.push(`>=${min}`);
+        } else if (min === v[0]) {
+          ranges.push(`<=${max}`);
+        } else {
+          ranges.push(`${min} - ${max}`);
+        }
+      }
+      const simplified = ranges.join(" || ");
+      const original = typeof range.raw === "string" ? range.raw : String(range);
+      return simplified.length < original.length ? simplified : range;
+    };
+  }
+});
+
+// node_modules/semver/ranges/subset.js
+var require_subset = __commonJS({
+  "node_modules/semver/ranges/subset.js"(exports, module2) {
+    var Range = require_range();
+    var Comparator = require_comparator();
+    var { ANY } = Comparator;
+    var satisfies = require_satisfies();
+    var compare = require_compare();
+    var subset = (sub, dom, options = {}) => {
+      if (sub === dom) {
+        return true;
+      }
+      sub = new Range(sub, options);
+      dom = new Range(dom, options);
+      let sawNonNull = false;
+      OUTER:
+        for (const simpleSub of sub.set) {
+          for (const simpleDom of dom.set) {
+            const isSub = simpleSubset(simpleSub, simpleDom, options);
+            sawNonNull = sawNonNull || isSub !== null;
+            if (isSub) {
+              continue OUTER;
+            }
+          }
+          if (sawNonNull) {
+            return false;
+          }
+        }
+      return true;
+    };
+    var minimumVersionWithPreRelease = [new Comparator(">=0.0.0-0")];
+    var minimumVersion = [new Comparator(">=0.0.0")];
+    var simpleSubset = (sub, dom, options) => {
+      if (sub === dom) {
+        return true;
+      }
+      if (sub.length === 1 && sub[0].semver === ANY) {
+        if (dom.length === 1 && dom[0].semver === ANY) {
+          return true;
+        } else if (options.includePrerelease) {
+          sub = minimumVersionWithPreRelease;
+        } else {
+          sub = minimumVersion;
+        }
+      }
+      if (dom.length === 1 && dom[0].semver === ANY) {
+        if (options.includePrerelease) {
+          return true;
+        } else {
+          dom = minimumVersion;
+        }
+      }
+      const eqSet = /* @__PURE__ */ new Set();
+      let gt, lt;
+      for (const c of sub) {
+        if (c.operator === ">" || c.operator === ">=") {
+          gt = higherGT(gt, c, options);
+        } else if (c.operator === "<" || c.operator === "<=") {
+          lt = lowerLT(lt, c, options);
+        } else {
+          eqSet.add(c.semver);
+        }
+      }
+      if (eqSet.size > 1) {
+        return null;
+      }
+      let gtltComp;
+      if (gt && lt) {
+        gtltComp = compare(gt.semver, lt.semver, options);
+        if (gtltComp > 0) {
+          return null;
+        } else if (gtltComp === 0 && (gt.operator !== ">=" || lt.operator !== "<=")) {
+          return null;
+        }
+      }
+      for (const eq of eqSet) {
+        if (gt && !satisfies(eq, String(gt), options)) {
+          return null;
+        }
+        if (lt && !satisfies(eq, String(lt), options)) {
+          return null;
+        }
+        for (const c of dom) {
+          if (!satisfies(eq, String(c), options)) {
+            return false;
+          }
+        }
+        return true;
+      }
+      let higher, lower;
+      let hasDomLT, hasDomGT;
+      let needDomLTPre = lt && !options.includePrerelease && lt.semver.prerelease.length ? lt.semver : false;
+      let needDomGTPre = gt && !options.includePrerelease && gt.semver.prerelease.length ? gt.semver : false;
+      if (needDomLTPre && needDomLTPre.prerelease.length === 1 && lt.operator === "<" && needDomLTPre.prerelease[0] === 0) {
+        needDomLTPre = false;
+      }
+      for (const c of dom) {
+        hasDomGT = hasDomGT || c.operator === ">" || c.operator === ">=";
+        hasDomLT = hasDomLT || c.operator === "<" || c.operator === "<=";
+        if (gt) {
+          if (needDomGTPre) {
+            if (c.semver.prerelease && c.semver.prerelease.length && c.semver.major === needDomGTPre.major && c.semver.minor === needDomGTPre.minor && c.semver.patch === needDomGTPre.patch) {
+              needDomGTPre = false;
+            }
+          }
+          if (c.operator === ">" || c.operator === ">=") {
+            higher = higherGT(gt, c, options);
+            if (higher === c && higher !== gt) {
+              return false;
+            }
+          } else if (gt.operator === ">=" && !satisfies(gt.semver, String(c), options)) {
+            return false;
+          }
+        }
+        if (lt) {
+          if (needDomLTPre) {
+            if (c.semver.prerelease && c.semver.prerelease.length && c.semver.major === needDomLTPre.major && c.semver.minor === needDomLTPre.minor && c.semver.patch === needDomLTPre.patch) {
+              needDomLTPre = false;
+            }
+          }
+          if (c.operator === "<" || c.operator === "<=") {
+            lower = lowerLT(lt, c, options);
+            if (lower === c && lower !== lt) {
+              return false;
+            }
+          } else if (lt.operator === "<=" && !satisfies(lt.semver, String(c), options)) {
+            return false;
+          }
+        }
+        if (!c.operator && (lt || gt) && gtltComp !== 0) {
+          return false;
+        }
+      }
+      if (gt && hasDomLT && !lt && gtltComp !== 0) {
+        return false;
+      }
+      if (lt && hasDomGT && !gt && gtltComp !== 0) {
+        return false;
+      }
+      if (needDomGTPre || needDomLTPre) {
+        return false;
+      }
+      return true;
+    };
+    var higherGT = (a, b, options) => {
+      if (!a) {
+        return b;
+      }
+      const comp = compare(a.semver, b.semver, options);
+      return comp > 0 ? a : comp < 0 ? b : b.operator === ">" && a.operator === ">=" ? b : a;
+    };
+    var lowerLT = (a, b, options) => {
+      if (!a) {
+        return b;
+      }
+      const comp = compare(a.semver, b.semver, options);
+      return comp < 0 ? a : comp > 0 ? b : b.operator === "<" && a.operator === "<=" ? b : a;
+    };
+    module2.exports = subset;
+  }
+});
+
+// node_modules/semver/index.js
+var require_semver2 = __commonJS({
+  "node_modules/semver/index.js"(exports, module2) {
+    var internalRe = require_re();
+    var constants = require_constants();
+    var SemVer = require_semver();
+    var identifiers = require_identifiers();
+    var parse = require_parse();
+    var valid = require_valid();
+    var clean = require_clean();
+    var inc = require_inc();
+    var diff = require_diff();
+    var major = require_major();
+    var minor = require_minor();
+    var patch = require_patch();
+    var prerelease = require_prerelease();
+    var compare = require_compare();
+    var rcompare = require_rcompare();
+    var compareLoose = require_compare_loose();
+    var compareBuild = require_compare_build();
+    var sort = require_sort();
+    var rsort = require_rsort();
+    var gt = require_gt();
+    var lt = require_lt();
+    var eq = require_eq();
+    var neq = require_neq();
+    var gte = require_gte();
+    var lte = require_lte();
+    var cmp = require_cmp();
+    var coerce = require_coerce();
+    var Comparator = require_comparator();
+    var Range = require_range();
+    var satisfies = require_satisfies();
+    var toComparators = require_to_comparators();
+    var maxSatisfying = require_max_satisfying();
+    var minSatisfying = require_min_satisfying();
+    var minVersion = require_min_version();
+    var validRange = require_valid2();
+    var outside = require_outside();
+    var gtr = require_gtr();
+    var ltr = require_ltr();
+    var intersects = require_intersects();
+    var simplifyRange = require_simplify();
+    var subset = require_subset();
+    module2.exports = {
+      parse,
+      valid,
+      clean,
+      inc,
+      diff,
+      major,
+      minor,
+      patch,
+      prerelease,
+      compare,
+      rcompare,
+      compareLoose,
+      compareBuild,
+      sort,
+      rsort,
+      gt,
+      lt,
+      eq,
+      neq,
+      gte,
+      lte,
+      cmp,
+      coerce,
+      Comparator,
+      Range,
+      satisfies,
+      toComparators,
+      maxSatisfying,
+      minSatisfying,
+      minVersion,
+      validRange,
+      outside,
+      gtr,
+      ltr,
+      intersects,
+      simplifyRange,
+      subset,
+      SemVer,
+      re: internalRe.re,
+      src: internalRe.src,
+      tokens: internalRe.t,
+      SEMVER_SPEC_VERSION: constants.SEMVER_SPEC_VERSION,
+      RELEASE_TYPES: constants.RELEASE_TYPES,
+      compareIdentifiers: identifiers.compareIdentifiers,
+      rcompareIdentifiers: identifiers.rcompareIdentifiers
+    };
+  }
+});
+
 // src/main.ts
 var main_exports = {};
 __export(main_exports, {
   default: () => RaindropPlugin
 });
 module.exports = __toCommonJS(main_exports);
-var import_obsidian7 = require("obsidian");
+var import_obsidian8 = require("obsidian");
 
 // src/settings.ts
 var import_obsidian4 = require("obsidian");
@@ -11251,19 +13747,23 @@ var import_obsidian4 = require("obsidian");
 var defaultMetadataTemplate_default = "{% if link %}link: {{link}}{% endif %}\n{% if tags|length %}tags: {%for tag in tags %}\n- {{tag}}{% endfor %}{% endif %}\n";
 
 // src/templates/templateInstructions.html
-var templateInstructions_default = 'Template (<a href="https://mozilla.github.io/nunjucks/">Nunjucks</a>) for\nrendering every synced Raindrop.io highlights & annotations.\n\n<p>\n  <b>Available variables to use</b>\n</p>\n\nArticle Metadata\n<ul>\n  <li><span class="u-pop">{{is_new_article}}</span> (bool) - New file indicator</li>\n  <li><span class="u-pop">{{id}}</span> (number) - Article identifier</li>\n  <li><span class="u-pop">{{title}}</span> (string) - Title</li>\n  <li><span class="u-pop">{{excerpt}}</span> (string) - Article excerpt</li>\n  <li><span class="u-pop">{{link}}</span> (string) - Link to source</li>\n  <li><span class="u-pop">{{highlights}}</span> (Highlight[]) - List of your Highlights (Detail attributes refer to the following <span class="u-pop">Highlight</span> section)</li>\n  <li><span class="u-pop">{{collection}}</span> (Collection) - Collection data (Detail attributes refer to the following <span class="u-pop">Collection</span> section</li>\n  <li><span class="u-pop">{{creator}}</span> (Creator) - Creator data (Detail attributes refer to the following <span class="u-pop">Creator</span> section</li>\n  <li><span class="u-pop">{{tags}}</span> (string) - List of tag</li>\n  <li><span class="u-pop">{{cover}}</span> (string) - Article cover</li>\n  <li><span class="u-pop">{{created}}</span> (string) - Created on</li>\n  <li><span class="u-pop">{{type}}</span> (string) - Article type</li>\n  <li><span class="u-pop">{{important}}</span> (bool) - Favorite article</li>\n</ul>\n\nCreator\n<ul>\n  <li><span class="u-pop">{{name}}</span> (string) - Creator name</li>\n  <li><span class="u-pop">{{id}}</span> (number) - Creator id</li>\n</ul>\n\nCollection\n<ul>\n  <li><span class="u-pop">{{title}}</span> (string) - Collection title</li>\n</ul>\n\nHighlight\n<ul>\n  <li><span class="u-pop">{{id}}</span> (string) - Highlight identifier</li>\n  <li><span class="u-pop">{{text}}</span> (string) - Text</li>\n  <li><span class="u-pop">{{color}}</span> (string) - Highlight color</li>\n  <li><span class="u-pop">{{created}}</span> (string) - Created on</li>\n  <li><span class="u-pop">{{lastUpdate}}</span> (string) - Updated on</li>\n  <li><span class="u-pop">{{note}}</span> (string) - Annotation</li>\n</ul>\n';
+var templateInstructions_default = 'Template (<a href="https://mozilla.github.io/nunjucks/">Nunjucks</a>) for\nrendering every synced Raindrop.io highlights & annotations.\n\n<p>\n  <b>Available variables to use</b>\n</p>\n\nMetadata\n<ul>\n  <li><span class="u-pop">{{now}}</span> (Moment) - Present time</li>\n</ul>\n\nArticle Metadata\n<ul>\n  <li><span class="u-pop">{{is_new_article}}</span> (bool) - New file indicator</li>\n  <li><span class="u-pop">{{id}}</span> (number) - Article identifier</li>\n  <li><span class="u-pop">{{title}}</span> (string) - Title</li>\n  <li><span class="u-pop">{{excerpt}}</span> (string) - Article excerpt</li>\n  <li><span class="u-pop">{{note}}</span> (string) - Article note</li>\n  <li><span class="u-pop">{{link}}</span> (string) - Link to source</li>\n  <li><span class="u-pop">{{highlights}}</span> (Highlight[]) - List of your Highlights (Detail attributes refer to the following <span class="u-pop">Highlight</span> section)</li>\n  <li><span class="u-pop">{{collection}}</span> (Collection) - Collection data (Detail attributes refer to the following <span class="u-pop">Collection</span> section</li>\n  <li><span class="u-pop">{{creator}}</span> (Creator) - Creator data (Detail attributes refer to the following <span class="u-pop">Creator</span> section</li>\n  <li><span class="u-pop">{{tags}}</span> (string[]) - List of tag</li>\n  <li><span class="u-pop">{{cover}}</span> (string) - Article cover</li>\n  <li><span class="u-pop">{{created}}</span> (Moment) - Created on</li>\n  <li><span class="u-pop">{{type}}</span> (string) - Article type</li>\n  <li><span class="u-pop">{{important}}</span> (bool) - Favorite article</li>\n</ul>\n\nCreator\n<ul>\n  <li><span class="u-pop">{{name}}</span> (string) - Creator name</li>\n  <li><span class="u-pop">{{id}}</span> (number) - Creator id</li>\n</ul>\n\nCollection\n<ul>\n  <li><span class="u-pop">{{title}}</span> (string) - Collection title</li>\n</ul>\n\nHighlight\n<ul>\n  <li><span class="u-pop">{{id}}</span> (string) - Highlight identifier</li>\n  <li><span class="u-pop">{{text}}</span> (string) - Text</li>\n  <li><span class="u-pop">{{color}}</span> (string) - Highlight color</li>\n  <li><span class="u-pop">{{created}}</span> (Moment) - Created on</li>\n  <li><span class="u-pop">{{lastUpdate}}</span> (Moment) - Updated on</li>\n  <li><span class="u-pop">{{note}}</span> (string) - Annotation</li>\n</ul>\n\nFilter\n<ul>\n  <li><span class="u-pop">date(format: string)</span> Convert Moment object to string - example: <code>{{ now | date("YYYY/MM/DD") }}</code>. For more syntax, refer to <a href="https://momentjs.com/docs/#/displaying/format/">format reference</a>.</li>\n</ul>\n';
 
 // src/templates/metadataTemplateInstructions.html
-var metadataTemplateInstructions_default = 'Metadata template (<a href="https://mozilla.github.io/nunjucks/">Nunjucks</a>) for\nrendering every synced Raindrop.io highlights & annotations.\n\n<p>\n	Some notes:\n</p>\n<ul>\n	<li>The rendered result is placed in the front matter of the generated post.</li>\n	<li>If the rendered result does not follow the YAML syntax, the plugin will reject the update.</li>\n	<li><code>raindrop_id</code> and <code>raindrop_last_update</code> properties are transparently added by the plugin.</li>\n	<li>Available variables to use are the same as the previous template.</li>\n</ul>\n';
+var metadataTemplateInstructions_default = 'Metadata template (<a href="https://mozilla.github.io/nunjucks/">Nunjucks</a>) for\nrendering every synced Raindrop.io highlights & annotations.\n\n<p>\n	Some notes:\n</p>\n<ul>\n	<li>The rendered result is placed in the front matter of the generated post.</li>\n	<li>If the rendered result does not follow the YAML syntax, the plugin will reject the update.</li>\n	<li><code>raindrop_id</code> and <code>raindrop_highlights</code> properties are transparently added and updated by the plugin.</li>\n	<li>Available variables to use are the same as the previous template.</li>\n</ul>\n';
 
 // src/templates/filenameTemplateInstructions.html
-var filenameTemplateInstructions_default = 'Filename template (<a href="https://mozilla.github.io/nunjucks/">Nunjucks</a>) for\ncreating synced Raindrop.io highlights & annotations.\n\n<p>\n	Some notes:\n</p>\n<ul>\n	<li>The rendered result is used as the filename for the bookmark.</li>\n	<li>This template is only used when creating the new file.</li>\n	<li>The rendered result is sanitized and truncated to 255 bytes.</li>\n	<li>The plugin will reject the invalid template.</li>\n	<li>If the file already exists in the vault, the auto generated suffix will be appended to the rendered result and used as the filename.</li>\n	<li>Available variables to use are the same as the previous template.</li>\n</ul>\n';
+var filenameTemplateInstructions_default = 'Filename template (<a href="https://mozilla.github.io/nunjucks/">Nunjucks</a>) for\ncreating synced Raindrop.io highlights & annotations.\n\n<p>\n	Some notes:\n</p>\n<ul>\n	<li>The rendered result is used as the filename for the bookmark.</li>\n	<li>The rendered result is sanitized and truncated to 255 bytes.</li>\n	<li>The plugin will reject the invalid template.</li>\n	<li>If the file already exists in the vault, the auto generated suffix will be appended to the rendered result and used as the filename.</li>\n	<li>Available variables to use are the same as the previous template.</li>\n</ul>\n';
 
-// src/templates/datetimeInstructions.html
-var datetimeInstructions_default = 'Configure how timestamps in the Nunjucks template will be formatted.\n<br>\nFor more syntax, refer to the (<a href="https://momentjs.com/docs/#/displaying/format/">format reference</a>).\n';
+// src/templates/collectionGroupsInstructions.html
+var collectionGroupsInstructions_default = 'Add group name to the prefix of collection. See <a href="https://help.raindrop.io/collections/#groups">https://help.raindrop.io/collections/#groups</a> for more details about collection groups.\n';
 
 // src/templates/appendModeInstructions.html
 var appendModeInstructions_default = '<div>\n	<span class="u-pop">Dangerous Option!<span>\n</div>\n<ul>\n	<li>\n		On: The new highlights will be appended to the end of the existing file, but the old metadata can not be updated in place.\n	</li>\n	<li>\n		Off: The synced files will always be kept in the latest states of the Raindrop articles, but this will lose the flexiblity to add/modify the synced files. (i.e. the old file content will be overwritten!)\n	</li>\n</ul>\n';
+
+// src/templates/autoescapingInstructions.html
+var autoescapingInstructions_default = `If this option is turned on, Nunjucks will <a href="https://mozilla.github.io/nunjucks/templating.html#autoescaping">autoescape</a> all output during the template rendering process. To manually mark output as safe, use the <code>safe</code> filter (example: <code>{{ note | safe }}</code>). It's recommended to turn this option on for security reasons.
+`;
 
 // src/modal/collections.ts
 var import_obsidian = require("obsidian");
@@ -11600,6 +14100,7 @@ function create_each_block(ctx) {
       t1 = text(t1_value);
       t2 = space();
       attr(input, "type", "checkbox");
+      attr(div, "class", "collection-entry");
     },
     m(target, anchor) {
       insert(target, div, anchor);
@@ -11685,9 +14186,7 @@ function create_fragment(ctx) {
 function instance($$self, $$props, $$invalidate) {
   let { collections = [] } = $$props;
   let { toggle } = $$props;
-  const change_handler = (collection) => __async(this, null, function* () {
-    return toggle(collection.id);
-  });
+  const change_handler = async (collection) => toggle(collection.id);
   function input_change_handler(each_value, each_index) {
     each_value[each_index][1].sync = this.checked;
     $$invalidate(0, collections);
@@ -11715,23 +14214,21 @@ var CollectionsModal = class extends import_obsidian.Modal {
     this.plugin = plugin;
     this.open();
   }
-  onOpen() {
-    return __async(this, null, function* () {
-      __superGet(CollectionsModal.prototype, this, "onOpen").call(this);
-      this.titleEl.innerText = "Raindrop.io: Manage collections to be synced";
-      const collections = Object.entries(this.plugin.settings.syncCollections).sort((a, b) => {
-        return a[1].title.localeCompare(b[1].title);
-      });
-      this.modalContent = new collections_default({
-        target: this.contentEl,
-        props: {
-          collections,
-          toggle: (id) => __async(this, null, function* () {
-            this.plugin.settings.syncCollections[id].sync = !this.plugin.settings.syncCollections[id].sync;
-            yield this.plugin.saveSettings();
-          })
+  async onOpen() {
+    super.onOpen();
+    this.titleEl.innerText = "Raindrop.io: Manage collections to be synced";
+    const collections = Object.entries(this.plugin.settings.syncCollections).sort((a, b) => {
+      return a[1].title.localeCompare(b[1].title);
+    });
+    this.modalContent = new collections_default({
+      target: this.contentEl,
+      props: {
+        collections,
+        toggle: async (id) => {
+          this.plugin.settings.syncCollections[id].sync = !this.plugin.settings.syncCollections[id].sync;
+          await this.plugin.saveSettings();
         }
-      });
+      }
     });
   }
   onClose() {
@@ -11750,13 +14247,14 @@ var FAKE_RENDER_CONTEXT = {
   id: 1e3,
   title: "fake_title",
   excerpt: "fake_excerpt",
+  note: "fake_note",
   link: "https://example.com",
   highlights: [
     {
       id: "123456789abcdefghijklmno",
       color: "red",
-      created: "2022-08-11T01:58:27.457Z",
-      lastUpdate: "2022-08-13T01:58:27.457Z",
+      created: (0, import_moment.default)(),
+      lastUpdate: (0, import_moment.default)(),
       note: "fake_note",
       text: "fake_text"
     }
@@ -11766,26 +14264,26 @@ var FAKE_RENDER_CONTEXT = {
   },
   tags: ["fake_tag1", "fake_tag2"],
   cover: "https://example.com",
-  created: "2022-08-10T01:58:27.457Z",
+  created: (0, import_moment.default)(),
   type: "link",
   important: false,
   creator: {
     name: "fake_name",
     id: 1e4
-  }
+  },
+  now: (0, import_moment.default)()
 };
 var Renderer = class {
   constructor(plugin) {
     this.plugin = plugin;
-    import_nunjucks.default.configure({ autoescape: false });
   }
   validate(template, isYaml = false) {
     try {
-      const fakeContent = import_nunjucks.default.renderString(template, FAKE_RENDER_CONTEXT);
+      const env = this.createEnv();
+      const fakeContent = env.renderString(template, FAKE_RENDER_CONTEXT);
       if (isYaml) {
-        const { id, created } = FAKE_RENDER_CONTEXT;
+        const { id } = FAKE_RENDER_CONTEXT;
         const fakeMetadata = `raindrop_id: ${id}
-raindrop_last_update: ${created}
 ${fakeContent}`;
         (0, import_obsidian2.parseYaml)(fakeMetadata);
       }
@@ -11799,22 +14297,26 @@ ${fakeContent}`;
   }
   renderFrontmatter(bookmark, newArticle) {
     const newMdFrontmatter = this.renderTemplate(this.plugin.settings.metadataTemplate, bookmark, newArticle);
+    const frontmatterObj = {
+      raindrop_id: bookmark.id
+    };
+    if (bookmark.highlights.length > 0) {
+      frontmatterObj.raindrop_highlights = Object.fromEntries(bookmark.highlights.map((hl) => {
+        return [hl.id, hl.signature];
+      }));
+    }
     if (newMdFrontmatter.length > 0) {
-      return `raindrop_id: ${bookmark.id}
-raindrop_last_update: ${new Date().toISOString()}
-${newMdFrontmatter}
-`;
+      return `${(0, import_obsidian2.stringifyYaml)(frontmatterObj)}${newMdFrontmatter}`;
     } else {
-      return `raindrop_id: ${bookmark.id}
-raindrop_last_update: ${new Date().toISOString()}
-`;
+      return (0, import_obsidian2.stringifyYaml)(frontmatterObj);
     }
   }
   renderFullArticle(bookmark) {
     const newMdContent = this.renderContent(bookmark, true);
     const newMdFrontmatter = this.renderFrontmatter(bookmark, true);
     const mdContent = `---
-${newMdFrontmatter}---
+${newMdFrontmatter}
+---
 ${newMdContent}`;
     return mdContent;
   }
@@ -11826,13 +14328,12 @@ ${newMdContent}`;
     return (0, import_sanitize_filename.default)(filename.replace(/[':#|]/g, "").trim());
   }
   renderTemplate(template, bookmark, newArticle) {
-    const dateTimeFormat = this.plugin.settings.dateTimeFormat;
     const renderHighlights = bookmark.highlights.map((hl) => {
       const renderHighlight = {
         id: hl.id,
         color: hl.color,
-        created: (0, import_moment.default)(hl.created).format(dateTimeFormat),
-        lastUpdate: (0, import_moment.default)(hl.lastUpdate).format(dateTimeFormat),
+        created: (0, import_moment.default)(hl.created),
+        lastUpdate: (0, import_moment.default)(hl.lastUpdate),
         note: hl.note,
         text: hl.text
       };
@@ -11846,18 +14347,28 @@ ${newMdContent}`;
       id: bookmark.id,
       title: bookmark.title,
       excerpt: bookmark.excerpt,
+      note: bookmark.note,
       link: bookmark.link,
       highlights: renderHighlights,
       collection: renderCollection,
       tags: bookmark.tags,
       cover: bookmark.cover,
-      created: (0, import_moment.default)(bookmark.created).format(dateTimeFormat),
+      created: (0, import_moment.default)(bookmark.created),
       type: bookmark.type,
       important: bookmark.important,
-      creator: bookmark.creator
+      creator: bookmark.creator,
+      now: (0, import_moment.default)()
     };
-    const content = import_nunjucks.default.renderString(template, context);
+    const env = this.createEnv();
+    const content = env.renderString(template, context);
     return content;
+  }
+  createEnv() {
+    const env = new import_nunjucks.default.Environment(void 0, { autoescape: this.plugin.settings.autoescape });
+    env.addFilter("date", (date, format) => {
+      return date.format(format);
+    });
+    return env;
   }
 };
 
@@ -11956,16 +14467,16 @@ var ApiTokenModal2 = class extends import_obsidian3.Modal {
     this.modalContent = new apiTokenModal_default({
       target: this.contentEl,
       props: {
-        onSubmit: (value) => __async(this, null, function* () {
+        onSubmit: async (value) => {
           try {
-            yield this.api.checkToken(value);
+            await this.api.checkToken(value);
           } catch (e) {
             new import_obsidian3.Notice(e.message);
             return;
           }
           this.api.tokenManager.set(value);
           this.close();
-        })
+        }
       }
     });
     this.open();
@@ -11998,95 +14509,95 @@ var RaindropSettingTab = class extends import_obsidian4.PluginSettingTab {
     this.appendMode();
     this.collectionsFolders();
     this.highlightsFolder();
+    this.groups();
     this.collections();
     this.autoSyncInterval();
-    this.dateFormat();
+    this.autoSyncSuccessNotice();
     this.template();
     this.metadataTemplate();
     this.filenameTemplate();
+    this.autoescape();
     this.resetSyncHistory();
   }
   ribbonIcon() {
     new import_obsidian4.Setting(this.containerEl).setName("Enable ribbon icon in the sidebar (need reload)").addToggle((toggle) => {
-      return toggle.setValue(this.plugin.settings.ribbonIcon).onChange((value) => __async(this, null, function* () {
+      return toggle.setValue(this.plugin.settings.ribbonIcon).onChange(async (value) => {
         this.plugin.settings.ribbonIcon = value;
-        yield this.plugin.saveSettings();
-      }));
+        await this.plugin.saveSettings();
+      });
     });
   }
   appendMode() {
     const descFragment = document.createRange().createContextualFragment(appendModeInstructions_default);
     new import_obsidian4.Setting(this.containerEl).setName("Append Mode").setDesc(descFragment).addToggle((toggle) => {
-      return toggle.setValue(this.plugin.settings.appendMode).onChange((value) => __async(this, null, function* () {
+      return toggle.setValue(this.plugin.settings.appendMode).onChange(async (value) => {
         this.plugin.settings.appendMode = value;
-        yield this.plugin.saveSettings();
-      }));
+        await this.plugin.saveSettings();
+      });
     });
   }
   onlyBookmarksWithHl() {
     new import_obsidian4.Setting(this.containerEl).setName("Only sync bookmarks with highlights").addToggle((toggle) => {
-      return toggle.setValue(this.plugin.settings.onlyBookmarksWithHl).onChange((value) => __async(this, null, function* () {
+      return toggle.setValue(this.plugin.settings.onlyBookmarksWithHl).onChange(async (value) => {
         this.plugin.settings.onlyBookmarksWithHl = value;
-        yield this.plugin.saveSettings();
-      }));
+        await this.plugin.saveSettings();
+      });
     });
   }
   collectionsFolders() {
     new import_obsidian4.Setting(this.containerEl).setName("Store the articles in collections folders").addToggle((toggle) => {
-      return toggle.setValue(this.plugin.settings.collectionsFolders).onChange((value) => __async(this, null, function* () {
+      return toggle.setValue(this.plugin.settings.collectionsFolders).onChange(async (value) => {
         this.plugin.settings.collectionsFolders = value;
-        yield this.plugin.saveSettings();
-      }));
+        await this.plugin.saveSettings();
+      });
     });
   }
   connect() {
     new import_obsidian4.Setting(this.containerEl).setName("Connect to Raindrop.io").addButton((button) => {
-      return button.setButtonText("Connect").setCta().onClick(() => __async(this, null, function* () {
+      return button.setButtonText("Connect").setCta().onClick(async () => {
         const tokenModal = new ApiTokenModal2(this.app, this.api);
-        yield tokenModal.waitForClose;
+        await tokenModal.waitForClose;
         if (this.api.tokenManager.get()) {
           new import_obsidian4.Notice("Token saved");
-          const user = yield this.api.getUser();
+          const user = await this.api.getUser();
           this.plugin.settings.isConnected = true;
           this.plugin.settings.username = user.fullName;
-          yield this.plugin.saveSettings();
+          await this.plugin.saveSettings();
         }
         this.display();
-      }));
+      });
     });
   }
-  disconnect() {
-    return __async(this, null, function* () {
-      new import_obsidian4.Setting(this.containerEl).setName(`Connected to Raindrop.io as ${this.plugin.settings.username}`).addButton((button) => {
-        return button.setButtonText("Test API").setCta().onClick(() => __async(this, null, function* () {
-          try {
-            const user = yield this.api.getUser();
-            new import_obsidian4.Notice(`Test pass, hello ${user.fullName}`);
-          } catch (e) {
-            console.error(e);
-            new import_obsidian4.Notice(`Test failed: ${e}`);
-            this.api.tokenManager.clear();
-            this.plugin.settings.isConnected = false;
-            this.plugin.settings.username = void 0;
-            yield this.plugin.saveSettings();
-          }
-        }));
-      }).addButton((button) => {
-        return button.setButtonText("Disconnect").setCta().onClick(() => __async(this, null, function* () {
-          button.removeCta().setButtonText("Removing API token...").setDisabled(true);
-          try {
-            this.api.tokenManager.clear();
-            this.plugin.settings.isConnected = false;
-            this.plugin.settings.username = void 0;
-            yield this.plugin.saveSettings();
-          } catch (e) {
-            console.error(e);
-            new import_obsidian4.Notice(`Token removed failed: ${e}`);
-            return;
-          }
-          new import_obsidian4.Notice("Token removed successfully");
-          this.display();
-        }));
+  async disconnect() {
+    new import_obsidian4.Setting(this.containerEl).setName(`Connected to Raindrop.io as ${this.plugin.settings.username}`).addButton((button) => {
+      return button.setButtonText("Test API").setCta().onClick(async () => {
+        try {
+          const user = await this.api.getUser();
+          new import_obsidian4.Notice(`Test pass, hello ${user.fullName}`);
+        } catch (e) {
+          console.error(e);
+          new import_obsidian4.Notice(`Test failed: ${e}`);
+          this.api.tokenManager.clear();
+          this.plugin.settings.isConnected = false;
+          this.plugin.settings.username = void 0;
+          await this.plugin.saveSettings();
+        }
+      });
+    }).addButton((button) => {
+      return button.setButtonText("Disconnect").setCta().onClick(async () => {
+        button.removeCta().setButtonText("Removing API token...").setDisabled(true);
+        try {
+          this.api.tokenManager.clear();
+          this.plugin.settings.isConnected = false;
+          this.plugin.settings.username = void 0;
+          await this.plugin.saveSettings();
+        } catch (e) {
+          console.error(e);
+          new import_obsidian4.Notice(`Token removed failed: ${e}`);
+          return;
+        }
+        new import_obsidian4.Notice("Token removed successfully");
+        this.display();
       });
     });
   }
@@ -12099,111 +14610,95 @@ var RaindropSettingTab = class extends import_obsidian4.PluginSettingTab {
           dropdown.addOption(folder, folder);
         }
       });
-      return dropdown.setValue(this.plugin.settings.highlightsFolder).onChange((value) => __async(this, null, function* () {
+      return dropdown.setValue(this.plugin.settings.highlightsFolder).onChange(async (value) => {
         this.plugin.settings.highlightsFolder = value;
-        yield this.plugin.saveSettings();
-      }));
-    });
-  }
-  collections() {
-    return __async(this, null, function* () {
-      new import_obsidian4.Setting(this.containerEl).setName("Collections").setDesc("Manage collections to be synced").addButton((button) => {
-        return button.setDisabled(!this.plugin.settings.isConnected).setButtonText("Manage").setCta().onClick(() => __async(this, null, function* () {
-          button.setButtonText("Loading collections...");
-          const allCollections = yield this.api.getCollections();
-          this.plugin.updateCollectionSettings(allCollections);
-          new CollectionsModal(this.app, this.plugin);
-          this.display();
-        }));
+        await this.plugin.saveSettings();
       });
     });
   }
-  template() {
-    return __async(this, null, function* () {
-      const templateDescFragment = document.createRange().createContextualFragment(templateInstructions_default);
-      new import_obsidian4.Setting(this.containerEl).setName("Content template").setDesc(templateDescFragment).addTextArea((text2) => {
-        text2.inputEl.style.width = "100%";
-        text2.inputEl.style.height = "450px";
-        text2.inputEl.style.fontSize = "0.8em";
-        text2.setValue(this.plugin.settings.template).onChange((value) => __async(this, null, function* () {
-          const isValid = this.renderer.validate(value);
-          if (isValid) {
-            this.plugin.settings.template = value;
-            yield this.plugin.saveSettings();
-          }
-          text2.inputEl.style.border = isValid ? "" : "1px solid red";
-        }));
-        return text2;
+  async groups() {
+    const descFragment = document.createRange().createContextualFragment(collectionGroupsInstructions_default);
+    new import_obsidian4.Setting(this.containerEl).setName("Collection groups").setDesc(descFragment).addToggle((toggle) => {
+      return toggle.setValue(this.plugin.settings.collectionGroups).onChange(async (value) => {
+        this.plugin.settings.collectionGroups = value;
+        await this.plugin.saveSettings();
       });
     });
   }
-  metadataTemplate() {
-    return __async(this, null, function* () {
-      const templateDescFragment = document.createRange().createContextualFragment(metadataTemplateInstructions_default);
-      new import_obsidian4.Setting(this.containerEl).setName("Metadata template").setDesc(templateDescFragment).addTextArea((text2) => {
-        text2.inputEl.style.width = "100%";
-        text2.inputEl.style.height = "250px";
-        text2.inputEl.style.fontSize = "0.8em";
-        text2.setPlaceholder(defaultMetadataTemplate_default);
-        text2.setValue(this.plugin.settings.metadataTemplate).onChange((value) => __async(this, null, function* () {
-          const isValid = this.renderer.validate(value, true);
-          if (isValid) {
-            this.plugin.settings.metadataTemplate = value;
-            yield this.plugin.saveSettings();
-          }
-          text2.inputEl.style.border = isValid ? "" : "1px solid red";
-        }));
-        return text2;
+  async collections() {
+    new import_obsidian4.Setting(this.containerEl).setName("Collections").setDesc("Manage collections to be synced").addButton((button) => {
+      return button.setDisabled(!this.plugin.settings.isConnected).setButtonText("Manage").setCta().onClick(async () => {
+        button.setButtonText("Loading collections...");
+        const collectionGroup = this.plugin.settings.collectionGroups;
+        const allCollections = await this.api.getCollections(collectionGroup);
+        this.plugin.updateCollectionSettings(allCollections);
+        new CollectionsModal(this.app, this.plugin);
+        this.display();
       });
     });
   }
-  filenameTemplate() {
-    return __async(this, null, function* () {
-      const templateDescFragment = document.createRange().createContextualFragment(filenameTemplateInstructions_default);
-      new import_obsidian4.Setting(this.containerEl).setName("Filename template").setDesc(templateDescFragment).addTextArea((text2) => {
-        text2.inputEl.style.width = "100%";
-        text2.inputEl.style.height = "250px";
-        text2.inputEl.style.fontSize = "0.8em";
-        text2.setValue(this.plugin.settings.filenameTemplate).onChange((value) => __async(this, null, function* () {
-          const isValid = this.renderer.validate(value, false);
-          if (isValid) {
-            this.plugin.settings.filenameTemplate = value;
-            yield this.plugin.saveSettings();
-          }
-          text2.inputEl.style.border = isValid ? "" : "1px solid red";
-        }));
-        return text2;
+  async template() {
+    const templateDescFragment = document.createRange().createContextualFragment(templateInstructions_default);
+    new import_obsidian4.Setting(this.containerEl).setName("Content template").setDesc(templateDescFragment).setClass("raindrop-content-template").addTextArea((text2) => {
+      text2.setValue(this.plugin.settings.template).onChange(async (value) => {
+        const isValid = this.renderer.validate(value);
+        if (isValid) {
+          this.plugin.settings.template = value;
+          await this.plugin.saveSettings();
+        }
+        text2.inputEl.style.border = isValid ? "" : "1px solid red";
       });
+      return text2;
+    });
+  }
+  async metadataTemplate() {
+    const templateDescFragment = document.createRange().createContextualFragment(metadataTemplateInstructions_default);
+    new import_obsidian4.Setting(this.containerEl).setName("Metadata template").setDesc(templateDescFragment).setClass("raindrop-metadata-template").addTextArea((text2) => {
+      text2.setPlaceholder(defaultMetadataTemplate_default);
+      text2.setValue(this.plugin.settings.metadataTemplate).onChange(async (value) => {
+        const isValid = this.renderer.validate(value, true);
+        if (isValid) {
+          this.plugin.settings.metadataTemplate = value;
+          await this.plugin.saveSettings();
+        }
+        text2.inputEl.style.border = isValid ? "" : "1px solid red";
+      });
+      return text2;
+    });
+  }
+  async filenameTemplate() {
+    const templateDescFragment = document.createRange().createContextualFragment(filenameTemplateInstructions_default);
+    new import_obsidian4.Setting(this.containerEl).setName("Filename template").setDesc(templateDescFragment).setClass("raindrop-filename-template").addTextArea((text2) => {
+      text2.setValue(this.plugin.settings.filenameTemplate).onChange(async (value) => {
+        const isValid = this.renderer.validate(value, false);
+        if (isValid) {
+          this.plugin.settings.filenameTemplate = value;
+          await this.plugin.saveSettings();
+        }
+        text2.inputEl.style.border = isValid ? "" : "1px solid red";
+      });
+      return text2;
     });
   }
   resetSyncHistory() {
-    new import_obsidian4.Setting(this.containerEl).setName("Reset sync").setDesc("Reset last sync time to resync").addButton((button) => {
-      return button.setButtonText("Reset").setDisabled(!this.plugin.settings.isConnected).setWarning().onClick(() => __async(this, null, function* () {
+    new import_obsidian4.Setting(this.containerEl).setName("Reset the last sync time for each collection").setDesc("This is useful if you want to resync all bookmarks.").addButton((button) => {
+      return button.setButtonText("Reset").setDisabled(!this.plugin.settings.isConnected).setWarning().onClick(async () => {
         for (const id in this.plugin.settings.syncCollections) {
           const collection = this.plugin.settings.syncCollections[id];
           collection.lastSyncDate = void 0;
         }
         this.plugin.saveSettings();
         new import_obsidian4.Notice("Sync history reset successfully");
-      }));
-    });
-  }
-  dateFormat() {
-    const descFragment = document.createRange().createContextualFragment(datetimeInstructions_default);
-    new import_obsidian4.Setting(this.containerEl).setName("Date & time format").setDesc(descFragment).addText((text2) => {
-      return text2.setPlaceholder("YYYY-MM-DD HH:mm:ss").setValue(this.plugin.settings.dateTimeFormat).onChange((value) => __async(this, null, function* () {
-        this.plugin.settings.dateTimeFormat = value;
-        yield this.plugin.saveSettings();
-      }));
+      });
     });
   }
   autoSyncInterval() {
     new import_obsidian4.Setting(this.containerEl).setName("Auto sync in interval (minutes)").setDesc("Sync every X minutes. To disable auto sync, specify negative value or zero (default)").addText((text2) => {
-      text2.setPlaceholder(String(0)).setValue(this.plugin.settings.autoSyncInterval.toString()).onChange((value) => __async(this, null, function* () {
+      text2.setPlaceholder(String(0)).setValue(this.plugin.settings.autoSyncInterval.toString()).onChange(async (value) => {
         if (!isNaN(Number(value))) {
           const minutes = Number(value);
           this.plugin.settings.autoSyncInterval = minutes;
-          yield this.plugin.saveSettings();
+          await this.plugin.saveSettings();
           console.info("Set raindrop.io autosync interval", minutes);
           if (minutes > 0) {
             this.plugin.clearAutoSync();
@@ -12214,7 +14709,24 @@ var RaindropSettingTab = class extends import_obsidian4.PluginSettingTab {
             console.info("Raindrop.io auto sync disabled!");
           }
         }
-      }));
+      });
+    });
+  }
+  autoSyncSuccessNotice() {
+    new import_obsidian4.Setting(this.containerEl).setName("Display a notification when a collection is synced").addToggle((toggle) => {
+      return toggle.setValue(this.plugin.settings.autoSyncSuccessNotice).onChange(async (value) => {
+        this.plugin.settings.autoSyncSuccessNotice = value;
+        await this.plugin.saveSettings();
+      });
+    });
+  }
+  autoescape() {
+    const templateDescFragment = document.createRange().createContextualFragment(autoescapingInstructions_default);
+    new import_obsidian4.Setting(this.containerEl).setName("Enable autoescaping for nunjucks").setDesc(templateDescFragment).addToggle((toggle) => {
+      return toggle.setValue(this.plugin.settings.autoescape).onChange(async (value) => {
+        this.plugin.settings.autoescape = value;
+        await this.plugin.saveSettings();
+      });
     });
   }
 };
@@ -12229,134 +14741,182 @@ var RaindropSync = class {
     this.plugin = plugin;
     this.renderer = new Renderer(plugin);
   }
-  sync() {
-    return __async(this, null, function* () {
-      const allCollections = yield this.api.getCollections();
-      this.plugin.updateCollectionSettings(allCollections);
-      for (const id in this.plugin.settings.syncCollections) {
-        const collection = this.plugin.settings.syncCollections[id];
-        if (collection.sync) {
-          yield this.syncCollection(collection);
-        }
+  async sync({ fullSync }) {
+    const collectionGroup = this.plugin.settings.collectionGroups;
+    const allCollections = await this.api.getCollections(collectionGroup);
+    this.plugin.updateCollectionSettings(allCollections);
+    for (const id in this.plugin.settings.syncCollections) {
+      const collection = this.plugin.settings.syncCollections[id];
+      if (collection.sync) {
+        await this.syncCollection(collection, fullSync);
       }
-    });
+    }
   }
-  syncCollection(collection) {
-    return __async(this, null, function* () {
-      new import_obsidian5.Notice(`Sync Raindrop collection: ${collection.title}`);
-      const highlightsFolder = this.plugin.settings.highlightsFolder;
-      let collectionFolder = `${highlightsFolder}`;
-      if (this.plugin.settings.collectionsFolders) {
-        collectionFolder = `${highlightsFolder}/${collection["title"]}`;
-      }
-      const lastSyncDate = this.plugin.settings.syncCollections[collection.id].lastSyncDate;
-      let bookmarks = [];
-      try {
-        console.debug("start sync collection:", collection.title, "last sync at:", lastSyncDate);
-        bookmarks = yield this.api.getRaindropsAfter(collection.id, lastSyncDate);
-        yield this.syncBookmarks(bookmarks, collectionFolder);
-        yield this.syncCollectionComplete(collection);
-      } catch (e) {
-        console.error(e);
-        new import_obsidian5.Notice(`Sync Raindrop collection ${collection.title} failed: ${e.message}`);
-      }
-    });
-  }
-  syncBookmarks(bookmarks, folderPath) {
-    return __async(this, null, function* () {
-      if (bookmarks.length == 0)
+  async syncSingle({ file }) {
+    var _a;
+    let raindropId;
+    if (file) {
+      const fmc = (_a = this.app.metadataCache.getFileCache(file)) == null ? void 0 : _a.frontmatter;
+      if (!(fmc == null ? void 0 : fmc.raindrop_id)) {
+        new import_obsidian5.Notice("This is not a Raindrop bookmark file");
         return;
-      if (this.plugin.settings.onlyBookmarksWithHl) {
-        const requireUpdate = bookmarks.some((bookmark) => {
-          return bookmark.highlights.length != 0;
-        });
-        if (!requireUpdate)
-          return;
-      }
-      try {
-        yield this.app.vault.createFolder(folderPath);
-      } catch (e) {
-      }
-      const bookmarkFilesMap = Object.assign({}, ...this.getBookmarkFiles().map((x) => ({ [x.raindropId]: x.file })));
-      for (const bookmark of bookmarks) {
-        if (this.plugin.settings.onlyBookmarksWithHl && bookmark.highlights.length == 0) {
-          continue;
-        }
-        if (bookmark.id in bookmarkFilesMap) {
-          yield this.updateFile(bookmarkFilesMap[bookmark.id], bookmark);
-        } else {
-          const renderedFilename = this.renderer.renderFileName(bookmark, true);
-          let fileName = (0, import_truncate_utf8_bytes.default)(`${renderedFilename}`, 252) + ".md";
-          let filePath = `${folderPath}/${fileName}`;
-          let suffix = 1;
-          while (yield this.app.vault.adapter.exists(filePath)) {
-            console.debug(`${filePath} alreay exists`);
-            const fileSuffix = ` (${suffix++}).md`;
-            fileName = (0, import_truncate_utf8_bytes.default)(`${renderedFilename}`, 255 - fileSuffix.length) + fileSuffix;
-            filePath = `${folderPath}/${fileName}`;
-          }
-          bookmarkFilesMap[bookmark.id] = yield this.createFile(filePath, bookmark);
-        }
-      }
-    });
-  }
-  syncCollectionComplete(collection) {
-    return __async(this, null, function* () {
-      this.plugin.settings.syncCollections[collection.id].lastSyncDate = new Date();
-      yield this.plugin.saveSettings();
-    });
-  }
-  updateFile(file, bookmark) {
-    return __async(this, null, function* () {
-      if (this.plugin.settings.appendMode) {
-        yield this.updateFileAppendMode(file, bookmark);
       } else {
-        yield this.updateFileOverwriteMode(file, bookmark);
+        raindropId = Number(fmc.raindrop_id);
       }
-    });
+    } else {
+      new import_obsidian5.Notice("No active file");
+      return;
+    }
+    const bookmark = await this.api.getRaindrop(raindropId);
+    await this.updateFileContent(file, bookmark);
   }
-  updateFileAppendMode(file, bookmark) {
-    return __async(this, null, function* () {
-      console.debug("update file append mode", file.path);
-      const metadata = this.app.metadataCache.getFileCache(file);
-      if ((metadata == null ? void 0 : metadata.frontmatter) && "raindrop_last_update" in metadata.frontmatter) {
-        const localLastUpdate = new Date(metadata.frontmatter.raindrop_last_update);
-        if (localLastUpdate >= bookmark.lastUpdate) {
-          console.debug("skip update file", file.path);
-          return;
-        }
-        bookmark.highlights = bookmark.highlights.filter((hl) => {
-          return localLastUpdate < hl.lastUpdate;
-        });
+  getSyncFolder(collection) {
+    if (this.plugin.settings.autoSyncSuccessNotice) {
+      new import_obsidian5.Notice(`Sync Raindrop collection: ${collection.title}`);
+    }
+    const highlightsFolder = this.plugin.settings.highlightsFolder;
+    let collectionFolder = highlightsFolder;
+    if (this.plugin.settings.collectionsFolders) {
+      collectionFolder = `${highlightsFolder}/${collection["title"]}`;
+    }
+    return collectionFolder;
+  }
+  async syncCollection(collection, fullSync) {
+    const syncFolder = this.getSyncFolder(collection);
+    const lastSyncDate = fullSync ? void 0 : this.plugin.settings.syncCollections[collection.id].lastSyncDate;
+    try {
+      if (lastSyncDate === void 0) {
+        console.debug(`start sync collection: ${collection.title}, full sync`);
+      } else {
+        console.debug(`start sync collection: ${collection.title}, last sync at: ${lastSyncDate}`);
       }
-      const appendedContent = this.renderer.renderContent(bookmark, false);
-      yield this.app.vault.append(file, appendedContent);
-      if (metadata == null ? void 0 : metadata.frontmatter) {
-        const fileContent = yield this.app.vault.cachedRead(file);
-        const article = this.splitFrontmatterAndContent(fileContent, metadata.frontmatter.position.end.line);
-        const frontmatterObj = (0, import_obsidian5.parseYaml)(article.frontmatter);
-        frontmatterObj.raindrop_last_update = new Date().toISOString();
-        const newFrontmatter = (0, import_obsidian5.stringifyYaml)(frontmatterObj);
-        const newFullFileContent = `---
+      for await (const bookmarks of this.api.getRaindropsAfter(collection.id, this.plugin.settings.autoSyncSuccessNotice, lastSyncDate)) {
+        await this.syncBookmarks(bookmarks, syncFolder);
+      }
+      await this.syncCollectionComplete(collection);
+    } catch (e) {
+      console.error(e);
+      new import_obsidian5.Notice(`Sync Raindrop collection ${collection.title} failed: ${e.message}`);
+    }
+  }
+  async syncBookmarks(bookmarks, folderPath) {
+    if (bookmarks.length == 0)
+      return;
+    if (this.plugin.settings.onlyBookmarksWithHl) {
+      const requireUpdate = bookmarks.some((bookmark) => {
+        return bookmark.highlights.length != 0;
+      });
+      if (!requireUpdate)
+        return;
+    }
+    try {
+      await this.app.vault.createFolder(folderPath);
+    } catch (e) {
+    }
+    const bookmarkFilesMap = Object.assign({}, ...this.getBookmarkFiles().map((x) => ({ [x.raindropId]: x.file })));
+    for (const bookmark of bookmarks) {
+      if (this.plugin.settings.onlyBookmarksWithHl && bookmark.highlights.length == 0) {
+        continue;
+      }
+      if (bookmark.id in bookmarkFilesMap) {
+        await this.updateFileContent(bookmarkFilesMap[bookmark.id], bookmark);
+        await this.updateFileName(bookmarkFilesMap[bookmark.id], bookmark, folderPath);
+      } else {
+        const renderedFilename = this.renderer.renderFileName(bookmark, true);
+        const filePath = await this.buildNonDupFilePath(folderPath, renderedFilename);
+        bookmarkFilesMap[bookmark.id] = await this.createFile(filePath, bookmark);
+      }
+    }
+  }
+  buildFilePath(folderPath, renderedFilename, suffix) {
+    let fileSuffix = ".md";
+    let fileName = (0, import_truncate_utf8_bytes.default)(`${renderedFilename}`, 255 - fileSuffix.length) + fileSuffix;
+    if (suffix) {
+      fileSuffix = ` (${suffix++}).md`;
+      fileName = (0, import_truncate_utf8_bytes.default)(`${renderedFilename}`, 255 - fileSuffix.length) + fileSuffix;
+    }
+    return (0, import_obsidian5.normalizePath)(`${folderPath}/${fileName}`);
+  }
+  async buildNonDupFilePath(folderPath, renderedFilename) {
+    let filePath = this.buildFilePath(folderPath, renderedFilename);
+    let suffix = 1;
+    while (await this.app.vault.adapter.exists(filePath)) {
+      console.debug(`${filePath} alreay exists`);
+      filePath = this.buildFilePath(folderPath, renderedFilename, suffix++);
+    }
+    return filePath;
+  }
+  async syncCollectionComplete(collection) {
+    this.plugin.settings.syncCollections[collection.id].lastSyncDate = new Date();
+    await this.plugin.saveSettings();
+  }
+  async updateFileName(file, bookmark, folderPath) {
+    const renderedFilename = this.renderer.renderFileName(bookmark, true);
+    let newFilePath = this.buildFilePath(folderPath, renderedFilename);
+    const newFileMeta = this.app.metadataCache.getCache(newFilePath);
+    if ((newFileMeta == null ? void 0 : newFileMeta.frontmatter) && "raindrop_id" in newFileMeta.frontmatter && newFileMeta.frontmatter.raindrop_id == bookmark.id) {
+      console.debug(`file name of "${file.path}" is not changed`);
+      return;
+    }
+    newFilePath = await this.buildNonDupFilePath(folderPath, renderedFilename);
+    console.debug(`file name change detected, rename "${file.path}" to "${newFilePath}"`);
+    await this.app.fileManager.renameFile(file, newFilePath);
+  }
+  async updateFileContent(file, bookmark) {
+    if (this.plugin.settings.appendMode) {
+      await this.updateFileAppendMode(file, bookmark);
+    } else {
+      await this.updateFileOverwriteMode(file, bookmark);
+    }
+  }
+  async updateFileAppendMode(file, bookmark) {
+    console.debug(`update file append mode ${file.path}`);
+    const metadata = this.app.metadataCache.getFileCache(file);
+    const highlightSigs = Object.fromEntries(bookmark.highlights.map((hl) => [hl.id, hl.signature]));
+    if ((metadata == null ? void 0 : metadata.frontmatter) && "raindrop_highlights" in metadata.frontmatter) {
+      const localHighlights = metadata.frontmatter.raindrop_highlights;
+      bookmark.highlights = bookmark.highlights.filter((hl) => {
+        return !(hl.id in localHighlights && hl.signature === localHighlights[hl.id]);
+      });
+    }
+    const appendedContent = this.renderer.renderContent(bookmark, false);
+    await this.app.vault.append(file, appendedContent);
+    const fileContent = await this.app.vault.cachedRead(file);
+    const bookmarkFm = this.renderer.renderFrontmatter(bookmark, false);
+    const bookmarkFmObj = (0, import_obsidian5.parseYaml)(bookmarkFm);
+    bookmarkFmObj.raindrop_highlights = highlightSigs;
+    if (metadata == null ? void 0 : metadata.frontmatterPosition) {
+      const article = this.splitFrontmatterAndContent(fileContent, metadata.frontmatterPosition.end.line);
+      const fileFmObj = (0, import_obsidian5.parseYaml)(article.frontmatter);
+      const newFmObj = { ...fileFmObj, ...bookmarkFmObj };
+      if (Object.keys(highlightSigs).length == 0 && "raindrop_highlights" in newFmObj) {
+        delete newFmObj["raindrop_highlights"];
+      }
+      const newFrontmatter = (0, import_obsidian5.stringifyYaml)(newFmObj);
+      const newFullFileContent = `---
 ${newFrontmatter}---
 ${article.content}`;
-        yield this.app.vault.modify(file, newFullFileContent);
+      await this.app.vault.modify(file, newFullFileContent);
+    } else {
+      if (Object.keys(highlightSigs).length == 0 && "raindrop_highlights" in bookmarkFmObj) {
+        delete bookmarkFmObj["raindrop_highlights"];
       }
-    });
+      const newFrontmatter = (0, import_obsidian5.stringifyYaml)(bookmarkFmObj);
+      const newFullFileContent = `---
+${newFrontmatter}---
+${fileContent}`;
+      await this.app.vault.modify(file, newFullFileContent);
+    }
   }
-  updateFileOverwriteMode(file, bookmark) {
-    return __async(this, null, function* () {
-      console.debug("update file overwrite mode", file.path);
-      const mdContent = this.renderer.renderFullArticle(bookmark);
-      return this.app.vault.modify(file, mdContent);
-    });
+  async updateFileOverwriteMode(file, bookmark) {
+    console.debug("update file overwrite mode", file.path);
+    const mdContent = this.renderer.renderFullArticle(bookmark);
+    return this.app.vault.modify(file, mdContent);
   }
-  createFile(filePath, bookmark) {
-    return __async(this, null, function* () {
-      console.debug("create file", filePath);
-      const mdContent = this.renderer.renderFullArticle(bookmark);
-      return this.app.vault.create(filePath, mdContent);
-    });
+  async createFile(filePath, bookmark) {
+    console.debug("create file", filePath);
+    const mdContent = this.renderer.renderFullArticle(bookmark);
+    return this.app.vault.create(filePath, mdContent);
   }
   getBookmarkFiles() {
     return this.app.vault.getMarkdownFiles().map((file) => {
@@ -12388,6 +14948,206 @@ ${article.content}`;
 var import_obsidian6 = require("obsidian");
 var import_axios = __toESM(require_axios2());
 
+// node_modules/axios-retry/lib/esm/index.js
+var import_is_retry_allowed = __toESM(require_is_retry_allowed(), 1);
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
+  try {
+    var info = gen[key](arg);
+    var value = info.value;
+  } catch (error) {
+    reject(error);
+    return;
+  }
+  if (info.done) {
+    resolve(value);
+  } else {
+    Promise.resolve(value).then(_next, _throw);
+  }
+}
+function _asyncToGenerator(fn) {
+  return function() {
+    var self2 = this, args = arguments;
+    return new Promise(function(resolve, reject) {
+      var gen = fn.apply(self2, args);
+      function _next(value) {
+        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
+      }
+      function _throw(err) {
+        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
+      }
+      _next(void 0);
+    });
+  };
+}
+function ownKeys(object, enumerableOnly) {
+  var keys = Object.keys(object);
+  if (Object.getOwnPropertySymbols) {
+    var symbols = Object.getOwnPropertySymbols(object);
+    if (enumerableOnly) {
+      symbols = symbols.filter(function(sym) {
+        return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+      });
+    }
+    keys.push.apply(keys, symbols);
+  }
+  return keys;
+}
+function _objectSpread(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
+    if (i % 2) {
+      ownKeys(Object(source), true).forEach(function(key) {
+        _defineProperty(target, key, source[key]);
+      });
+    } else if (Object.getOwnPropertyDescriptors) {
+      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+    } else {
+      ownKeys(Object(source)).forEach(function(key) {
+        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+      });
+    }
+  }
+  return target;
+}
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, { value, enumerable: true, configurable: true, writable: true });
+  } else {
+    obj[key] = value;
+  }
+  return obj;
+}
+var namespace = "axios-retry";
+function isNetworkError(error) {
+  var CODE_EXCLUDE_LIST = ["ERR_CANCELED", "ECONNABORTED"];
+  return !error.response && Boolean(error.code) && !CODE_EXCLUDE_LIST.includes(error.code) && (0, import_is_retry_allowed.default)(error);
+}
+var SAFE_HTTP_METHODS = ["get", "head", "options"];
+var IDEMPOTENT_HTTP_METHODS = SAFE_HTTP_METHODS.concat(["put", "delete"]);
+function isRetryableError(error) {
+  return error.code !== "ECONNABORTED" && (!error.response || error.response.status >= 500 && error.response.status <= 599);
+}
+function isSafeRequestError(error) {
+  if (!error.config) {
+    return false;
+  }
+  return isRetryableError(error) && SAFE_HTTP_METHODS.indexOf(error.config.method) !== -1;
+}
+function isIdempotentRequestError(error) {
+  if (!error.config) {
+    return false;
+  }
+  return isRetryableError(error) && IDEMPOTENT_HTTP_METHODS.indexOf(error.config.method) !== -1;
+}
+function isNetworkOrIdempotentRequestError(error) {
+  return isNetworkError(error) || isIdempotentRequestError(error);
+}
+function noDelay() {
+  return 0;
+}
+function exponentialDelay() {
+  var retryNumber = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : 0;
+  var error = arguments.length > 1 ? arguments[1] : void 0;
+  var delayFactor = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : 100;
+  var delay = Math.pow(2, retryNumber) * delayFactor;
+  var randomSum = delay * 0.2 * Math.random();
+  return delay + randomSum;
+}
+function getCurrentState(config) {
+  var currentState = config[namespace] || {};
+  currentState.retryCount = currentState.retryCount || 0;
+  config[namespace] = currentState;
+  return currentState;
+}
+function getRequestOptions(config, defaultOptions) {
+  return _objectSpread(_objectSpread({}, defaultOptions), config[namespace]);
+}
+function fixConfig(axios2, config) {
+  if (axios2.defaults.agent === config.agent) {
+    delete config.agent;
+  }
+  if (axios2.defaults.httpAgent === config.httpAgent) {
+    delete config.httpAgent;
+  }
+  if (axios2.defaults.httpsAgent === config.httpsAgent) {
+    delete config.httpsAgent;
+  }
+}
+function shouldRetry(_x, _x2, _x3, _x4) {
+  return _shouldRetry.apply(this, arguments);
+}
+function _shouldRetry() {
+  _shouldRetry = _asyncToGenerator(function* (retries, retryCondition, currentState, error) {
+    var shouldRetryOrPromise = currentState.retryCount < retries && retryCondition(error);
+    if (typeof shouldRetryOrPromise === "object") {
+      try {
+        var shouldRetryPromiseResult = yield shouldRetryOrPromise;
+        return shouldRetryPromiseResult !== false;
+      } catch (_err) {
+        return false;
+      }
+    }
+    return shouldRetryOrPromise;
+  });
+  return _shouldRetry.apply(this, arguments);
+}
+function axiosRetry(axios2, defaultOptions) {
+  var requestInterceptorId = axios2.interceptors.request.use((config) => {
+    var currentState = getCurrentState(config);
+    currentState.lastRequestTime = Date.now();
+    return config;
+  });
+  var responseInterceptorId = axios2.interceptors.response.use(null, /* @__PURE__ */ function() {
+    var _ref = _asyncToGenerator(function* (error) {
+      var {
+        config
+      } = error;
+      if (!config) {
+        return Promise.reject(error);
+      }
+      var {
+        retries = 3,
+        retryCondition = isNetworkOrIdempotentRequestError,
+        retryDelay = noDelay,
+        shouldResetTimeout = false,
+        onRetry = () => {
+        }
+      } = getRequestOptions(config, defaultOptions);
+      var currentState = getCurrentState(config);
+      if (yield shouldRetry(retries, retryCondition, currentState, error)) {
+        currentState.retryCount += 1;
+        var delay = retryDelay(currentState.retryCount, error);
+        fixConfig(axios2, config);
+        if (!shouldResetTimeout && config.timeout && currentState.lastRequestTime) {
+          var lastRequestDuration = Date.now() - currentState.lastRequestTime;
+          var timeout = config.timeout - lastRequestDuration - delay;
+          if (timeout <= 0) {
+            return Promise.reject(error);
+          }
+          config.timeout = timeout;
+        }
+        config.transformRequest = [(data) => data];
+        onRetry(currentState.retryCount, error, config);
+        return new Promise((resolve) => setTimeout(() => resolve(axios2(config)), delay));
+      }
+      return Promise.reject(error);
+    });
+    return function(_x5) {
+      return _ref.apply(this, arguments);
+    };
+  }());
+  return {
+    requestInterceptorId,
+    responseInterceptorId
+  };
+}
+axiosRetry.isNetworkError = isNetworkError;
+axiosRetry.isSafeRequestError = isSafeRequestError;
+axiosRetry.isIdempotentRequestError = isIdempotentRequestError;
+axiosRetry.isNetworkOrIdempotentRequestError = isNetworkOrIdempotentRequestError;
+axiosRetry.exponentialDelay = exponentialDelay;
+axiosRetry.isRetryableError = isRetryableError;
+
 // src/tokenManager.ts
 var TokenManager = class {
   get() {
@@ -12405,160 +15165,516 @@ var TokenManager = class {
   }
 };
 
+// node_modules/ts-md5/dist/esm/md5.js
+var Md5 = class {
+  constructor() {
+    this._dataLength = 0;
+    this._bufferLength = 0;
+    this._state = new Int32Array(4);
+    this._buffer = new ArrayBuffer(68);
+    this._buffer8 = new Uint8Array(this._buffer, 0, 68);
+    this._buffer32 = new Uint32Array(this._buffer, 0, 17);
+    this.start();
+  }
+  static hashStr(str, raw = false) {
+    return this.onePassHasher.start().appendStr(str).end(raw);
+  }
+  static hashAsciiStr(str, raw = false) {
+    return this.onePassHasher.start().appendAsciiStr(str).end(raw);
+  }
+  static _hex(x) {
+    const hc = Md5.hexChars;
+    const ho = Md5.hexOut;
+    let n;
+    let offset;
+    let j;
+    let i;
+    for (i = 0; i < 4; i += 1) {
+      offset = i * 8;
+      n = x[i];
+      for (j = 0; j < 8; j += 2) {
+        ho[offset + 1 + j] = hc.charAt(n & 15);
+        n >>>= 4;
+        ho[offset + 0 + j] = hc.charAt(n & 15);
+        n >>>= 4;
+      }
+    }
+    return ho.join("");
+  }
+  static _md5cycle(x, k) {
+    let a = x[0];
+    let b = x[1];
+    let c = x[2];
+    let d = x[3];
+    a += (b & c | ~b & d) + k[0] - 680876936 | 0;
+    a = (a << 7 | a >>> 25) + b | 0;
+    d += (a & b | ~a & c) + k[1] - 389564586 | 0;
+    d = (d << 12 | d >>> 20) + a | 0;
+    c += (d & a | ~d & b) + k[2] + 606105819 | 0;
+    c = (c << 17 | c >>> 15) + d | 0;
+    b += (c & d | ~c & a) + k[3] - 1044525330 | 0;
+    b = (b << 22 | b >>> 10) + c | 0;
+    a += (b & c | ~b & d) + k[4] - 176418897 | 0;
+    a = (a << 7 | a >>> 25) + b | 0;
+    d += (a & b | ~a & c) + k[5] + 1200080426 | 0;
+    d = (d << 12 | d >>> 20) + a | 0;
+    c += (d & a | ~d & b) + k[6] - 1473231341 | 0;
+    c = (c << 17 | c >>> 15) + d | 0;
+    b += (c & d | ~c & a) + k[7] - 45705983 | 0;
+    b = (b << 22 | b >>> 10) + c | 0;
+    a += (b & c | ~b & d) + k[8] + 1770035416 | 0;
+    a = (a << 7 | a >>> 25) + b | 0;
+    d += (a & b | ~a & c) + k[9] - 1958414417 | 0;
+    d = (d << 12 | d >>> 20) + a | 0;
+    c += (d & a | ~d & b) + k[10] - 42063 | 0;
+    c = (c << 17 | c >>> 15) + d | 0;
+    b += (c & d | ~c & a) + k[11] - 1990404162 | 0;
+    b = (b << 22 | b >>> 10) + c | 0;
+    a += (b & c | ~b & d) + k[12] + 1804603682 | 0;
+    a = (a << 7 | a >>> 25) + b | 0;
+    d += (a & b | ~a & c) + k[13] - 40341101 | 0;
+    d = (d << 12 | d >>> 20) + a | 0;
+    c += (d & a | ~d & b) + k[14] - 1502002290 | 0;
+    c = (c << 17 | c >>> 15) + d | 0;
+    b += (c & d | ~c & a) + k[15] + 1236535329 | 0;
+    b = (b << 22 | b >>> 10) + c | 0;
+    a += (b & d | c & ~d) + k[1] - 165796510 | 0;
+    a = (a << 5 | a >>> 27) + b | 0;
+    d += (a & c | b & ~c) + k[6] - 1069501632 | 0;
+    d = (d << 9 | d >>> 23) + a | 0;
+    c += (d & b | a & ~b) + k[11] + 643717713 | 0;
+    c = (c << 14 | c >>> 18) + d | 0;
+    b += (c & a | d & ~a) + k[0] - 373897302 | 0;
+    b = (b << 20 | b >>> 12) + c | 0;
+    a += (b & d | c & ~d) + k[5] - 701558691 | 0;
+    a = (a << 5 | a >>> 27) + b | 0;
+    d += (a & c | b & ~c) + k[10] + 38016083 | 0;
+    d = (d << 9 | d >>> 23) + a | 0;
+    c += (d & b | a & ~b) + k[15] - 660478335 | 0;
+    c = (c << 14 | c >>> 18) + d | 0;
+    b += (c & a | d & ~a) + k[4] - 405537848 | 0;
+    b = (b << 20 | b >>> 12) + c | 0;
+    a += (b & d | c & ~d) + k[9] + 568446438 | 0;
+    a = (a << 5 | a >>> 27) + b | 0;
+    d += (a & c | b & ~c) + k[14] - 1019803690 | 0;
+    d = (d << 9 | d >>> 23) + a | 0;
+    c += (d & b | a & ~b) + k[3] - 187363961 | 0;
+    c = (c << 14 | c >>> 18) + d | 0;
+    b += (c & a | d & ~a) + k[8] + 1163531501 | 0;
+    b = (b << 20 | b >>> 12) + c | 0;
+    a += (b & d | c & ~d) + k[13] - 1444681467 | 0;
+    a = (a << 5 | a >>> 27) + b | 0;
+    d += (a & c | b & ~c) + k[2] - 51403784 | 0;
+    d = (d << 9 | d >>> 23) + a | 0;
+    c += (d & b | a & ~b) + k[7] + 1735328473 | 0;
+    c = (c << 14 | c >>> 18) + d | 0;
+    b += (c & a | d & ~a) + k[12] - 1926607734 | 0;
+    b = (b << 20 | b >>> 12) + c | 0;
+    a += (b ^ c ^ d) + k[5] - 378558 | 0;
+    a = (a << 4 | a >>> 28) + b | 0;
+    d += (a ^ b ^ c) + k[8] - 2022574463 | 0;
+    d = (d << 11 | d >>> 21) + a | 0;
+    c += (d ^ a ^ b) + k[11] + 1839030562 | 0;
+    c = (c << 16 | c >>> 16) + d | 0;
+    b += (c ^ d ^ a) + k[14] - 35309556 | 0;
+    b = (b << 23 | b >>> 9) + c | 0;
+    a += (b ^ c ^ d) + k[1] - 1530992060 | 0;
+    a = (a << 4 | a >>> 28) + b | 0;
+    d += (a ^ b ^ c) + k[4] + 1272893353 | 0;
+    d = (d << 11 | d >>> 21) + a | 0;
+    c += (d ^ a ^ b) + k[7] - 155497632 | 0;
+    c = (c << 16 | c >>> 16) + d | 0;
+    b += (c ^ d ^ a) + k[10] - 1094730640 | 0;
+    b = (b << 23 | b >>> 9) + c | 0;
+    a += (b ^ c ^ d) + k[13] + 681279174 | 0;
+    a = (a << 4 | a >>> 28) + b | 0;
+    d += (a ^ b ^ c) + k[0] - 358537222 | 0;
+    d = (d << 11 | d >>> 21) + a | 0;
+    c += (d ^ a ^ b) + k[3] - 722521979 | 0;
+    c = (c << 16 | c >>> 16) + d | 0;
+    b += (c ^ d ^ a) + k[6] + 76029189 | 0;
+    b = (b << 23 | b >>> 9) + c | 0;
+    a += (b ^ c ^ d) + k[9] - 640364487 | 0;
+    a = (a << 4 | a >>> 28) + b | 0;
+    d += (a ^ b ^ c) + k[12] - 421815835 | 0;
+    d = (d << 11 | d >>> 21) + a | 0;
+    c += (d ^ a ^ b) + k[15] + 530742520 | 0;
+    c = (c << 16 | c >>> 16) + d | 0;
+    b += (c ^ d ^ a) + k[2] - 995338651 | 0;
+    b = (b << 23 | b >>> 9) + c | 0;
+    a += (c ^ (b | ~d)) + k[0] - 198630844 | 0;
+    a = (a << 6 | a >>> 26) + b | 0;
+    d += (b ^ (a | ~c)) + k[7] + 1126891415 | 0;
+    d = (d << 10 | d >>> 22) + a | 0;
+    c += (a ^ (d | ~b)) + k[14] - 1416354905 | 0;
+    c = (c << 15 | c >>> 17) + d | 0;
+    b += (d ^ (c | ~a)) + k[5] - 57434055 | 0;
+    b = (b << 21 | b >>> 11) + c | 0;
+    a += (c ^ (b | ~d)) + k[12] + 1700485571 | 0;
+    a = (a << 6 | a >>> 26) + b | 0;
+    d += (b ^ (a | ~c)) + k[3] - 1894986606 | 0;
+    d = (d << 10 | d >>> 22) + a | 0;
+    c += (a ^ (d | ~b)) + k[10] - 1051523 | 0;
+    c = (c << 15 | c >>> 17) + d | 0;
+    b += (d ^ (c | ~a)) + k[1] - 2054922799 | 0;
+    b = (b << 21 | b >>> 11) + c | 0;
+    a += (c ^ (b | ~d)) + k[8] + 1873313359 | 0;
+    a = (a << 6 | a >>> 26) + b | 0;
+    d += (b ^ (a | ~c)) + k[15] - 30611744 | 0;
+    d = (d << 10 | d >>> 22) + a | 0;
+    c += (a ^ (d | ~b)) + k[6] - 1560198380 | 0;
+    c = (c << 15 | c >>> 17) + d | 0;
+    b += (d ^ (c | ~a)) + k[13] + 1309151649 | 0;
+    b = (b << 21 | b >>> 11) + c | 0;
+    a += (c ^ (b | ~d)) + k[4] - 145523070 | 0;
+    a = (a << 6 | a >>> 26) + b | 0;
+    d += (b ^ (a | ~c)) + k[11] - 1120210379 | 0;
+    d = (d << 10 | d >>> 22) + a | 0;
+    c += (a ^ (d | ~b)) + k[2] + 718787259 | 0;
+    c = (c << 15 | c >>> 17) + d | 0;
+    b += (d ^ (c | ~a)) + k[9] - 343485551 | 0;
+    b = (b << 21 | b >>> 11) + c | 0;
+    x[0] = a + x[0] | 0;
+    x[1] = b + x[1] | 0;
+    x[2] = c + x[2] | 0;
+    x[3] = d + x[3] | 0;
+  }
+  start() {
+    this._dataLength = 0;
+    this._bufferLength = 0;
+    this._state.set(Md5.stateIdentity);
+    return this;
+  }
+  appendStr(str) {
+    const buf8 = this._buffer8;
+    const buf32 = this._buffer32;
+    let bufLen = this._bufferLength;
+    let code;
+    let i;
+    for (i = 0; i < str.length; i += 1) {
+      code = str.charCodeAt(i);
+      if (code < 128) {
+        buf8[bufLen++] = code;
+      } else if (code < 2048) {
+        buf8[bufLen++] = (code >>> 6) + 192;
+        buf8[bufLen++] = code & 63 | 128;
+      } else if (code < 55296 || code > 56319) {
+        buf8[bufLen++] = (code >>> 12) + 224;
+        buf8[bufLen++] = code >>> 6 & 63 | 128;
+        buf8[bufLen++] = code & 63 | 128;
+      } else {
+        code = (code - 55296) * 1024 + (str.charCodeAt(++i) - 56320) + 65536;
+        if (code > 1114111) {
+          throw new Error("Unicode standard supports code points up to U+10FFFF");
+        }
+        buf8[bufLen++] = (code >>> 18) + 240;
+        buf8[bufLen++] = code >>> 12 & 63 | 128;
+        buf8[bufLen++] = code >>> 6 & 63 | 128;
+        buf8[bufLen++] = code & 63 | 128;
+      }
+      if (bufLen >= 64) {
+        this._dataLength += 64;
+        Md5._md5cycle(this._state, buf32);
+        bufLen -= 64;
+        buf32[0] = buf32[16];
+      }
+    }
+    this._bufferLength = bufLen;
+    return this;
+  }
+  appendAsciiStr(str) {
+    const buf8 = this._buffer8;
+    const buf32 = this._buffer32;
+    let bufLen = this._bufferLength;
+    let i;
+    let j = 0;
+    for (; ; ) {
+      i = Math.min(str.length - j, 64 - bufLen);
+      while (i--) {
+        buf8[bufLen++] = str.charCodeAt(j++);
+      }
+      if (bufLen < 64) {
+        break;
+      }
+      this._dataLength += 64;
+      Md5._md5cycle(this._state, buf32);
+      bufLen = 0;
+    }
+    this._bufferLength = bufLen;
+    return this;
+  }
+  appendByteArray(input) {
+    const buf8 = this._buffer8;
+    const buf32 = this._buffer32;
+    let bufLen = this._bufferLength;
+    let i;
+    let j = 0;
+    for (; ; ) {
+      i = Math.min(input.length - j, 64 - bufLen);
+      while (i--) {
+        buf8[bufLen++] = input[j++];
+      }
+      if (bufLen < 64) {
+        break;
+      }
+      this._dataLength += 64;
+      Md5._md5cycle(this._state, buf32);
+      bufLen = 0;
+    }
+    this._bufferLength = bufLen;
+    return this;
+  }
+  getState() {
+    const s = this._state;
+    return {
+      buffer: String.fromCharCode.apply(null, Array.from(this._buffer8)),
+      buflen: this._bufferLength,
+      length: this._dataLength,
+      state: [s[0], s[1], s[2], s[3]]
+    };
+  }
+  setState(state) {
+    const buf = state.buffer;
+    const x = state.state;
+    const s = this._state;
+    let i;
+    this._dataLength = state.length;
+    this._bufferLength = state.buflen;
+    s[0] = x[0];
+    s[1] = x[1];
+    s[2] = x[2];
+    s[3] = x[3];
+    for (i = 0; i < buf.length; i += 1) {
+      this._buffer8[i] = buf.charCodeAt(i);
+    }
+  }
+  end(raw = false) {
+    const bufLen = this._bufferLength;
+    const buf8 = this._buffer8;
+    const buf32 = this._buffer32;
+    const i = (bufLen >> 2) + 1;
+    this._dataLength += bufLen;
+    const dataBitsLen = this._dataLength * 8;
+    buf8[bufLen] = 128;
+    buf8[bufLen + 1] = buf8[bufLen + 2] = buf8[bufLen + 3] = 0;
+    buf32.set(Md5.buffer32Identity.subarray(i), i);
+    if (bufLen > 55) {
+      Md5._md5cycle(this._state, buf32);
+      buf32.set(Md5.buffer32Identity);
+    }
+    if (dataBitsLen <= 4294967295) {
+      buf32[14] = dataBitsLen;
+    } else {
+      const matches = dataBitsLen.toString(16).match(/(.*?)(.{0,8})$/);
+      if (matches === null) {
+        return;
+      }
+      const lo = parseInt(matches[2], 16);
+      const hi = parseInt(matches[1], 16) || 0;
+      buf32[14] = lo;
+      buf32[15] = hi;
+    }
+    Md5._md5cycle(this._state, buf32);
+    return raw ? this._state : Md5._hex(this._state);
+  }
+};
+Md5.stateIdentity = new Int32Array([1732584193, -271733879, -1732584194, 271733878]);
+Md5.buffer32Identity = new Int32Array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+Md5.hexChars = "0123456789abcdef";
+Md5.hexOut = [];
+Md5.onePassHasher = new Md5();
+if (Md5.hashStr("hello") !== "5d41402abc4b2a76b9719d911017c592") {
+  throw new Error("Md5 self test failed.");
+}
+
 // src/api.ts
 var BASEURL = "https://api.raindrop.io/rest/v1";
+axiosRetry(import_axios.default, {
+  retries: 3,
+  retryCondition: (error) => {
+    if (error.response && error.response.status === 429) {
+      new import_obsidian6.Notice("Too many requests, will retry sync after 1 minute", 5);
+      console.warn(`Too many requests, will retry sync after 1 minute`);
+      return true;
+    } else {
+      console.error(`request error: ${error}`);
+    }
+    return false;
+  },
+  retryDelay: () => {
+    return 6e4;
+  },
+  onRetry: (retryCount) => {
+    new import_obsidian6.Notice(`Retry sync ${retryCount}/3`);
+  }
+});
 var RaindropAPI = class {
   constructor(app2) {
     this.app = app2;
     this.tokenManager = new TokenManager();
   }
-  get(url, params) {
-    return __async(this, null, function* () {
-      const token = this.tokenManager.get();
-      if (!token) {
-        throw new Error("Invalid token");
+  async get(url, params) {
+    const token = this.tokenManager.get();
+    if (!token) {
+      throw new Error("Invalid token");
+    }
+    const result = await import_axios.default.get(url, {
+      params,
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json"
       }
-      const result = yield import_axios.default.get(url, {
-        params,
+    });
+    if (result.status == 401) {
+      throw new Error("Unauthorized");
+    }
+    if (result.status !== 200) {
+      console.error("Raindrop API request failed:", result);
+      throw new Error("Request failed");
+    }
+    return result.data;
+  }
+  async getCollections(enableCollectionGroup) {
+    const rootCollectionPromise = this.get(`${BASEURL}/collections`, {});
+    const nestedCollectionPromise = this.get(`${BASEURL}/collections/childrens`, {});
+    const collections = [
+      { id: -1, title: "Unsorted" },
+      { id: 0, title: "All bookmarks" },
+      { id: -99, title: "Trash" }
+    ];
+    const collectionGroupMap = {};
+    if (enableCollectionGroup) {
+      const res = await this.get(`${BASEURL}/user`, {});
+      const groups = this.parseGroups(res.user.groups);
+      groups.forEach((g) => {
+        g.collections.forEach((cid) => {
+          collectionGroupMap[cid] = g.title;
+        });
+      });
+    }
+    const rootCollectionMap = {};
+    const rootCollections = await rootCollectionPromise;
+    rootCollections.items.forEach((collection) => {
+      const id = collection["_id"];
+      let title = collection["title"];
+      if (enableCollectionGroup) {
+        title = `${collectionGroupMap[id]}/${title}`;
+      }
+      rootCollectionMap[id] = title;
+      collections.push({
+        title,
+        id
+      });
+    });
+    const nestedCollectionMap = {};
+    const nestedCollections = await nestedCollectionPromise;
+    nestedCollections.items.forEach((collection) => {
+      var _a, _b;
+      const id = collection["_id"];
+      nestedCollectionMap[id] = {
+        title: collection["title"],
+        parentId: (_b = (_a = collection["parent"]) == null ? void 0 : _a["$id"]) != null ? _b : 0
+      };
+    });
+    nestedCollections.items.forEach((collection) => {
+      var _a, _b;
+      const id = collection["_id"];
+      let parentId = (_b = (_a = collection["parent"]) == null ? void 0 : _a["$id"]) != null ? _b : 0;
+      let title = collection["title"];
+      while (parentId && parentId in nestedCollectionMap) {
+        title = `${nestedCollectionMap[parentId].title}/${title}`;
+        parentId = nestedCollectionMap[parentId].parentId;
+      }
+      if (parentId && parentId in rootCollectionMap) {
+        title = `${rootCollectionMap[parentId]}/${title}`;
+      }
+      collections.push({
+        title,
+        id
+      });
+    });
+    return collections;
+  }
+  async *getRaindropsAfter(collectionId, showNotice, lastSync) {
+    let notice;
+    if (showNotice) {
+      notice = new import_obsidian6.Notice("Fetch Raindrops highlights", 0);
+    }
+    const pageSize = 50;
+    const res = await this.get(`${BASEURL}/raindrops/${collectionId}`, {
+      page: 0,
+      perpage: pageSize,
+      sort: "-created"
+    });
+    const raindropsCnt = res.count;
+    let bookmarks = this.parseRaindrops(res.items);
+    const totalPages = Math.ceil(raindropsCnt / pageSize);
+    let remainPages = totalPages - 1;
+    let page = 1;
+    const getPage = async (page2) => {
+      const res2 = await this.get(`${BASEURL}/raindrops/${collectionId}`, {
+        page: page2,
+        perpage: pageSize,
+        sort: "-created"
+      });
+      return this.parseRaindrops(res2.items);
+    };
+    if (lastSync === void 0) {
+      if (bookmarks.length > 0) {
+        yield bookmarks;
+        while (remainPages--) {
+          notice == null ? void 0 : notice.setMessage(`Sync Raindrop pages: ${page + 1}/${totalPages}`);
+          yield await getPage(page++);
+        }
+      }
+    } else {
+      const filterCreated = (bookmarks2) => {
+        return bookmarks2.filter((bookmark) => {
+          return bookmark.created.getTime() >= lastSync.getTime();
+        });
+      };
+      const filteredBookmark = filterCreated(bookmarks);
+      if (filteredBookmark.length > 0) {
+        yield filteredBookmark;
+        while (bookmarks[bookmarks.length - 1].created.getTime() >= lastSync.getTime() && remainPages--) {
+          notice == null ? void 0 : notice.setMessage(`Sync Raindrop pages: ${page + 1}/${totalPages}`);
+          let bookmarks2 = await getPage(page++);
+          yield filterCreated(bookmarks2);
+        }
+      }
+    }
+    notice == null ? void 0 : notice.hide();
+  }
+  async getUser() {
+    const res = await this.get(`${BASEURL}/user`, {});
+    return {
+      fullName: res.user.fullName
+    };
+  }
+  async checkToken(token) {
+    let result;
+    try {
+      result = await import_axios.default.get(`${BASEURL}/user`, {
         headers: {
-          "Authorization": `Bearer ${token}`,
+          Authorization: `Bearer ${token}`,
           "Content-Type": "application/json"
         }
       });
-      if (result.status == 401) {
-        throw new Error("Unauthorized");
-      }
       if (result.status !== 200) {
-        console.error("Raindrop API request failed:", result);
-        throw new Error("Request failed");
-      }
-      return result.data;
-    });
-  }
-  getCollections() {
-    return __async(this, null, function* () {
-      let res = yield this.get(`${BASEURL}/collections`, {});
-      const collections = [
-        { id: -1, title: "Unsorted" },
-        { id: -99, title: "Trash" }
-      ];
-      const rootCollectionMap = {};
-      res.items.forEach((collection) => {
-        const id = collection["_id"];
-        const title = collection["title"];
-        rootCollectionMap[id] = title;
-        collections.push({
-          title,
-          id
-        });
-      });
-      res = yield this.get(`${BASEURL}/collections/childrens`, {});
-      const nestedCollectionMap = {};
-      res.items.forEach((collection) => {
-        const id = collection["_id"];
-        nestedCollectionMap[id] = {
-          title: collection["title"],
-          parentId: collection["parent"]["$id"]
-        };
-      });
-      res.items.forEach((collection) => {
-        const id = collection["_id"];
-        let parentId = collection["parent"]["$id"];
-        let title = collection["title"];
-        while (!(parentId in rootCollectionMap)) {
-          title = `${nestedCollectionMap[parentId].title}/${title}`;
-          parentId = nestedCollectionMap[parentId].parentId;
-        }
-        collections.push({
-          title,
-          id
-        });
-      });
-      return collections;
-    });
-  }
-  getRaindropsAfter(collectionId, lastSync) {
-    return __async(this, null, function* () {
-      const notice = new import_obsidian6.Notice("Fetch Raindrops highlights", 0);
-      const res = yield this.get(`${BASEURL}/raindrops/${collectionId}`, {
-        "page": 0,
-        "sort": "-lastUpdate"
-      });
-      const raindropsCnt = res.count;
-      let bookmarks = this.parseRaindrops(res.items);
-      let remainPages = Math.ceil(raindropsCnt / 25) - 1;
-      const totalPages = Math.ceil(raindropsCnt / 25) - 1;
-      let page = 1;
-      const addNewPages = (page2) => __async(this, null, function* () {
-        const res2 = yield this.get(`${BASEURL}/raindrops/${collectionId}`, {
-          "page": page2,
-          "sort": "-lastUpdate"
-        });
-        bookmarks = bookmarks.concat(this.parseRaindrops(res2.items));
-      });
-      if (bookmarks.length > 0) {
-        if (lastSync === void 0) {
-          while (remainPages--) {
-            notice.setMessage(`Sync Raindrop pages: ${totalPages - remainPages}/${totalPages}`);
-            yield addNewPages(page++);
-          }
-        } else {
-          while (bookmarks[bookmarks.length - 1].lastUpdate >= lastSync && remainPages--) {
-            notice.setMessage(`Sync Raindrop pages: ${totalPages - remainPages}/${totalPages}`);
-            yield addNewPages(page++);
-          }
-          bookmarks = bookmarks.filter((bookmark) => {
-            return bookmark.lastUpdate >= lastSync;
-          });
-        }
-      }
-      for (const [idx, bookmark] of bookmarks.entries()) {
-        notice.setMessage(`Sync Raindrop bookmarks: ${idx + 1}/${bookmarks.length}`);
-        if (bookmark.highlights.length == 3) {
-          const res2 = yield this.get(`${BASEURL}/raindrop/${bookmark.id}`, {});
-          bookmark["highlights"] = this.parseHighlights(res2.item.highlights);
-        }
-      }
-      notice.hide();
-      return bookmarks;
-    });
-  }
-  getUser() {
-    return __async(this, null, function* () {
-      const res = yield this.get(`${BASEURL}/user`, {});
-      return {
-        fullName: res.user.fullName
-      };
-    });
-  }
-  checkToken(token) {
-    return __async(this, null, function* () {
-      let result;
-      try {
-        result = yield import_axios.default.get(`${BASEURL}/user`, {
-          headers: {
-            "Authorization": `Bearer ${token}`,
-            "Content-Type": "application/json"
-          }
-        });
-        if (result.status !== 200) {
-          throw new Error("Invalid token");
-        }
-      } catch (e) {
         throw new Error("Invalid token");
       }
-      const user = result.data.user;
-      return {
-        fullName: user.fullName
-      };
-    });
+    } catch (e) {
+      throw new Error("Invalid token");
+    }
+    const user = result.data.user;
+    return {
+      fullName: user.fullName
+    };
   }
-  getRaindrop(id) {
-    return __async(this, null, function* () {
-      const res = yield this.get(`${BASEURL}/raindrop/${id}`, {});
-      const bookmark = this.parseRaindrop(res.item);
-      return bookmark;
-    });
+  async getRaindrop(id) {
+    const res = await this.get(`${BASEURL}/raindrop/${id}`, {});
+    const bookmark = this.parseRaindrop(res.item);
+    return bookmark;
   }
   parseRaindrops(bookmarks) {
     return bookmarks.map((raindrop) => {
@@ -12572,6 +15688,7 @@ var RaindropAPI = class {
       title: raindrop["title"],
       highlights: this.parseHighlights(raindrop["highlights"]),
       excerpt: raindrop["excerpt"],
+      note: raindrop["note"],
       link: raindrop["link"],
       lastUpdate: new Date(raindrop["lastUpdate"]),
       tags: raindrop["tags"],
@@ -12594,9 +15711,19 @@ var RaindropAPI = class {
         text: hl["text"],
         lastUpdate: new Date(hl["lastUpdate"]),
         created: new Date(hl["created"]),
-        note: hl["note"]
+        note: hl["note"],
+        signature: Md5.hashStr(`${hl["color"]},${hl["text"]},${hl["note"]}`)
       };
       return highlight;
+    });
+  }
+  parseGroups(groups) {
+    return groups.map((g) => {
+      const group = {
+        title: g["title"],
+        collections: g["collections"]
+      };
+      return group;
     });
   }
 };
@@ -12605,7 +15732,7 @@ var RaindropAPI = class {
 var defaultTemplate_default = '{% if is_new_article %}\n# Metadata\n{% if link %}Source URL:: {{link}}{% endif %}\n{% if tags|length %}Topics:: #{{ tags | join(", #") }}{% endif %}\n\n---\n# {{title}}\n\n{% if excerpt %}{{excerpt}}{% endif %}\n\n## Highlights\n{% endif -%}{% for highlight in highlights %}\n{% if highlight.color == "red" -%}\n    {%- set callout = "danger" -%}\n{%- elif highlight.color == "blue" -%}\n    {%- set callout = "info" -%}\n{%- elif highlight.color == "green" -%}\n    {%- set callout = "check" -%}\n{%- else -%}\n    {%- set callout = "quote" -%}\n{%- endif -%}\n> [!{{callout}}]+ Updated on {{highlight.lastUpdate}}\n>\n> {{highlight.text.split("\\n") | join("\\n>")}}\n{% if highlight.note -%}> > {{highlight.note + "\\n"}}{%- endif %}\n\n{%- endfor -%}\n';
 
 // src/constants.ts
-var VERSION = "0.0.17";
+var VERSION = "0.0.21";
 var DEFAULT_SETTINGS = {
   version: VERSION,
   username: void 0,
@@ -12615,140 +15742,203 @@ var DEFAULT_SETTINGS = {
   collectionsFolders: true,
   onlyBookmarksWithHl: false,
   highlightsFolder: "/",
+  collectionGroups: false,
+  autoSyncSuccessNotice: true,
   syncCollections: {},
   template: defaultTemplate_default,
   metadataTemplate: "",
   filenameTemplate: "{{title}}",
-  dateTimeFormat: "YYYY/MM/DD HH:mm:ss",
-  autoSyncInterval: 0
+  autoSyncInterval: 0,
+  autoescape: true
+};
+
+// src/modal/breakingChange.ts
+var import_obsidian7 = require("obsidian");
+var import_semver = __toESM(require_semver2());
+var BreadkingChangeModal = class extends import_obsidian7.Modal {
+  constructor(app2, currentVersion) {
+    super(app2);
+    this.waitForClose = new Promise((resolve) => this.resolvePromise = resolve);
+    this.titleEl.innerText = "Raindrop Highlight - Breaking Changes";
+    let breakingChanges = "";
+    if (import_semver.default.lt(currentVersion, "0.0.21")) {
+      breakingChanges += `<p>v0.0.21</p>
+<ul>
+<li>Sync collections from last update time is now changed to sync from created time. You should now use either \`Raindrop Highlights: Sync all bookmarks (full sync)\` or \`Raindrop Highlights: Sync this bookmark\` command to update existing files. See issue <a href="https://github.com/kaiiiz/obsidian-raindrop-highlights-plugin/issues/72">#72</a> for details.</li>
+</ul>
+`;
+    }
+    if (import_semver.default.lt(currentVersion, "0.0.19")) {
+      breakingChanges += `<p>v0.0.19</p>
+<ul>
+<li>The front matter property <code>raindrop_last_update</code> has now been replaced by <code>raindrop_highlights</code>, which stores the highlight signature for each highlight entry to fix the duplicate highlight entry bug in append mode.</li>
+<li>The file name and front matter are now synced with templates while performing updates.</li>
+</ul>
+`;
+    }
+    if (import_semver.default.lt(currentVersion, "0.0.18")) {
+      breakingChanges += `<p>v0.0.18</p>
+<ul>
+<li>Date &amp; time format field is replaced by the <code>date</code> filter in template. Update <code>created</code> and <code>lastUpdate</code> in template accordingly.</li>
+</ul>
+`;
+    }
+    if (breakingChanges !== "") {
+      this.contentEl.innerHTML = breakingChanges;
+      this.open();
+    }
+  }
+  onClose() {
+    super.onClose();
+    this.resolvePromise();
+  }
 };
 
 // src/main.ts
-var RaindropPlugin = class extends import_obsidian7.Plugin {
-  onload() {
-    return __async(this, null, function* () {
-      yield this.loadSettings();
-      this.api = new RaindropAPI(this.app);
-      this.raindropSync = new RaindropSync(this.app, this, this.api);
-      if (this.settings.ribbonIcon) {
-        this.addRibbonIcon("cloud", "Sync your Raindrop highlights", () => {
-          if (!this.settings.isConnected) {
-            new import_obsidian7.Notice("Please configure Raindrop API token in the plugin setting");
-          } else {
-            this.raindropSync.sync();
-          }
-        });
-      }
-      this.addCommand({
-        id: "raindrop-sync",
-        name: "Sync highlights",
-        callback: () => __async(this, null, function* () {
-          yield this.raindropSync.sync();
-        })
-      });
-      this.addCommand({
-        id: "raindrop-show-last-sync-time",
-        name: "Show last sync time",
-        callback: () => __async(this, null, function* () {
-          const message = Object.values(this.settings.syncCollections).filter((collection) => collection.sync).map((collection) => {
-            var _a;
-            return `${collection.title}: ${(_a = collection.lastSyncDate) == null ? void 0 : _a.toLocaleString()}`;
-          }).join("\n");
-          new import_obsidian7.Notice(message);
-        })
-      });
-      this.addCommand({
-        id: "raindrop-open-link",
-        name: "Open link in Raindrop",
-        callback: () => __async(this, null, function* () {
-          var _a;
-          const file = app.workspace.getActiveFile();
-          if (file) {
-            const fmc = (_a = app.metadataCache.getFileCache(file)) == null ? void 0 : _a.frontmatter;
-            if (fmc == null ? void 0 : fmc.raindrop_id) {
-              const bookmark = yield this.api.getRaindrop(fmc.raindrop_id);
-              window.open(`https://app.raindrop.io/my/${bookmark.collectionId}/item/${bookmark.id}/edit`);
-            } else {
-              new import_obsidian7.Notice("This is not a Raindrop article file");
-            }
-          } else {
-            new import_obsidian7.Notice("No active file");
-          }
-        })
-      });
-      this.addSettingTab(new RaindropSettingTab(this.app, this, this.api));
-      if (this.settings.autoSyncInterval) {
-        this.startAutoSync();
-      }
-    });
-  }
-  onunload() {
-    return __async(this, null, function* () {
-      yield this.clearAutoSync();
-    });
-  }
-  loadSettings() {
-    return __async(this, null, function* () {
-      this.settings = Object.assign({}, DEFAULT_SETTINGS, yield this.loadData());
-      for (const id in this.settings.syncCollections) {
-        const collection = this.settings.syncCollections[id];
-        if (collection.lastSyncDate) {
-          collection.lastSyncDate = new Date(collection.lastSyncDate);
-        }
-      }
-      this.settings.version = VERSION;
-      yield this.saveSettings();
-    });
-  }
-  saveSettings() {
-    return __async(this, null, function* () {
-      yield this.saveData(this.settings);
-    });
-  }
-  updateCollectionSettings(collections) {
-    return __async(this, null, function* () {
-      const syncCollections = {};
-      collections.forEach((collection) => __async(this, null, function* () {
-        const { id, title } = collection;
-        if (!(id in this.settings.syncCollections)) {
-          syncCollections[id] = {
-            id,
-            title,
-            sync: false,
-            lastSyncDate: void 0
-          };
+var import_semver2 = __toESM(require_semver2());
+var RaindropPlugin = class extends import_obsidian8.Plugin {
+  async onload() {
+    await this.loadSettings();
+    this.api = new RaindropAPI(this.app);
+    this.raindropSync = new RaindropSync(this.app, this, this.api);
+    if (this.settings.ribbonIcon) {
+      this.addRibbonIcon("cloud", "Sync your Raindrop bookmarks", () => {
+        if (!this.settings.isConnected) {
+          new import_obsidian8.Notice("Please configure Raindrop API token in the plugin setting");
         } else {
-          syncCollections[id] = this.settings.syncCollections[id];
-          syncCollections[id].title = title;
+          this.raindropSync.sync({ fullSync: false });
         }
-      }));
-      this.settings.syncCollections = syncCollections;
-      yield this.saveSettings();
-    });
-  }
-  clearAutoSync() {
-    return __async(this, null, function* () {
-      if (this.timeoutIDAutoSync) {
-        window.clearTimeout(this.timeoutIDAutoSync);
-        this.timeoutIDAutoSync = void 0;
+      });
+    }
+    this.addCommand({
+      id: "raindrop-sync-new",
+      name: "Sync newly created bookmarks (sync from last sync time)",
+      callback: async () => {
+        await this.raindropSync.sync({ fullSync: false });
       }
-      console.info("Clearing auto sync...");
     });
-  }
-  startAutoSync(minutes) {
-    return __async(this, null, function* () {
-      const minutesToSync = minutes != null ? minutes : this.settings.autoSyncInterval;
-      if (minutesToSync > 0) {
-        this.timeoutIDAutoSync = window.setTimeout(() => {
-          this.raindropSync.sync();
-          this.startAutoSync();
-        }, minutesToSync * 6e4);
+    this.addCommand({
+      id: "raindrop-sync-all",
+      name: "Sync all bookmarks (full sync)",
+      callback: async () => {
+        await this.raindropSync.sync({ fullSync: true });
       }
-      console.info(`StartAutoSync: this.timeoutIDAutoSync ${this.timeoutIDAutoSync} with ${minutesToSync} minutes`);
     });
+    this.addCommand({
+      id: "raindrop-sync-this",
+      name: "Sync this bookmark",
+      callback: async () => {
+        const file = app.workspace.getActiveFile();
+      }
+    });
+    this.addCommand({
+      id: "raindrop-show-last-sync-time",
+      name: "Show last sync time",
+      callback: async () => {
+        const message = Object.values(this.settings.syncCollections).filter((collection) => collection.sync).map((collection) => {
+          var _a;
+          return `${collection.title}: ${(_a = collection.lastSyncDate) == null ? void 0 : _a.toLocaleString()}`;
+        }).join("\n");
+        new import_obsidian8.Notice(message);
+      }
+    });
+    this.addCommand({
+      id: "raindrop-open-link",
+      name: "Open link in Raindrop",
+      callback: async () => {
+        var _a;
+        const file = app.workspace.getActiveFile();
+        if (file) {
+          const fmc = (_a = app.metadataCache.getFileCache(file)) == null ? void 0 : _a.frontmatter;
+          if (fmc == null ? void 0 : fmc.raindrop_id) {
+            const bookmark = await this.api.getRaindrop(fmc.raindrop_id);
+            window.open(`https://app.raindrop.io/my/${bookmark.collectionId}/item/${bookmark.id}/edit`);
+          } else {
+            new import_obsidian8.Notice("This is not a Raindrop bookmark file");
+          }
+        } else {
+          new import_obsidian8.Notice("No active file");
+        }
+      }
+    });
+    this.addCommand({
+      id: "raindrop-manage-collection",
+      name: "Manage collections to be synced",
+      callback: async () => {
+        const notice = new import_obsidian8.Notice("Loading collections...");
+        const collectionGroup = this.settings.collectionGroups;
+        const allCollections = await this.api.getCollections(collectionGroup);
+        this.updateCollectionSettings(allCollections);
+        notice.hide();
+        new CollectionsModal(this.app, this);
+      }
+    });
+    this.addSettingTab(new RaindropSettingTab(this.app, this, this.api));
+    if (this.settings.autoSyncInterval) {
+      await this.startAutoSync();
+    }
+  }
+  async onunload() {
+    await this.clearAutoSync();
+  }
+  async loadSettings() {
+    this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData());
+    for (const id in this.settings.syncCollections) {
+      const collection = this.settings.syncCollections[id];
+      if (collection.lastSyncDate) {
+        collection.lastSyncDate = new Date(collection.lastSyncDate);
+      }
+    }
+    new BreadkingChangeModal(this.app, this.settings.version);
+    if (import_semver2.default.lt(this.settings.version, "0.0.18")) {
+      if ("dateTimeFormat" in this.settings) {
+        delete this.settings["dateTimeFormat"];
+      }
+    }
+    this.settings.version = VERSION;
+    await this.saveSettings();
+  }
+  async saveSettings() {
+    await this.saveData(this.settings);
+  }
+  async updateCollectionSettings(collections) {
+    const syncCollections = {};
+    collections.forEach(async (collection) => {
+      const { id, title } = collection;
+      if (!(id in this.settings.syncCollections)) {
+        syncCollections[id] = {
+          id,
+          title,
+          sync: false,
+          lastSyncDate: void 0
+        };
+      } else {
+        syncCollections[id] = this.settings.syncCollections[id];
+        syncCollections[id].title = title;
+      }
+    });
+    this.settings.syncCollections = syncCollections;
+    await this.saveSettings();
+  }
+  async clearAutoSync() {
+    if (this.timeoutIDAutoSync) {
+      window.clearTimeout(this.timeoutIDAutoSync);
+      this.timeoutIDAutoSync = void 0;
+    }
+    console.info("Clearing auto sync...");
+  }
+  async startAutoSync(minutes) {
+    const minutesToSync = minutes != null ? minutes : this.settings.autoSyncInterval;
+    if (minutesToSync > 0) {
+      this.timeoutIDAutoSync = window.setTimeout(() => {
+        this.raindropSync.sync({ fullSync: false });
+        this.startAutoSync();
+      }, minutesToSync * 6e4);
+    }
+    console.info(`StartAutoSync: this.timeoutIDAutoSync ${this.timeoutIDAutoSync} with ${minutesToSync} minutes`);
   }
 };
-/*! Browser bundle of nunjucks 3.2.3  */
+/*! Browser bundle of nunjucks 3.2.4  */
 //! authors : Tim Wood, Iskren Chernev, Moment.js contributors
 //! license : MIT
 //! moment.js

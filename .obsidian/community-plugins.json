@@ -5,7 +5,6 @@
   "dataview",
   "templater-obsidian",
   "obsidian-annotator",
-  "cycle-through-panes",
   "cmdr",
   "obsidian-zotero-desktop-connector",
   "obsidian-minimal-settings",
@@ -17,9 +16,12 @@
   "obsidian-git",
   "obsidian-spaced-repetition",
   "obsidian-shellcommands",
-  "file-tree-alternative",
   "highlightr-plugin",
   "obsidian-charts",
-  "obsidian-enhancing-mindmap",
-  "obsidian-mind-map"
+  "recent-files-obsidian",
+  "tag-wrangler",
+  "homepage",
+  "execute-code",
+  "obsidian-kanban",
+  "obsidian-commits"
 ]

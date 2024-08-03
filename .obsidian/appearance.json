@@ -1,9 +1,9 @@
 {
   "accentColor": "#98d1ce",
-  "cssTheme": "Minimal",
+  "cssTheme": "GitHub Theme",
   "theme": "obsidian",
-  "interfaceFontFamily": "Source Code Pro",
-  "textFontFamily": "SFMono Nerd Font",
+  "interfaceFontFamily": "Andale Mono",
+  "textFontFamily": "JetBrains Mono NL",
   "baseFontSize": 16,
-  "monospaceFontFamily": "Hack Nerd Font"
+  "monospaceFontFamily": "BlexMono Nerd Font"
 }

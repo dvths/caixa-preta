@@ -1,0 +1,1430 @@
+{
+  "initialized": true,
+  "trackedProjects": [
+    "/"
+  ],
+  "filesCheckpoint": {
+    "02-inbox/20230520224938.md": {
+      "size": 637,
+      "tags": 1,
+      "links": 0
+    },
+    "02-inbox/Referência para criação de conteúdo de estudos técnicos sobre engenharia de dados.md": {
+      "size": 1369,
+      "tags": 1,
+      "links": 0
+    },
+    "02-inbox/07042024010025-notas-de-desenvolvimento-do-guia-nordeste.md": {
+      "size": 3904,
+      "tags": 1,
+      "links": 0
+    },
+    "02-inbox/07072023205921-debugando-código-python.md": {
+      "size": 8459,
+      "tags": 1,
+      "links": 0
+    },
+    "02-inbox/Projeto Polinexus - requisitos.md": {
+      "size": 15448,
+      "tags": 1,
+      "links": 0
+    },
+    "02-inbox/Desinformação em eleições municipais.md": {
+      "size": 13968,
+      "tags": 1,
+      "links": 0
+    },
+    "02-inbox/20230523222808.md": {
+      "size": 4546,
+      "tags": 1,
+      "links": 0
+    },
+    "02-inbox/01092023003336-conceito-de-axis-no-pandas.md": {
+      "size": 1262,
+      "tags": 1,
+      "links": 0
+    },
+    "02-inbox/08072023234906-média-aparada.md": {
+      "size": 1039,
+      "tags": 1,
+      "links": 1
+    },
+    "02-inbox/05102023120026-fluxo-de-trabalho-com-imagens-digitais.md": {
+      "size": 1368,
+      "tags": 1,
+      "links": 0
+    },
+    "02-inbox/03052024235400-criando-um-modern-data-stack-com-kubernetes-na-prática.md": {
+      "size": 1179,
+      "tags": 2,
+      "links": 0
+    },
+    "README.md": {
+      "size": 24,
+      "tags": 0,
+      "links": 0
+    },
+    "05-imagens/Drawing 2023-05-18 19.56.15.excalidraw.md": {
+      "size": 50189,
+      "tags": 1,
+      "links": 2
+    },
+    "00-templates/2-nota.md": {
+      "size": 280,
+      "tags": 1,
+      "links": 0
+    },
+    "00-templates/1-code_cell.md": {
+      "size": 244,
+      "tags": 0,
+      "links": 0
+    },
+    "BOARD.md": {
+      "size": 0,
+      "tags": 1,
+      "links": 8
+    },
+    "02-inbox/O que é Engenharia de Dados e qual o papel do engenheiro de dados.md": {
+      "size": 280,
+      "tags": 1,
+      "links": 0
+    },
+    "03-referencias/02112023190043-conectando-jupyter-notebook-ao-postgres.md": {
+      "size": 2182,
+      "tags": 4,
+      "links": 1
+    },
+    "03-referencias/04122023152653-definição-do-conceito-de-pipelines-de-dados.md": {
+      "size": 3332,
+      "tags": 4,
+      "links": 0
+    },
+    "03-referencias/06062023100232-lista-de-checagem-para-limpeza-de-dados.md": {
+      "size": 9880,
+      "tags": 3,
+      "links": 0
+    },
+    "03-referencias/06072023185214-google-sheets-trabalhando-com-tabelas-dinâmicas.md": {
+      "size": 1605,
+      "tags": 3,
+      "links": 0
+    },
+    "03-referencias/06112023184717-solucionando-questões-de-negócios-com-sql.md": {
+      "size": 8968,
+      "tags": 2,
+      "links": 0
+    },
+    "03-referencias/06112023205913-sql-data-manipulation-language-dml.md": {
+      "size": 1154,
+      "tags": 3,
+      "links": 1
+    },
+    "03-referencias/06112023212620-sql-data-definition-language-ddl.md": {
+      "size": 2022,
+      "tags": 3,
+      "links": 0
+    },
+    "03-referencias/07082023111501-vetor-é-um-grupo-de-elementos-de-dados-do-mesmo-tipo-armazenados-em-uma-sequência-em-r.md": {
+      "size": 4927,
+      "tags": 4,
+      "links": 1
+    },
+    "03-referencias/07082023111859-para-armazenar-elementos-de-tipos-diferentes-na-mesma-estrutura-de-dados-use-uma-lista.md": {
+      "size": 3255,
+      "tags": 4,
+      "links": 1
+    },
+    "03-referencias/07082023112930-data-frames-são-a-forma-mais-comum-de-armazenar-e-analisar-dados-em-r.md": {
+      "size": 2753,
+      "tags": 4,
+      "links": 2
+    },
+    "03-referencias/07082023114318--um-data-frame-é-criado-a-partir-da-importação-de-dados.md": {
+      "size": 1737,
+      "tags": 4,
+      "links": 0
+    },
+    "03-referencias/07082023114747-matriz-é-uma-coleção-bidimensional-de-elementos-de-dados.md": {
+      "size": 2291,
+      "tags": 4,
+      "links": 1
+    },
+    "03-referencias/07082023115654-instalando-pacotes-em-r.md": {
+      "size": 5876,
+      "tags": 2,
+      "links": 0
+    },
+    "03-referencias/07082023120544-como-trabalhar-com-data-e-hora-em-r.md": {
+      "size": 4817,
+      "tags": 2,
+      "links": 1
+    },
+    "03-referencias/07082023123858-operadores-lógicos-em-r.md": {
+      "size": 4202,
+      "tags": 3,
+      "links": 0
+    },
+    "03-referencias/07082023124027-exemplos-de-uso-de-operadores-lógicos-em-r.md": {
+      "size": 4269,
+      "tags": 3,
+      "links": 0
+    },
+    "03-referencias/07082023124158-instruções-condicionais-em-r.md": {
+      "size": 7032,
+      "tags": 3,
+      "links": 0
+    },
+    "03-referencias/08052023172010-configuração-jupyter-notebook.md": {
+      "size": 3816,
+      "tags": 2,
+      "links": 0
+    },
+    "03-referencias/05122023214124-ciclo-de-vida-da-engenharia-de-dados.md": {
+      "size": 326,
+      "tags": 2,
+      "links": 1
+    },
+    "03-referencias/08062023112423-os-usuários-acessam-o-site-através-de-nomes-de-domínio-providos-por-dns.md": {
+      "size": 3527,
+      "tags": 1,
+      "links": 2
+    },
+    "03-referencias/08062023112731-ip-internet-protocol-é-o-identificador-que-conecta-dois-computadores-na-rede.md": {
+      "size": 2477,
+      "tags": 1,
+      "links": 2
+    },
+    "03-referencias/08062023113531-pacote-é-um-termo-para-referenciar-uma-unidade-de-transferência-básica-ip-packets.md": {
+      "size": 3174,
+      "tags": 1,
+      "links": 3
+    },
+    "03-referencias/08062023115052-tcp-é-um-dos-protocolos-de-comunicação-que-dão-suporte-de-rede-para-internet.md": {
+      "size": 6071,
+      "tags": 1,
+      "links": 4
+    },
+    "03-referencias/08062023120231-uma-porta-tcp-representa-o-ponto-final-específico-de-comunicação-em-um-sistema-operacional-hospedeiro.md": {
+      "size": 2265,
+      "tags": 1,
+      "links": 3
+    },
+    "03-referencias/08062023121223-tcp-ip-é-o-conjunto-de-protocolos-de-comunicação-no-qual-a-internet-e-redes-comerciais-funcionam.md": {
+      "size": 2037,
+      "tags": 1,
+      "links": 3
+    },
+    "03-referencias/01112023080205-construção-e-inicialização-de-uma-classe-em-python.md": {
+      "size": 4215,
+      "tags": 4,
+      "links": 3
+    },
+    "03-referencias/08072023231429-conceitos-fundamentais-da-estatística.md": {
+      "size": 3830,
+      "tags": 4,
+      "links": 2
+    },
+    "03-referencias/08072023231732-a-estatística-lida-com-a-coleta-análise-e-interpretação-de-dados.md": {
+      "size": 4834,
+      "tags": 4,
+      "links": 2
+    },
+    "03-referencias/08072023231951-estatística-descritiva-lida-com-a forma-como-compreendemos-os-dados.md": {
+      "size": 645,
+      "tags": 1,
+      "links": 0
+    },
+    "03-referencias/08072023232945-métodos-de-amostragem-probabilística.md": {
+      "size": 566,
+      "tags": 1,
+      "links": 0
+    },
+    "03-referencias/08072023233505-analise-exploratória-de-dados.md": {
+      "size": 1715,
+      "tags": 2,
+      "links": 2
+    },
+    "03-referencias/08072023233928-estimativas-de-localização.md": {
+      "size": 776,
+      "tags": 2,
+      "links": 1
+    },
+    "03-referencias/08072023233958-tendência-central.md": {
+      "size": 1120,
+      "tags": 2,
+      "links": 3
+    },
+    "03-referencias/08072023234334-média.md": {
+      "size": 871,
+      "tags": 2,
+      "links": 3
+    },
+    "03-referencias/08082023003405-iniciando-o-projeto-mutuca.md": {
+      "size": 1729,
+      "tags": 0,
+      "links": 0
+    },
+    "03-referencias/08112023021217-instanciação-de-classes-em-python.md": {
+      "size": 2463,
+      "tags": 4,
+      "links": 3
+    },
+    "03-referencias/09072023155439-noção-básica-de-estatística-descritiva-e-pré-processamento-com-pandas.md": {
+      "size": 5566,
+      "tags": 2,
+      "links": 8
+    },
+    "03-referencias/03062023222631-uma-tabela-é-uma-relação-matemática.md": {
+      "size": 766,
+      "tags": 0,
+      "links": 1
+    },
+    "03-referencias/09112023003332-referência-básica-à-atributos.md": {
+      "size": 6178,
+      "tags": 4,
+      "links": 5
+    },
+    "03-referencias/10062023230711-exercícios-de-expressões-regulares.md": {
+      "size": 29136,
+      "tags": 3,
+      "links": 0
+    },
+    "03-referencias/08062023085042-conceitos-do-desenvolvimento-de-aplicações-web-por-uma-visão-holística-do-design-do-sistema.md": {
+      "size": 2617,
+      "tags": 1,
+      "links": 5
+    },
+    "03-referencias/08062023133511-a-obtenção-dos-recursos-solicitados-ao-servidor-se-dá-por-meio-do-protocolo-http.md": {
+      "size": 2588,
+      "tags": 1,
+      "links": 3
+    },
+    "03-referencias/10082023083440-o-básico-da-importação-de-dados-em-r.md": {
+      "size": 11375,
+      "tags": 3,
+      "links": 0
+    },
+    "03-referencias/09072023234351-serie-é-uma-matriz-rotulada-unidimensional-que-pode-conter-qualquer-tipo-de-dado.md": {
+      "size": 1408,
+      "tags": 2,
+      "links": 1
+    },
+    "03-referencias/11072023222855-dependência-econômica-municipal-em-relação-à-administração-pública.md": {
+      "size": 9897,
+      "tags": 4,
+      "links": 0
+    },
+    "03-referencias/11082023105639-o-censo-é-a-única-pesquisa-que-vai-a-todos-os-domicílios-de-todos-os-municípios-do-país.md": {
+      "size": 2280,
+      "tags": 3,
+      "links": 1
+    },
+    "03-referencias/10072023000441-array-unidimensional.md": {
+      "size": 3486,
+      "tags": 2,
+      "links": 0
+    },
+    "03-referencias/10082023095853-converter-dados-longos-para-amplos-em-r.md": {
+      "size": 4220,
+      "tags": 2,
+      "links": 1
+    },
+    "03-referencias/12072023104450-atributos-pré-atencionais-são-elementos-de-visualização-de-dados-reconhecidos-sem-esforço-consciente.md": {
+      "size": 3387,
+      "tags": 2,
+      "links": 10
+    },
+    "03-referencias/12072023112010-os-princípios-de-design-garantem-a-eficacia-da-comunicação-visual.md": {
+      "size": 7859,
+      "tags": 2,
+      "links": 2
+    },
+    "03-referencias/12072023114739-escolher-o-visual-certo-requer-repertório-visual.md": {
+      "size": 3124,
+      "tags": 2,
+      "links": 1
+    },
+    "03-referencias/12072023151158-web-scraping-é-a-prática-de-coletar-dados-por-qualquer-meio-que-não-seja-um-programa-interagindo-com-uma-api-ou-um-navegador.md": {
+      "size": 2210,
+      "tags": 0,
+      "links": 3
+    },
+    "03-referencias/12072023151507-web-scraping-é-a-prática-de-coletar-dados-por-qualquer-meio-que-não-seja-um-programa-interagindo-com-uma-api-ou-um-navegador.md": {
+      "size": 1785,
+      "tags": 0,
+      "links": 1
+    },
+    "03-referencias/12092023174352-blocos-de-construção-de-um-projeto-scrapy.md": {
+      "size": 308,
+      "tags": 0,
+      "links": 0
+    },
+    "03-referencias/13072023002735-estrutura-padrão-de-um-projeto-scrapy.md": {
+      "size": 1234,
+      "tags": 2,
+      "links": 0
+    },
+    "03-referencias/13072023095347-entendendo-gerenciadores-de-contexto.md": {
+      "size": 679,
+      "tags": 1,
+      "links": 0
+    },
+    "03-referencias/11082023112502-acesse-os-dados-do-censo-pelo-sidra.md": {
+      "size": 3448,
+      "tags": 3,
+      "links": 1
+    },
+    "03-referencias/13072023102625-ceap-é-a-verba-mensal-para-reembolso-de-gastos-vinculados-à-atividade-parlamentar.md": {
+      "size": 4441,
+      "tags": 1,
+      "links": 1
+    },
+    "03-referencias/13072023192233-gerenciamento-de-contexto-em-python-é-um-conceito-que-envolve-a-execução-de-código-em-um-contexto-específico.md": {
+      "size": 4638,
+      "tags": 3,
+      "links": 1
+    },
+    "03-referencias/13082023091016-todas-as-linguagens-orientadas-a-objeto-têm-uma-forma-padrão-de-representação-do-objeto-como-uma-string.md": {
+      "size": 2026,
+      "tags": 5,
+      "links": 3
+    },
+    "03-referencias/13122023131708-views.md": {
+      "size": 356,
+      "tags": 2,
+      "links": 3
+    },
+    "03-referencias/13122023132200-conceito-de-view.md": {
+      "size": 1129,
+      "tags": 2,
+      "links": 1
+    },
+    "03-referencias/13122023153019-sintaxe-de-criação-de-uma-view.md": {
+      "size": 2822,
+      "tags": 2,
+      "links": 0
+    },
+    "03-referencias/14052023235214-analise-exploratória-de-dados-é-um-conceito-fundamental-tanto-da-estatística-quanto-da-ciência-de-dados.md": {
+      "size": 5626,
+      "tags": 2,
+      "links": 10
+    },
+    "03-referencias/14072023092421-correlação-é-a-medida-do-grau-em-que-duas-variáveis-mudam-em-relação-uma-à-outra.md": {
+      "size": 2759,
+      "tags": 4,
+      "links": 1
+    },
+    "03-referencias/14072023112231-tipos-de-gráficos-básicos-para-comunicar-informações-sobre-os-dados.md": {
+      "size": 5574,
+      "tags": 2,
+      "links": 7
+    },
+    "03-referencias/15052023101415-python-data-model-é-uma-representação-abstrata-da-própria-linguagem-python.md": {
+      "size": 3804,
+      "tags": 4,
+      "links": 2
+    },
+    "03-referencias/15052023120859-o-que-construímos-na-linguagem-se-comunica-com-os-recursos-fundamentais-da-própria-linguagem-por-meio-de-métodos-especiais.md": {
+      "size": 7792,
+      "tags": 4,
+      "links": 3
+    },
+    "03-referencias/15052023160055-sempre-será-mais-comum-implementar-os-métodos-especiais-do-que-usá-los-durante-o-desenvolvimento-dos-programas.md": {
+      "size": 2751,
+      "tags": 2,
+      "links": 4
+    },
+    "03-referencias/15062023234718-dados-em-todos-os-lugares.md": {
+      "size": 850,
+      "tags": 1,
+      "links": 0
+    },
+    "03-referencias/15072023170045-emular-sequencias-é-um-dos-usos-mais-comuns-dos-métodos-especiais.md": {
+      "size": 5508,
+      "tags": 4,
+      "links": 4
+    },
+    "03-referencias/16052023235037-pensar-nas-perguntas-certas.md": {
+      "size": 1509,
+      "tags": 3,
+      "links": 2
+    },
+    "03-referencias/16052023235716-smart-é-uma-técnica-para-elaboração-de-perguntas-efetivas.md": {
+      "size": 2793,
+      "tags": 3,
+      "links": 3
+    },
+    "03-referencias/16062023105729-agregação-de-dados-utilizando-join-em-sql.md": {
+      "size": 9783,
+      "tags": 3,
+      "links": 1
+    },
+    "03-referencias/16072023102330-acessando-dados-da-ceap-com-python.md": {
+      "size": 1155,
+      "tags": 4,
+      "links": 1
+    },
+    "03-referencias/10072023103517-dataframe-é-uma-estrutura-de-dados-rotulada-bidimensional-de-tipos-potencialmente-diferentes.md": {
+      "size": 2336,
+      "tags": 2,
+      "links": 1
+    },
+    "03-referencias/16122023124121-criação-de-perfis-de-um-conjunto-de-dados.md": {
+      "size": 4752,
+      "tags": 1,
+      "links": 4
+    },
+    "03-referencias/17052023002733-boas-anotações-são-tão-importantes-quanto-boas-perguntas.md": {
+      "size": 1479,
+      "tags": 3,
+      "links": 3
+    },
+    "03-referencias/17052023155007-analise-exploratória-de-dados-é-o-primeiro-passo-de-qualquer-projeto-de-ciência-de-dados.md": {
+      "size": 4294,
+      "tags": 2,
+      "links": 21
+    },
+    "03-referencias/17052023175822-a-forma-como-os-dados-estão-estruturados-define-a-forma-como-trabalharemos-com-eles.md": {
+      "size": 4612,
+      "tags": 3,
+      "links": 8
+    },
+    "03-referencias/17052023210016-dados-não-estruturados-não-são-menos importantes.md": {
+      "size": 2049,
+      "tags": 0,
+      "links": 2
+    },
+    "03-referencias/17052023211923-a-taxonomia-de-tipos-de-dados-importa-para-estruturação-manipulação-e-processamento-correto-dos-dados.md": {
+      "size": 3568,
+      "tags": 3,
+      "links": 7
+    },
+    "03-referencias/17052023231919-a-imparcialidade-é-fundamental-para-evitar-a-criação-ou-reforço-de-vieses-que-tornem-os-dados-tendenciosos.md": {
+      "size": 3932,
+      "tags": 3,
+      "links": 2
+    },
+    "03-referencias/17062023142631-conhecendo-as-pesquisas-do-ibge.md": {
+      "size": 2702,
+      "tags": 2,
+      "links": 1
+    },
+    "03-referencias/16122023211443-discretização-ou-binning.md": {
+      "size": 3418,
+      "tags": 1,
+      "links": 1
+    },
+    "03-referencias/12072023102249-estruturas-para-visualização-de-dados-fornecem-uma-lista-de-verificação-para-referência.md": {
+      "size": 2276,
+      "tags": 2,
+      "links": 0
+    },
+    "03-referencias/16062023181621-trabalhando-com-grandes-conjuntos-de-dados-em-sql-com-bigquery.md": {
+      "size": 890,
+      "tags": 4,
+      "links": 0
+    },
+    "03-referencias/18052023001314-a-credibilidade-dos-dados-é-um-fator-fundamental-para-evitar-vieses.md": {
+      "size": 2069,
+      "tags": 0,
+      "links": 2
+    },
+    "03-referencias/18052023122041-a-análise-de-dados-possui-padrões-éticos-que-devem-ser-seguidos.md": {
+      "size": 3974,
+      "tags": 3,
+      "links": 4
+    },
+    "03-referencias/17062023231758-dados-de-todos-os-municípios-e-cruzamento-de-tabelas.md": {
+      "size": 6210,
+      "tags": 1,
+      "links": 1
+    },
+    "03-referencias/18052023170722-dados-abertos-representam-um-grande-impacto-na-colaboração-científica.md": {
+      "size": 2254,
+      "tags": 0,
+      "links": 4
+    },
+    "03-referencias/19052023112129-a-coleta-de-dados-é-o-conjunto-de-métodos-e-técnicas-para-busca-de-informação-e-significados.md": {
+      "size": 5930,
+      "tags": 3,
+      "links": 11
+    },
+    "03-referencias/19062023115435-as-funções-count-e-count-distinct-na-agregação-de-dados-em-sql-.md": {
+      "size": 1267,
+      "tags": 3,
+      "links": 1
+    },
+    "03-referencias/18052023171329-sites-e-recursos-para-obtenção-de-dados-abertos.md": {
+      "size": 2263,
+      "tags": 1,
+      "links": 0
+    },
+    "03-referencias/19072023101948-tableau-é-uma-plataforma-de-business-intelligence-online-para-visualização-de-dados.md": {
+      "size": 3044,
+      "tags": 3,
+      "links": 3
+    },
+    "03-referencias/19072023121736-links-extremamente-úteis-para-aprofundar-o-conhecimento-sobre-tipos-de-gráficos-e-tableau.md": {
+      "size": 4154,
+      "tags": 3,
+      "links": 3
+    },
+    "03-referencias/19072023160014-uma-sequência-é-uma-coleção-ordenada-de-elementos-na-qual-cada-elemento-possui-uma-posição-específica-identificada-pelo-seu-índice.md": {
+      "size": 2893,
+      "tags": 4,
+      "links": 2
+    },
+    "03-referencias/19072023170427-o-tipo-mais-fundamental-de-sequências-em-python-é-a-lista.md": {
+      "size": 1965,
+      "tags": 6,
+      "links": 2
+    },
+    "03-referencias/19072023174109-dominar-as-compreensões-de-lista-abre-as-portas-para-entendermos-as-expressões-geradoras.md": {
+      "size": 2295,
+      "tags": 4,
+      "links": 1
+    },
+    "03-referencias/19102023185926-depuração-de-código-python.md": {
+      "size": 687,
+      "tags": 3,
+      "links": 3
+    },
+    "03-referencias/20032024213744-tipos-de-variáveis.md": {
+      "size": 939,
+      "tags": 2,
+      "links": 3
+    },
+    "03-referencias/20230601194241-como-importar-arquivos-csv-para-mysql-via-docker.md": {
+      "size": 2428,
+      "tags": 3,
+      "links": 0
+    },
+    "03-referencias/21032024205539-variáveis-não-métricas-ou-qualitativas.md": {
+      "size": 2348,
+      "tags": 2,
+      "links": 3
+    },
+    "03-referencias/21032024210054-tipos-de-variáveis-x-escala-de-mensuração.md": {
+      "size": 1963,
+      "tags": 2,
+      "links": 5
+    },
+    "03-referencias/21032024221436-variáveis-categóricas-em-escala-nominal.md": {
+      "size": 2736,
+      "tags": 2,
+      "links": 0
+    },
+    "03-referencias/21032024221933-variáveis-qualitativas-em-escala-ordinal.md": {
+      "size": 2216,
+      "tags": 2,
+      "links": 1
+    },
+    "03-referencias/17062023225459-como-importar-arquivos-csv-para-o-google-sheets.md": {
+      "size": 478,
+      "tags": 0,
+      "links": 0
+    },
+    "03-referencias/21072023002325-em-orientação-a-objetos-um-protocolo-é-uma-interface-informal-que-especifica-métodos-que-um-objeto-precisa-oferecer-para-cumprir-um-papel.md": {
+      "size": 1521,
+      "tags": 4,
+      "links": 1
+    },
+    "03-referencias/21112023010939-xpath-consultas-complexas.md": {
+      "size": 1431,
+      "tags": 3,
+      "links": 0
+    },
+    "03-referencias/22032024200929-variáveis-métricas-ou-quantitativas.md": {
+      "size": 2165,
+      "tags": 2,
+      "links": 2
+    },
+    "03-referencias/22032024214128-variáveis-quantitativas-em-escala-intervalar.md": {
+      "size": 1808,
+      "tags": 0,
+      "links": 0
+    },
+    "03-referencias/22062023114717-exercício---dependência-econômica-dos-municípios-em-relação-à-administração-pública.md": {
+      "size": 1851,
+      "tags": 0,
+      "links": 5
+    },
+    "03-referencias/23112023123613-blocos-de-construção-de-um-projeto-scrapy.md": {
+      "size": 548,
+      "tags": 2,
+      "links": 6
+    },
+    "03-referencias/23112023123841-spiders.md": {
+      "size": 3849,
+      "tags": 1,
+      "links": 4
+    },
+    "03-referencias/23112023125517-items.md": {
+      "size": 2446,
+      "tags": 2,
+      "links": 4
+    },
+    "03-referencias/23112023125928-scrapy_exemplo_2.md": {
+      "size": 1025,
+      "tags": 2,
+      "links": 0
+    },
+    "03-referencias/23112023134232-scrapy-pipelines.md": {
+      "size": 1185,
+      "tags": 2,
+      "links": 3
+    },
+    "03-referencias/23112023134611-scrapy_exemplo_3.md": {
+      "size": 1387,
+      "tags": 2,
+      "links": 0
+    },
+    "03-referencias/23112023134721-middlewares.md": {
+      "size": 756,
+      "tags": 2,
+      "links": 4
+    },
+    "03-referencias/23112023134933-hooks.md": {
+      "size": 2900,
+      "tags": 2,
+      "links": 0
+    },
+    "03-referencias/23112023135052-fluxo-de-dados-do-scrapy.md": {
+      "size": 2548,
+      "tags": 2,
+      "links": 8
+    },
+    "03-referencias/23112023135541-middlewares-de-download.md": {
+      "size": 3473,
+      "tags": 2,
+      "links": 4
+    },
+    "03-referencias/23112023135844-scrapy_exemplo_4.md": {
+      "size": 1041,
+      "tags": 1,
+      "links": 0
+    },
+    "03-referencias/23112023135950-settings.md": {
+      "size": 1113,
+      "tags": 2,
+      "links": 1
+    },
+    "03-referencias/23112023140430-engine.md": {
+      "size": 880,
+      "tags": 2,
+      "links": 4
+    },
+    "03-referencias/23112023140516-scheduler.md": {
+      "size": 667,
+      "tags": 2,
+      "links": 3
+    },
+    "03-referencias/23112023140633-downloader.md": {
+      "size": 785,
+      "tags": 2,
+      "links": 5
+    },
+    "03-referencias/23112023141112-middlewares-de-spider.md": {
+      "size": 1623,
+      "tags": 2,
+      "links": 4
+    },
+    "03-referencias/23112023141853-scrapy_exemplo_1.md": {
+      "size": 2546,
+      "tags": 2,
+      "links": 4
+    },
+    "03-referencias/23112023141931-css-selectors.md": {
+      "size": 473,
+      "tags": 2,
+      "links": 0
+    },
+    "03-referencias/23112023142059-xpath-selectors.md": {
+      "size": 539,
+      "tags": 2,
+      "links": 7
+    },
+    "03-referencias/23112023142257-conceito-geral-sobre-xpath.md": {
+      "size": 3026,
+      "tags": 2,
+      "links": 8
+    },
+    "03-referencias/23112023142413-nós.md": {
+      "size": 846,
+      "tags": 3,
+      "links": 3
+    },
+    "03-referencias/23112023142708-eixos.md": {
+      "size": 3590,
+      "tags": 2,
+      "links": 5
+    },
+    "03-referencias/23112023143005-etapas.md": {
+      "size": 1980,
+      "tags": 2,
+      "links": 4
+    },
+    "03-referencias/23112023143410-operadores-e-funções.md": {
+      "size": 462,
+      "tags": 2,
+      "links": 0
+    },
+    "03-referencias/23112023143528-contexto.md": {
+      "size": 1768,
+      "tags": 2,
+      "links": 2
+    },
+    "03-referencias/23112023144324-predicados.md": {
+      "size": 2527,
+      "tags": 2,
+      "links": 4
+    },
+    "03-referencias/23112023145624-scrapy-feed-exporters.md": {
+      "size": 6146,
+      "tags": 2,
+      "links": 5
+    },
+    "03-referencias/23112023150300-mitigando-defesas-anti-bot.md": {
+      "size": 954,
+      "tags": 2,
+      "links": 4
+    },
+    "03-referencias/23112023150741-cabeçalhos-e-user-agents-falsos.md": {
+      "size": 3703,
+      "tags": 2,
+      "links": 12
+    },
+    "03-referencias/23112023151104-definir-um-novo-user-agent-padrão.md": {
+      "size": 637,
+      "tags": 2,
+      "links": 1
+    },
+    "03-referencias/23112023151225-adicionar-um-user-agent-a-cada-requisição.md": {
+      "size": 1355,
+      "tags": 2,
+      "links": 1
+    },
+    "03-referencias/23112023151329-selecionar-um-user-agent-aleatório-para-cada-requisição.md": {
+      "size": 7093,
+      "tags": 2,
+      "links": 6
+    },
+    "03-referencias/23112023151742-utilizando-devtools-para-obter-os-cabeçalhos-http.md": {
+      "size": 4103,
+      "tags": 2,
+      "links": 3
+    },
+    "03-referencias/23112023152457-api-de-cabeçalhos-de-navegador-falsos.md": {
+      "size": 4803,
+      "tags": 2,
+      "links": 4
+    },
+    "03-referencias/23112023152609-manter-os-cabeçalhos-atualizados.md": {
+      "size": 1061,
+      "tags": 2,
+      "links": 2
+    },
+    "03-referencias/23112023153419-garantir-a-ordem-adequada-dos-cabeçalhos.md": {
+      "size": 1076,
+      "tags": 1,
+      "links": 0
+    },
+    "03-referencias/23112023153527-remover-cabeçalhos-incorretos.md": {
+      "size": 1749,
+      "tags": 2,
+      "links": 0
+    },
+    "03-referencias/23112023153901-proxy-inteligente.md": {
+      "size": 1897,
+      "tags": 2,
+      "links": 2
+    },
+    "03-referencias/23112023154036-o-que-é-um-proxy-.md": {
+      "size": 2453,
+      "tags": 2,
+      "links": 0
+    },
+    "03-referencias/17072023092524-uma-árvore-de-decisão-é-uma-técnica-baseada-em-perguntas-que-te-ajuda-a-escolher-a-melhor-visualização-para-suas-história.md": {
+      "size": 3758,
+      "tags": 2,
+      "links": 4
+    },
+    "03-referencias/23112023170829-integridade-referencial.md": {
+      "size": 1419,
+      "tags": 2,
+      "links": 3
+    },
+    "03-referencias/23112023170931-chave-estrangeira.md": {
+      "size": 1823,
+      "tags": 2,
+      "links": 3
+    },
+    "03-referencias/23112023171243-chave-composta.md": {
+      "size": 1767,
+      "tags": 2,
+      "links": 4
+    },
+    "03-referencias/23112023171427-chave-primária.md": {
+      "size": 2051,
+      "tags": 2,
+      "links": 4
+    },
+    "03-referencias/23112023171814-chave-candidata.md": {
+      "size": 1442,
+      "tags": 2,
+      "links": 2
+    },
+    "03-referencias/23112023172230-primeira-forma-normal.md": {
+      "size": 1264,
+      "tags": 3,
+      "links": 1
+    },
+    "03-referencias/23112023172911-conceito-de-normalização-de-bancos-de-dados.md": {
+      "size": 1162,
+      "tags": 3,
+      "links": 3
+    },
+    "03-referencias/23112023173238-regras-da-segunda-forma-normal.md": {
+      "size": 1606,
+      "tags": 3,
+      "links": 4
+    },
+    "03-referencias/23112023173616-regras-da-terceira-forma-normal.md": {
+      "size": 2279,
+      "tags": 3,
+      "links": 2
+    },
+    "03-referencias/23112023175625-definição-de-modelagem-conceitual.md": {
+      "size": 2640,
+      "tags": 1,
+      "links": 3
+    },
+    "03-referencias/23112023181230-entidades.md": {
+      "size": 1828,
+      "tags": 3,
+      "links": 6
+    },
+    "03-referencias/23112023181702-atributos.md": {
+      "size": 1942,
+      "tags": 3,
+      "links": 12
+    },
+    "03-referencias/23112023182611-relacionamentos.md": {
+      "size": 2627,
+      "tags": 3,
+      "links": 8
+    },
+    "03-referencias/23112023183417-atributos-simples.md": {
+      "size": 1566,
+      "tags": 3,
+      "links": 1
+    },
+    "03-referencias/23112023183654-atributos-compostos.md": {
+      "size": 1800,
+      "tags": 3,
+      "links": 3
+    },
+    "03-referencias/23112023184014-atributos-calculados.md": {
+      "size": 1759,
+      "tags": 3,
+      "links": 1
+    },
+    "03-referencias/23112023194319-atributos-multivalorados.md": {
+      "size": 1691,
+      "tags": 3,
+      "links": 2
+    },
+    "03-referencias/23112023194614-atributos-de-relacionamento.md": {
+      "size": 1932,
+      "tags": 1,
+      "links": 3
+    },
+    "03-referencias/23112023195019-simbologia-para-modelagem-conceitual-de-bancos-de-dados.md": {
+      "size": 310,
+      "tags": 1,
+      "links": 1
+    },
+    "03-referencias/23112023195552-diagramas-de-entidade-relacionamento-der.md": {
+      "size": 7176,
+      "tags": 2,
+      "links": 18
+    },
+    "03-referencias/23112023201212-participação-total.md": {
+      "size": 1247,
+      "tags": 3,
+      "links": 2
+    },
+    "03-referencias/23112023202014-entidade-fraca.md": {
+      "size": 1770,
+      "tags": 3,
+      "links": 2
+    },
+    "03-referencias/23112023203738-chave-fraca.md": {
+      "size": 1849,
+      "tags": 3,
+      "links": 5
+    },
+    "03-referencias/24072023110916-recursos-do-tableau-de-combinação-de-várias-fontes-de-dados-.md": {
+      "size": 2883,
+      "tags": 3,
+      "links": 0
+    },
+    "03-referencias/20230603180616-conectando-mysql-ao-jupyter-notebook.md": {
+      "size": 1740,
+      "tags": 4,
+      "links": 1
+    },
+    "03-referencias/21052023134904-resumo-dos-conceitos-iniciais-da-ciência-de-dados.md": {
+      "size": 6224,
+      "tags": 0,
+      "links": 9
+    },
+    "03-referencias/24112023151014-conceito-de-processamento-de-dados-de-streeming.md": {
+      "size": 2739,
+      "tags": 2,
+      "links": 0
+    },
+    "03-referencias/24112023154022-a-modelagem-de-dados-é-a-representação-em-alto-nível-de-como-os-dados-estão-organizados.md": {
+      "size": 4135,
+      "tags": 2,
+      "links": 3
+    },
+    "03-referencias/24112023175704-limpeza-de-dados-utilizando-google-spreadsheets.md": {
+      "size": 468,
+      "tags": 3,
+      "links": 0
+    },
+    "03-referencias/24112023151543-conceito-de-data-warehouse.md": {
+      "size": 3220,
+      "tags": 2,
+      "links": 0
+    },
+    "03-referencias/23112023165708-técnicas-de-etl.md": {
+      "size": 3761,
+      "tags": 3,
+      "links": 3
+    },
+    "03-referencias/26072023094025-storytelling-com-dados-é-a-comunicação-do-significado-de-um-conjunto-de-dados-com-elementos-visuais-e-uma-narrativa-personalizada-para-cada-público-alvo-.md": {
+      "size": 5357,
+      "tags": 2,
+      "links": 2
+    },
+    "03-referencias/26072023114337-como-construir-um-dashboard-no-tableau.md": {
+      "size": 695,
+      "tags": 3,
+      "links": 0
+    },
+    "03-referencias/24072023172922-estrutura-básica-para-uma-projeto-de-ciência-de-dados.md": {
+      "size": 6793,
+      "tags": 3,
+      "links": 0
+    },
+    "03-referencias/25052023221247-o-modelo-relacional-representa-o-banco-de-dados-como-uma-coleção-de-relações.md": {
+      "size": 2905,
+      "tags": 3,
+      "links": 11
+    },
+    "03-referencias/26072023233253-instalação-de-requerimentos-do-projeto-com-conda.md": {
+      "size": 1684,
+      "tags": 2,
+      "links": 0
+    },
+    "03-referencias/27062023184436-google-sheets-vlookup.md": {
+      "size": 1636,
+      "tags": 1,
+      "links": 3
+    },
+    "03-referencias/27062023154219-google-sheets-funções-countif-e-countifs.md": {
+      "size": 1935,
+      "tags": 3,
+      "links": 3
+    },
+    "03-referencias/27062023153908-google-sheets-funções-sumif-e-sumifs.md": {
+      "size": 1879,
+      "tags": 1,
+      "links": 3
+    },
+    "03-referencias/27062023232857-google-sheets-diferentes-perspectivas-dos-dados-com-vlookup-e-tabelas-dinamicas.md": {
+      "size": 1940,
+      "tags": 3,
+      "links": 6
+    },
+    "03-referencias/27062023104930-google-sheets-fórmulas-de-cálculos-comuns-com-planilhas.md": {
+      "size": 901,
+      "tags": 4,
+      "links": 5
+    },
+    "03-referencias/27102023202502-traceback.md": {
+      "size": 5267,
+      "tags": 2,
+      "links": 2
+    },
+    "03-referencias/27102023204018-pilha-de-execução-e-frames.md": {
+      "size": 1621,
+      "tags": 4,
+      "links": 0
+    },
+    "03-referencias/27102023214113-conceito-geral-de-estatística-descritiva.md": {
+      "size": 858,
+      "tags": 2,
+      "links": 0
+    },
+    "03-referencias/27112023143926-exercício-criando-pipeline-de-dados-com-shell-script.md": {
+      "size": 7346,
+      "tags": 4,
+      "links": 0
+    },
+    "03-referencias/28062023011948-google-sheets-ferramentas-e-técnicas-de-limpeza-de-dados.md": {
+      "size": 2390,
+      "tags": 3,
+      "links": 6
+    },
+    "03-referencias/28062023122423-google-sheets-otimização-do-processo-de-limpeza-de-dados.md": {
+      "size": 1155,
+      "tags": 3,
+      "links": 5
+    },
+    "03-referencias/28062023124048-google-sheets-função-len.md": {
+      "size": 1172,
+      "tags": 3,
+      "links": 1
+    },
+    "03-referencias/28062023124834-google-sheets-funções-left-right-e-mid.md": {
+      "size": 1775,
+      "tags": 3,
+      "links": 1
+    },
+    "03-referencias/28062023131931-google-sheets-função-concatenate.md": {
+      "size": 1074,
+      "tags": 3,
+      "links": 1
+    },
+    "03-referencias/28062023142032-google-sheets-função-trim.md": {
+      "size": 945,
+      "tags": 3,
+      "links": 1
+    },
+    "03-referencias/28062023143451-google-sheets-funções-avancadas-para-limpeza-de-dados.md": {
+      "size": 1593,
+      "tags": 3,
+      "links": 0
+    },
+    "03-referencias/28062023165026-google-sheets-avarageif-e-avarageifs.md": {
+      "size": 1591,
+      "tags": 1,
+      "links": 1
+    },
+    "03-referencias/28062023171155-google-sheets-maxifs.md": {
+      "size": 1007,
+      "tags": 1,
+      "links": 1
+    },
+    "03-referencias/27102023203007-ferramentas-de-depuração.md": {
+      "size": 879,
+      "tags": 2,
+      "links": 5
+    },
+    "03-referencias/28072023092212-dicas-e-truques-para-apresentar-seus-dados-e-resultados.md": {
+      "size": 11048,
+      "tags": 2,
+      "links": 0
+    },
+    "03-referencias/27102023203656-pdb.md": {
+      "size": 3050,
+      "tags": 2,
+      "links": 1
+    },
+    "03-referencias/28072023094018-como-se-preparar-para-a-apresentação-dos-dados.md": {
+      "size": 2130,
+      "tags": 2,
+      "links": 0
+    },
+    "03-referencias/27102023202224-exceções.md": {
+      "size": 1367,
+      "tags": 2,
+      "links": 1
+    },
+    "03-referencias/28082023102551-como-criar-ambientes-r-com-anaconda.md": {
+      "size": 916,
+      "tags": 0,
+      "links": 2
+    },
+    "03-referencias/30062023105911-google-sheets-sumproduct.md": {
+      "size": 1976,
+      "tags": 1,
+      "links": 1
+    },
+    "03-referencias/30072023183727-cruzar-dados-da-receita-federal-com-os-da-ceap-usando-merge-do-pandas-.md": {
+      "size": 743,
+      "tags": 1,
+      "links": 0
+    },
+    "03-referencias/28082023123520-atributos-estéticos-dos-gráficos-em-r.md": {
+      "size": 2776,
+      "tags": 4,
+      "links": 2
+    },
+    "03-referencias/28082023133822-como-salvar-um-gráfico-com-ggsave.md": {
+      "size": 2662,
+      "tags": 3,
+      "links": 1
+    },
+    "03-referencias/31072023203204-introdução-ao-xpath.md": {
+      "size": 313,
+      "tags": 0,
+      "links": 0
+    },
+    "03-referencias/28072023090154-exemplos-de-boas-apresentações-de-slides.md": {
+      "size": 1092,
+      "tags": 2,
+      "links": 0
+    },
+    "03-referencias/04.1-zotero/@bruceEstatisticaPraticaPara2019.md": {
+      "size": 4737,
+      "tags": 0,
+      "links": 1
+    },
+    "03-referencias/04.1-zotero/@mitchellWebScrapingPython2018.md": {
+      "size": 29913,
+      "tags": 0,
+      "links": 4
+    },
+    "03-referencias/04.1-zotero/@vanderplasPythonDataScience2017.md": {
+      "size": 1780,
+      "tags": 0,
+      "links": 2
+    },
+    "03-referencias/04.1-zotero/@santosHistoriaBrasileiraProtecao2021.md": {
+      "size": 788,
+      "tags": 0,
+      "links": 0
+    },
+    "03-referencias/04.1-zotero/@elmasriModeloDadosRelacional2019.md": {
+      "size": 7301,
+      "tags": 1,
+      "links": 2
+    },
+    "03-referencias/04.1-zotero/@romanoLearnPythonProgramming2023.md": {
+      "size": 1563,
+      "tags": 0,
+      "links": 0
+    },
+    "00-templates/3-nota-para-referencias.md": {
+      "size": 287,
+      "tags": 0,
+      "links": 0
+    },
+    "00-templates/4-nota-zotero.md": {
+      "size": 764,
+      "tags": 0,
+      "links": 1
+    },
+    "00-templates/5-nota-de-curso.md": {
+      "size": 280,
+      "tags": 0,
+      "links": 0
+    },
+    "07-índices/Tarefas.md": {
+      "size": 48,
+      "tags": 0,
+      "links": 0
+    },
+    "07-índices/google-data-analytics/gdca.md": {
+      "size": 1732,
+      "tags": 0,
+      "links": 0
+    },
+    "07-índices/python-fluente/RAMALHO, PYTHON FLUENTE, 2023.md": {
+      "size": 2419,
+      "tags": 0,
+      "links": 0
+    },
+    "07-índices/python-essential-reference/BEAZLEY, PYTHON ESSENTIAL REFERENCE, 2009.md": {
+      "size": 2397,
+      "tags": 0,
+      "links": 0
+    },
+    "07-índices/jornalismo-de-dados-para-coberturas-locais/jdcl.md": {
+      "size": 1154,
+      "tags": 0,
+      "links": 0
+    },
+    "07-índices/python-para-inovação-cívica/pyic.md": {
+      "size": 1106,
+      "tags": 0,
+      "links": 0
+    },
+    "07-índices/fundamentos-da-engenharia-de-dados/REIS, HOUSLEY - FUNDAMENTOS DA ENGENHARIA DE DADOS, 2023.md": {
+      "size": 1269,
+      "tags": 1,
+      "links": 0
+    },
+    "07-índices/manual-de-analise-de-dados/FÁVERO, BELFIORI - MANUAL DE ANÁLISE DE DADOS 2ª EDIÇÃO.md": {
+      "size": 2437,
+      "tags": 3,
+      "links": 0
+    },
+    "07-índices/python-in-a-nutshell/MARTELI, RAVENSCROFT, HOLDEN, PYTHON IN A NUTSHELL 3ª EDIÇÃO, 2017.md": {
+      "size": 2357,
+      "tags": 0,
+      "links": 0
+    },
+    "07-índices/sql-para-analise-de-dados/TANIMURA - SQL PARA ANÁLISE DE DADOS, 2022.md": {
+      "size": 2337,
+      "tags": 2,
+      "links": 0
+    },
+    "07-índices/sql-para-analise-de-dados/sql.md": {
+      "size": 1165,
+      "tags": 0,
+      "links": 0
+    },
+    "07-índices/a-arte-da-estatística/SPIEGELHALTER - A ARTE DA ESTATÍSTICA, 2022.md": {
+      "size": 2294,
+      "tags": 1,
+      "links": 0
+    }
+  },
+  "commitTypes": {
+    "/": {
+      "Refactor": 246,
+      "Create": 4,
+      "Link": 5,
+      "Expand": 0
+    }
+  },
+  "dailyCommits": {
+    "/": {
+      "0": 1,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0,
+      "13": 0,
+      "14": 0,
+      "15": 0,
+      "16": 0,
+      "17": 0,
+      "18": 0,
+      "19": 1,
+      "20": 2,
+      "21": 226,
+      "22": 21,
+      "23": 4
+    }
+  },
+  "weeklyCommits": {
+    "/": {
+      "Mon": 0,
+      "Tue": 3,
+      "Wed": 2,
+      "Thu": 0,
+      "Fri": 250,
+      "Sat": 0,
+      "Sun": 0
+    }
+  },
+  "recentCommits": {
+    "/": {
+      "Expanded": [],
+      "Created": [
+        "<a class=\"internal-link\" href=\"BOARD.md\"> BOARD </a>",
+        "<a class=\"internal-link\" href=\"02-inbox/O que é Engenharia de Dados e  qual o papel do engenheiro de dados.md\"> O que é Engenharia de Dados e  qual o papel do engenheiro de dados </a>",
+        "<a class=\"internal-link\" href=\"Untitled Kanban.md\"> Untitled Kanban </a>",
+        "<a class=\"internal-link\" href=\"02-inbox/# Um teste para uma nova nota @{2024-08-02}.md\"> # Um teste para uma nova nota @{2024-08-02} </a>"
+      ],
+      "Renamed": [
+        "<a class=\"internal-link\" href=\"07-índices/a-arte-da-estatística/SPIEGELHALTER - A ARTE DA ESTATÍSTICA, 2022.md\"> SPIEGELHALTER - A ARTE DA ESTATÍSTICA, 2022 </a>",
+        "<a class=\"internal-link\" href=\"07-índices/sql-para-analise-de-dados/sql.md\"> sql </a>",
+        "<a class=\"internal-link\" href=\"07-índices/sql-para-analise-de-dados/TANIMURA - SQL PARA ANÁLISE DE DADOS, 2022.md\"> TANIMURA - SQL PARA ANÁLISE DE DADOS, 2022 </a>",
+        "<a class=\"internal-link\" href=\"07-índices/python-in-a-nutshell/MARTELI, RAVENSCROFT, HOLDEN, PYTHON IN A NUTSHELL 3ª EDIÇÃO, 2017.md\"> MARTELI, RAVENSCROFT, HOLDEN, PYTHON IN A NUTSHELL 3ª EDIÇÃO, 2017 </a>",
+        "<a class=\"internal-link\" href=\"07-índices/manual-de-analise-de-dados/FÁVERO, BELFIORI - MANUAL DE ANÁLISE DE DADOS 2ª EDIÇÃO.md\"> FÁVERO, BELFIORI - MANUAL DE ANÁLISE DE DADOS 2ª EDIÇÃO </a>",
+        "<a class=\"internal-link\" href=\"07-índices/fundamentos-da-engenharia-de-dados/REIS, HOUSLEY - FUNDAMENTOS DA ENGENHARIA DE DADOS, 2023.md\"> REIS, HOUSLEY - FUNDAMENTOS DA ENGENHARIA DE DADOS, 2023 </a>",
+        "<a class=\"internal-link\" href=\"07-índices/python-para-inovação-cívica/pyic.md\"> pyic </a>",
+        "<a class=\"internal-link\" href=\"07-índices/jornalismo-de-dados-para-coberturas-locais/jdcl.md\"> jdcl </a>",
+        "<a class=\"internal-link\" href=\"07-índices/python-essential-reference/BEAZLEY, PYTHON ESSENTIAL REFERENCE, 2009.md\"> BEAZLEY, PYTHON ESSENTIAL REFERENCE, 2009 </a>",
+        "<a class=\"internal-link\" href=\"07-índices/python-fluente/RAMALHO, PYTHON FLUENTE, 2023.md\"> RAMALHO, PYTHON FLUENTE, 2023 </a>",
+        "<a class=\"internal-link\" href=\"07-índices/google-data-analytics/gdca.md\"> gdca </a>",
+        "<a class=\"internal-link\" href=\"07-índices/Tarefas.md\"> Tarefas </a>",
+        "<a class=\"internal-link\" href=\"00-templates/5-nota-de-curso.md\"> 5-nota-de-curso </a>",
+        "<a class=\"internal-link\" href=\"00-templates/4-nota-zotero.md\"> 4-nota-zotero </a>",
+        "<a class=\"internal-link\" href=\"00-templates/3-nota-para-referencias.md\"> 3-nota-para-referencias </a>",
+        "<a class=\"internal-link\" href=\"03-referencias/04.1-zotero/@romanoLearnPythonProgramming2023.md\"> @romanoLearnPythonProgramming2023 </a>",
+        "<a class=\"internal-link\" href=\"03-referencias/04.1-zotero/@elmasriModeloDadosRelacional2019.md\"> @elmasriModeloDadosRelacional2019 </a>",
+        "<a class=\"internal-link\" href=\"03-referencias/04.1-zotero/@santosHistoriaBrasileiraProtecao2021.md\"> @santosHistoriaBrasileiraProtecao2021 </a>",
+        "<a class=\"internal-link\" href=\"03-referencias/04.1-zotero/@vanderplasPythonDataScience2017.md\"> @vanderplasPythonDataScience2017 </a>",
+        "<a class=\"internal-link\" href=\"03-referencias/04.1-zotero/@mitchellWebScrapingPython2018.md\"> @mitchellWebScrapingPython2018 </a>",
+        "<a class=\"internal-link\" href=\"03-referencias/04.1-zotero/@bruceEstatisticaPraticaPara2019.md\"> @bruceEstatisticaPraticaPara2019 </a>",
+        "<a class=\"internal-link\" href=\"03-referencias/28072023090154-exemplos-de-boas-apresentações-de-slides.md\"> 28072023090154-exemplos-de-boas-apresentações-de-slides </a>",
+        "<a class=\"internal-link\" href=\"03-referencias/31072023203204-introdução-ao-xpath.md\"> 31072023203204-introdução-ao-xpath </a>",
+        "<a class=\"internal-link\" href=\"03-referencias/28082023133822-como-salvar-um-gráfico-com-ggsave.md\"> 28082023133822-como-salvar-um-gráfico-com-ggsave </a>",
+        "<a class=\"internal-link\" href=\"03-referencias/28082023123520-atributos-estéticos-dos-gráficos-em-r.md\"> 28082023123520-atributos-estéticos-dos-gráficos-em-r </a>",
+        "<a class=\"internal-link\" href=\"03-referencias/30072023183727-cruzar-dados-da-receita-federal-com-os-da-ceap-usando-merge-do-pandas-.md\"> 30072023183727-cruzar-dados-da-receita-federal-com-os-da-ceap-usando-merge-do-pandas- </a>",
+        "<a class=\"internal-link\" href=\"03-referencias/30062023105911-google-sheets-sumproduct.md\"> 30062023105911-google-sheets-sumproduct </a>",
+        "<a class=\"internal-link\" href=\"03-referencias/28082023102551-como-criar-ambientes-r-com-anaconda.md\"> 28082023102551-como-criar-ambientes-r-com-anaconda </a>",
+        "<a class=\"internal-link\" href=\"03-referencias/27102023202224-exceções.md\"> 27102023202224-exceções </a>",
+        "<a class=\"internal-link\" href=\"03-referencias/28072023094018-como-se-preparar-para-a-apresentação-dos-dados.md\"> 28072023094018-como-se-preparar-para-a-apresentação-dos-dados </a>",
+        "<a class=\"internal-link\" href=\"03-referencias/27102023203656-pdb.md\"> 27102023203656-pdb </a>",
+        "<a class=\"internal-link\" href=\"03-referencias/28072023092212-dicas-e-truques-para-apresentar-seus-dados-e-resultados.md\"> 28072023092212-dicas-e-truques-para-apresentar-seus-dados-e-resultados </a>",
+        "<a class=\"internal-link\" href=\"03-referencias/27102023203007-ferramentas-de-depuração.md\"> 27102023203007-ferramentas-de-depuração </a>",
+        "<a class=\"internal-link\" href=\"03-referencias/28062023171155-google-sheets-maxifs.md\"> 28062023171155-google-sheets-maxifs </a>",
+        "<a class=\"internal-link\" href=\"03-referencias/28062023165026-google-sheets-avarageif-e-avarageifs.md\"> 28062023165026-google-sheets-avarageif-e-avarageifs </a>",
+        "<a class=\"internal-link\" href=\"03-referencias/28062023143451-google-sheets-funções-avancadas-para-limpeza-de-dados.md\"> 28062023143451-google-sheets-funções-avancadas-para-limpeza-de-dados </a>",
+        "<a class=\"internal-link\" href=\"03-referencias/28062023142032-google-sheets-função-trim.md\"> 28062023142032-google-sheets-função-trim </a>",
+        "<a class=\"internal-link\" href=\"03-referencias/28062023131931-google-sheets-função-concatenate.md\"> 28062023131931-google-sheets-função-concatenate </a>",
+        "<a class=\"internal-link\" href=\"03-referencias/28062023124834-google-sheets-funções-left-right-e-mid.md\"> 28062023124834-google-sheets-funções-left-right-e-mid </a>",
+        "<a class=\"internal-link\" href=\"03-referencias/28062023124048-google-sheets-função-len.md\"> 28062023124048-google-sheets-função-len </a>",
+        "<a class=\"internal-link\" href=\"03-referencias/28062023122423-google-sheets-otimização-do-processo-de-limpeza-de-dados.md\"> 28062023122423-google-sheets-otimização-do-processo-de-limpeza-de-dados </a>",
+        "<a class=\"internal-link\" href=\"03-referencias/28062023011948-google-sheets-ferramentas-e-técnicas-de-limpeza-de-dados.md\"> 28062023011948-google-sheets-ferramentas-e-técnicas-de-limpeza-de-dados </a>",
+        "<a class=\"internal-link\" href=\"03-referencias/27112023143926-exercício-criando-pipeline-de-dados-com-shell-script.md\"> 27112023143926-exercício-criando-pipeline-de-dados-com-shell-script </a>",
+        "<a class=\"internal-link\" href=\"03-referencias/27102023214113-conceito-geral-de-estatística-descritiva.md\"> 27102023214113-conceito-geral-de-estatística-descritiva </a>",
+        "<a class=\"internal-link\" href=\"03-referencias/27102023204018-pilha-de-execução-e-frames.md\"> 27102023204018-pilha-de-execução-e-frames </a>",
+        "<a class=\"internal-link\" href=\"03-referencias/27102023202502-traceback.md\"> 27102023202502-traceback </a>",
+        "<a class=\"internal-link\" href=\"03-referencias/27062023104930-google-sheets-fórmulas-de-cálculos-comuns-com-planilhas.md\"> 27062023104930-google-sheets-fórmulas-de-cálculos-comuns-com-planilhas </a>",
+        "<a class=\"internal-link\" href=\"03-referencias/27062023232857-google-sheets-diferentes-perspectivas-dos-dados-com-vlookup-e-tabelas-dinamicas.md\"> 27062023232857-google-sheets-diferentes-perspectivas-dos-dados-com-vlookup-e-tabelas-dinamicas </a>",
+        "<a class=\"internal-link\" href=\"03-referencias/27062023153908-google-sheets-funções-sumif-e-sumifs.md\"> 27062023153908-google-sheets-funções-sumif-e-sumifs </a>",
+        "<a class=\"internal-link\" href=\"03-referencias/27062023154219-google-sheets-funções-countif-e-countifs.md\"> 27062023154219-google-sheets-funções-countif-e-countifs </a>",
+        "<a class=\"internal-link\" href=\"03-referencias/27062023184436-google-sheets-vlookup.md\"> 27062023184436-google-sheets-vlookup </a>"
+      ],
+      "Tagged": [
+        "<a class=\"internal-link\" href=\"02-inbox/O que é Engenharia de Dados e  qual o papel do engenheiro de dados.md\"> O que é Engenharia de Dados e  qual o papel do engenheiro de dados </a>",
+        "<a class=\"internal-link\" href=\"02-inbox/03052024235400-criando-um-modern-data-stack-com-kubernetes-na-prática.md\"> 03052024235400-criando-um-modern-data-stack-com-kubernetes-na-prática </a>",
+        "<a class=\"internal-link\" href=\"BOARD.md\"> BOARD </a>"
+      ],
+      "Refactored": [],
+      "Deleted": [
+        "<a class=\"internal-link\" href=\"02-inbox/Definição de engenharia de dados e o papel do engenheiro de dados.md\"> Definição de engenharia de dados e o papel do engenheiro de dados </a>",
+        "<a class=\"internal-link\" href=\"Untitled Kanban.md\"> Untitled Kanban </a>",
+        "<a class=\"internal-link\" href=\"00-templates/7-kanban-template.md\"> 7-kanban-template </a>",
+        "<a class=\"internal-link\" href=\"00-templates/test_move.md\"> test_move </a>",
+        "<a class=\"internal-link\" href=\"02-inbox/# Um teste para uma nova nota @{2024-08-02}.md\"> # Um teste para uma nova nota @{2024-08-02} </a>"
+      ],
+      "Linked": [
+        "<a class=\"internal-link\" href=\"03-referencias/09112023003332-referência-básica-à-atributos.md\"> 09112023003332-referência-básica-à-atributos </a>",
+        "<a class=\"internal-link\" href=\"BOARD.md\"> BOARD </a>"
+      ],
+      "Removed Tags from": [],
+      "Removed Links from": [
+        "<a class=\"internal-link\" href=\"03-referencias/04.1-zotero/@vanderplasPythonDataScience2017.md\"> @vanderplasPythonDataScience2017 </a>"
+      ]
+    }
+  },
+  "ignoreList": [],
+  "divWidth": 50,
+  "divHeight": 400,
+  "divAlign": "left",
+  "topCommits": 2,
+  "commitThreshold": 2000,
+  "commitPerc": 15,
+  "fillColor": "rgba(51, 153, 204, 0.4)",
+  "borderColor": "rgba(51, 153, 204, 1)",
+  "gridColor": "grey"
+}

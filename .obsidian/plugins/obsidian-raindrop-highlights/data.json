@@ -1,5 +1,5 @@
 {
-  "version": "0.0.17",
+  "version": "0.0.21",
   "username": "Tiago Henrique",
   "isConnected": true,
   "ribbonIcon": true,
@@ -7,7 +7,14 @@
   "collectionsFolders": true,
   "onlyBookmarksWithHl": true,
   "highlightsFolder": "04-notas-de-literatura/04.2-raindrop",
+  "collectionGroups": false,
+  "autoSyncSuccessNotice": true,
   "syncCollections": {
+    "0": {
+      "id": 0,
+      "title": "All bookmarks",
+      "sync": false
+    },
     "32440308": {
       "id": 32440308,
       "title": "ARTIGOS DIVERSOS",
@@ -22,7 +29,7 @@
       "id": 33710407,
       "title": "PYTHON FLUENTE",
       "sync": true,
-      "lastSyncDate": "2023-12-26T01:35:26.017Z"
+      "lastSyncDate": "2024-08-03T01:37:31.254Z"
     },
     "33711554": {
       "id": 33711554,
@@ -38,7 +45,12 @@
       "id": 39360800,
       "title": "PYTHON FOR DATA ANALYSIS 3E",
       "sync": true,
-      "lastSyncDate": "2023-12-26T01:35:26.336Z"
+      "lastSyncDate": "2024-08-03T01:37:32.043Z"
+    },
+    "41673861": {
+      "id": 41673861,
+      "title": "MUTUCA",
+      "sync": false
     },
     "-1": {
       "id": -1,
@@ -54,6 +66,6 @@
   "template": "%%\ntype:: {{type}}\ncollection:: {{collection.title}}{% if tags|length %}tags:: {{ tags | join(\", \") }}{% endif %}\ndone:: no {% if is_new_article %}\n{% if link %}sourceURL:: {{link}}{% endif %}\n%%\n\n## Highlights\n\n{% endif -%}\n{% for highlight in highlights %}\n{% if highlight.color == \"red\" -%}\n    {%- set callout = \"bug\" -%}\n{%- elif highlight.color == \"yellow\" -%}\n    {%- set callout = \"info\" -%}\n{%- elif highlight.color == \"green\" -%}\n    {%- set callout = \"success\" -%}\n{%- else -%}\n    {%- set callout = \"question\" -%}\n{%- endif -%}\n> [!{{callout}}] Updated on {{highlight.lastUpdate}}\n>\n> {{highlight.text.split(\"\\n\") | join(\"\\n>\")}}\n{% if highlight.note -%}> > {{highlight.note}}{%- endif %}\n\n{%- endfor -%}",
   "metadataTemplate": "",
   "filenameTemplate": "{{title}}",
-  "dateTimeFormat": "DD/MM/YYYY HH:mm:ss",
-  "autoSyncInterval": 60
+  "autoSyncInterval": 60,
+  "autoescape": true
 }

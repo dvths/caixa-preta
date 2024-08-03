@@ -1,0 +1,25 @@
+{
+  "show-relative-date": true,
+  "new-note-folder": "02-inbox",
+  "metadata-keys": [
+    {
+      "metadataKey": "created_at",
+      "label": "Data de Criação",
+      "shouldHideLabel": false,
+      "containsMarkdown": false
+    }
+  ],
+  "new-note-template": "01-templates/7-kanban-template.md",
+  "hide-date-display": false,
+  "hide-date-in-title": true,
+  "date-colors": [],
+  "tag-colors": [
+    {
+      "tagKey": "#engenharia-de-dado",
+      "color": "",
+      "backgroundColor": ""
+    }
+  ],
+  "hide-tags-display": true,
+  "hide-tags-in-title": true
+}
