@@ -81,8 +81,8 @@
     },
     "BOARD.md": {
       "size": 0,
-      "tags": 1,
-      "links": 8
+      "tags": 0,
+      "links": 0
     },
     "02-inbox/O que é Engenharia de Dados e qual o papel do engenheiro de dados.md": {
       "size": 280,
@@ -1287,7 +1287,7 @@
   },
   "commitTypes": {
     "/": {
-      "Refactor": 246,
+      "Refactor": 248,
       "Create": 4,
       "Link": 5,
       "Expand": 0
@@ -1318,7 +1318,7 @@
       "20": 2,
       "21": 226,
       "22": 21,
-      "23": 4
+      "23": 6
     }
   },
   "weeklyCommits": {
@@ -1327,7 +1327,7 @@
       "Tue": 3,
       "Wed": 2,
       "Thu": 0,
-      "Fri": 250,
+      "Fri": 252,
       "Sat": 0,
       "Sun": 0
     }
@@ -1411,9 +1411,12 @@
         "<a class=\"internal-link\" href=\"03-referencias/09112023003332-referência-básica-à-atributos.md\"> 09112023003332-referência-básica-à-atributos </a>",
         "<a class=\"internal-link\" href=\"BOARD.md\"> BOARD </a>"
       ],
-      "Removed Tags from": [],
+      "Removed Tags from": [
+        "<a class=\"internal-link\" href=\"BOARD.md\"> BOARD </a>"
+      ],
       "Removed Links from": [
-        "<a class=\"internal-link\" href=\"03-referencias/04.1-zotero/@vanderplasPythonDataScience2017.md\"> @vanderplasPythonDataScience2017 </a>"
+        "<a class=\"internal-link\" href=\"03-referencias/04.1-zotero/@vanderplasPythonDataScience2017.md\"> @vanderplasPythonDataScience2017 </a>",
+        "<a class=\"internal-link\" href=\"BOARD.md\"> BOARD </a>"
       ]
     }
   },
